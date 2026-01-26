@@ -1,0 +1,124 @@
+.StudentLogin-main-container {
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 225px;
+    align-items: center;
+    margin-bottom: 280px;
+}
+
+.StudentLogin-form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.StudentLogin-inputBox {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.StudentLogin-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #000000;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.StudentLogin-button:hover {
+    background-color: #434d43;
+}
+
+.StudentLogin-button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+.StudentLogin-success-message{
+    color: rgb(10, 102, 0);
+    font-size: 14px;
+}
+.Createstudenaccount{
+    font-size: 15px;
+}
+.StudentLogin-password-container {
+    position: relative;
+    width: 100%;
+}
+
+.StudentLogin-inputBox {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px; /* Space for the eye icon */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.StudentLogin-eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+}
+
+.StudentLogin-eye-icon:hover {
+    color: #000;
+}
+
+/* Responsive Styles */
+@media screen and (min-width: 1800px) {
+    .StudentLogin-main-container { width: 60%; font-size: 22px; margin-left: 425px; }
+    .StudentLogin-label { font-size: 16px; }
+}
+
+@media (max-width: 1800px) and (min-width: 1200px) {
+    .StudentLogin-main-container { margin-top: 110px; margin-left: 225px; width: 70%; height: auto; }
+    .StudentLogin-form-container { width: 40%; font-size: 20px; }
+    .StudentLogin-label { font-size: 14px; }
+}
+
+@media (max-width: 1199px) and (min-width: 1024px) {
+    .StudentLogin-main-container { margin-top: 110px; margin-left: 225px; width: 80%; height: auto; }
+    .StudentLogin-form-container { width: 40%; font-size: 15px; }
+    .StudentLogin-label { font-size: 12px; }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+    .StudentLogin-main-container { margin-top: 110px; margin-left: 225px; width: 80%; height: auto; }
+    .StudentLogin-form-container { width: 40%; font-size: 12px; }
+    .StudentLogin-label { font-size: 12px; }
+    .StudentLogin-inputBox { font-size: 12px; }
+}
+
+@media (max-width: 767px) {
+    .StudentLogin-main-container { display: flex; align-items: center; justify-content: center; width: 80%; margin-left: 45px; height: 100vh;}
+    .StudentLogin-form-container { width: 100%; font-size: 12px; }
+    .StudentLogin-label { font-size: 12px; }
+    .StudentLogin-inputBox { font-size: 8px; }
+    .StudentLogin-button { margin-top: 12px; }
+}

@@ -1,0 +1,83 @@
+/* ClientList Styles */
+.ClientList-container {
+    width: 100%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ClientList-heading {
+    text-align: center;
+    font-size: 18px;
+    font-family: sans-serif;
+    color: #333;
+  }
+  
+  .ClientList-table-container {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .ClientList-thead-container {
+    background: #3f3f3f;
+    color: white;
+  }
+  
+  .ClientList-tr th, .ClientList-td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .ClientList-Status {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .ClientList-Status {
+    background: #ffc107;
+    color: #161616;
+  }
+  
+  .ClientList-Status.active {
+    background: #28a745;
+    color: white;
+  }
+  
+  .ClientList-Status.inactive {
+    background: #dc3545;
+    color: white;
+  }
+  
+  .ClientList-delete {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #dc3545;
+    color: white;
+    transition: background 0.3s ease;
+  }
+  
+  .ClientList-delete:hover {
+    background: #c82333;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .StudentList-container, .ClientList-container {
+      width: 95%;
+    }
+    .StudentList-table-container, .ClientList-table-container {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+  

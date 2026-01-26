@@ -1,0 +1,56 @@
+/* UserForm.css */
+.user-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    margin: auto;
+  }
+  
+  /* Styling the select dropdown */
+  .user-form-container-select {
+    width: 50%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+  }
+  
+  /* Styling the input field */
+  .user-form-container-input {
+    max-width: 650px;
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Styling the button */
+  .user-form-container-button {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .user-form-container-button:hover {
+    background: #218838;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 500px) {
+    .user-form-container {
+      width: 90%;
+    }
+  }

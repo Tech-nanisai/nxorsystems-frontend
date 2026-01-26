@@ -1,0 +1,297 @@
+/* IDGeneration.css - Premium Enterprise UI */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --idgen-primary: #2563eb;
+  --idgen-primary-dark: #1e40af;
+  --idgen-success: #10b981;
+  --idgen-warning: #f59e0b;
+  --idgen-danger: #ef4444;
+  --idgen-text-main: #0f172a;
+  --idgen-text-muted: #64748b;
+  --idgen-bg-page: #f1f5f9;
+  --idgen-glass-bg: rgba(255, 255, 255, 0.85);
+  --idgen-glass-border: rgba(255, 255, 255, 0.6);
+  --idgen-shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --idgen-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+  --idgen-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --idgen-radius: 16px;
+  --idgen-anim: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.idgeneration-container {
+  min-height: 100vh;
+  padding: 40px;
+  background: radial-gradient(circle at top left, #e0f2fe, #f1f5f9, #e2e8f0);
+  font-family: 'Outfit', sans-serif;
+  color: var(--idgen-text-main);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.idgeneration-header {
+  margin-bottom: 20px;
+}
+
+.idgeneration-title {
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.idgeneration-subtitle {
+  font-size: 16px;
+  color: var(--idgen-text-muted);
+  font-weight: 400;
+}
+
+/* CARDS */
+.idgeneration-card {
+  background: var(--idgen-glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--idgen-glass-border);
+  border-radius: var(--idgen-radius);
+  box-shadow: var(--idgen-shadow-md);
+  padding: 32px;
+  transition: var(--idgen-anim);
+}
+
+.idgeneration-card:hover {
+  box-shadow: var(--idgen-shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* CONTROLS AREA */
+.idgeneration-controls-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* INPUTS */
+.idgeneration-input-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.idgeneration-label {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--idgen-text-muted);
+}
+
+.idgeneration-input,
+.idgeneration-select {
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--idgen-text-main);
+  outline: none;
+  transition: var(--idgen-anim);
+  min-width: 280px;
+}
+
+.idgeneration-input:focus,
+.idgeneration-select:focus {
+  border-color: var(--idgen-primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.idgeneration-input::placeholder {
+  color: #94a3b8;
+}
+
+/* CREATE FORM */
+.idgeneration-create-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.idgeneration-create-btn {
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--idgen-primary), var(--idgen-primary-dark));
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  transition: var(--idgen-anim);
+  height: 50px;
+  /* Match input height roughly */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.idgeneration-create-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+}
+
+.idgeneration-create-btn:active {
+  transform: translateY(0);
+}
+
+/* TABLE */
+.idgeneration-table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--idgen-radius);
+  background: #fff;
+}
+
+.idgeneration-table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+
+.idgeneration-thead {
+  background: #f8fafc;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.idgeneration-th {
+  text-align: left;
+  padding: 18px 24px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--idgen-text-muted);
+}
+
+.idgeneration-tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.2s;
+}
+
+.idgeneration-tbody tr:last-child {
+  border-bottom: none;
+}
+
+.idgeneration-tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.idgeneration-td {
+  padding: 18px 24px;
+  font-size: 15px;
+  color: var(--idgen-text-main);
+  vertical-align: middle;
+}
+
+/* BADGES */
+.idgeneration-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.idgeneration-badge.approved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.idgeneration-badge.pending {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.idgeneration-badge.active {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.idgeneration-badge.inactive {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+/* ACTION BUTTONS */
+.idgeneration-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.idgeneration-action-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--idgen-anim);
+  border: 1px solid transparent;
+}
+
+.idgeneration-btn-approve {
+  background: #ecfdf5;
+  color: #059669;
+  border-color: #a7f3d0;
+}
+
+.idgeneration-btn-approve:hover {
+  background: #d1fae5;
+}
+
+.idgeneration-btn-toggle {
+  background: #fff7ed;
+  color: #c2410c;
+  border-color: #fed7aa;
+}
+
+.idgeneration-btn-toggle:hover {
+  background: #ffedd5;
+}
+
+.idgeneration-btn-delete {
+  background: #fef2f2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+.idgeneration-btn-delete:hover {
+  background: #fee2e2;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .idgeneration-controls-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .idgeneration-create-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .idgeneration-input,
+  .idgeneration-select,
+  .idgeneration-create-btn {
+    width: 100%;
+    min-width: 0;
+  }
+}

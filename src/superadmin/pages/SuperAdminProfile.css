@@ -1,0 +1,392 @@
+/* frontend/src/superadmin/pages/SuperAdminProfile.css */
+/* frontend/src/superadmin/pages/SuperAdminProfile.css */
+
+.saprof-page {
+  padding: 24px;
+}
+
+/* Loading state */
+.saprof-page-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+}
+
+.saprof-loading-spinner {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #2563eb;
+  animation: saprof-spin 0.9s linear infinite;
+}
+
+@keyframes saprof-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Header row */
+.saprof-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.saprof-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Edit button */
+.saprof-edit-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #111827;
+}
+
+.saprof-edit-toggle-btn:hover {
+  background: #e5e7eb;
+}
+
+.saprof-edit-icon {
+  font-size: 14px;
+}
+
+/* Main grid: left avatar card + right details card */
+.saprof-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+  gap: 20px;
+}
+
+/* Card base */
+.saprof-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px 22px 22px;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+}
+
+/* Avatar card content */
+.saprof-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.saprof-avatar-wrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.saprof-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.saprof-avatar-placeholder {
+  font-size: 26px;
+  font-weight: 700;
+  color: #6b7280;
+}
+
+.saprof-texts {
+  display: flex;
+  flex-direction: column;
+}
+
+.saprof-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.saprof-email {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Upload zone */
+.saprof-upload-zone {
+  border-radius: 16px;
+  border: 2px dashed #d1d5db;
+  padding: 18px 16px;
+  text-align: center;
+  background: #f9fafb;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.saprof-upload-zone-dragging {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.saprof-upload-title {
+  font-size: 14px;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.saprof-upload-sub {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+.saprof-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.saprof-upload-input {
+  display: none;
+}
+
+/* Details card */
+.saprof-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 14px;
+}
+
+.saprof-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 16px;
+}
+
+.saprof-form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.saprof-form-field-full {
+  grid-column: 1 / -1;
+}
+
+.saprof-label {
+  font-size: 13px;
+  color: #4b5563;
+  margin-bottom: 4px;
+}
+
+/* Inputs & textarea */
+.saprof-input,
+.saprof-textarea {
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  padding: 8px 10px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  resize: none;
+}
+
+.saprof-input:focus,
+.saprof-textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.25);
+}
+
+.saprof-input-readonly {
+  background: #f9fafb;
+  color: #6b7280;
+}
+
+/* Actions row */
+.saprof-actions-row {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.saprof-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.saprof-btn-primary {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.saprof-btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.saprof-btn-secondary {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.saprof-btn-secondary:hover {
+  background: #d1d5db;
+}
+
+/* Messages */
+.saprof-msg {
+  margin-top: 10px;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.saprof-msg-error {
+  color: #dc2626;
+}
+
+.saprof-msg-success {
+  color: #16a34a;
+}
+
+.saprof-success-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #16a34a;
+  color: #ffffff;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Cropper overlay (AvatarCropper) */
+.saprof-cropper-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.saprof-cropper-modal {
+  background: #ffffff;
+  padding: 20px;
+  width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+
+.saprof-cropper-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.saprof-cropper-container {
+  position: relative;
+  height: 300px;
+  background: #f3f3f3;
+  border-radius: 10px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.saprof-cropper-controls {
+  margin-top: 15px;
+}
+
+.saprof-cropper-zoom-label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #374151;
+}
+
+.saprof-cropper-buttons {
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.saprof-crop-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.saprof-crop-btn-cancel {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.saprof-crop-btn-save {
+  background: #22a35d;
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .saprof-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .saprof-card,
+  .saprof-details-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .saprof-card {
+    padding: 16px;
+  }
+
+  .saprof-cropper-modal {
+    width: 90vw;
+  }
+}
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .saprof-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .saprof-card {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,50 @@
+/* ClientLayout.css - Premium Core Layout */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --cl-bg: #f8fafc;
+    --cl-sidebar-width: 280px;
+    --cl-transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+    background-color: var(--cl-bg);
+}
+
+.client-layout {
+    display: flex;
+    min-height: 100vh;
+    background: var(--cl-bg);
+    font-family: 'Outfit', sans-serif;
+}
+
+.client-layout-content {
+    flex: 1;
+    margin-left: var(--cl-sidebar-width);
+    padding: 40px;
+    transition: margin-left var(--cl-transition);
+    width: 100%;
+    /* Subtle fade in for content */
+    animation: fadeInContent 0.6s ease-out;
+}
+
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 992px) {
+    .client-layout-content {
+        margin-left: 0;
+        padding: 20px;
+        padding-top: 80px;
+        /* Space for mobile header */
+    }
+}

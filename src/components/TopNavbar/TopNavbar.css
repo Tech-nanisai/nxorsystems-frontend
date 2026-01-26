@@ -1,0 +1,383 @@
+/* =========================================
+   TOP NAVBAR - PREMIUM GLASSMORPHISM
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --nav-height: 85px;
+  --nav-scrolled-height: 72px;
+  --nav-bg-initial: rgba(255, 255, 255, 0);
+  --nav-bg-glass: rgba(255, 255, 255, 0.75);
+  /* Frosted Glass */
+  --nav-border-color: rgba(255, 255, 255, 0.6);
+  --nav-shadow: 0 10px 40px -10px rgba(2, 6, 23, 0.08);
+
+  --nav-text-primary: #0f172a;
+  --nav-text-secondary: #475569;
+  --nav-accent: #2563eb;
+  /* Royal Blue */
+  --nav-hover-bg: rgba(37, 99, 235, 0.06);
+
+  --glass-surface: rgba(255, 255, 255, 0.9);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.TopNavbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background: var(--nav-bg-initial);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Scrolled State - Deep Frosted Glass */
+.TopNavbar-scrolled {
+  background: var(--nav-bg-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: var(--nav-shadow);
+  height: var(--nav-scrolled-height);
+}
+
+.TopNavbar-content {
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================================
+   LOGO
+   ========================================= */
+.TopNavbar-logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  user-select: none;
+}
+
+.TopNavbar-logo-img {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.TopNavbar-logo-wrapper:hover .TopNavbar-logo-img {
+  transform: scale(1.05) rotate(-5deg);
+}
+
+.TopNavbar-company-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1;
+}
+
+.TopNavbar-brand-primary {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--nav-text-primary);
+}
+
+.TopNavbar-brand-secondary {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  color: var(--nav-text-secondary);
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* =========================================
+   DESKTOP MENU LINKS
+   ========================================= */
+.TopNavbar-desktop-menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 6px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(4px);
+}
+
+.TopNavbar-link-wrapper {
+  position: relative;
+  height: 40px;
+}
+
+.TopNavbar-link {
+  position: relative;
+  padding: 0 20px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--nav-text-secondary);
+  text-decoration: none;
+  border-radius: 30px;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  white-space: nowrap;
+  gap: 6px;
+}
+
+.TopNavbar-link:hover,
+.TopNavbar-link.TopNavbar-active,
+.TopNavbar-link-wrapper.TopNavbar-active .TopNavbar-link {
+  background-color: #fff;
+  color: var(--nav-accent);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.TopNavbar-chevron {
+  font-size: 10px;
+  transition: transform 0.3s ease;
+  opacity: 0.6;
+}
+
+.TopNavbar-rotate {
+  transform: rotate(180deg);
+}
+
+/* =========================================
+   DROPDOWNS (Services & Auth)
+   ========================================= */
+.TopNavbar-dropdown-menu,
+.TopNavbar-auth-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  background: var(--glass-surface);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: var(--glass-border);
+  box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  padding: 8px;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* Services specifics */
+.TopNavbar-dropdown-menu {
+  left: 50%;
+  transform: translateX(-50%) !important;
+  /* Center align relative to parent */
+}
+
+.TopNavbar-dropdown-item {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--nav-text-secondary);
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  display: block;
+}
+
+.TopNavbar-dropdown-item:hover {
+  background: var(--nav-hover-bg);
+  color: var(--nav-accent);
+  transform: translateX(4px);
+}
+
+/* Auth Dropdown specifics */
+.TopNavbar-auth-dropdown {
+  right: 0;
+  top: calc(100% + 12px);
+  width: 260px;
+  padding: 10px;
+}
+
+.TopNavbar-auth-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.TopNavbar-auth-item:hover {
+  background: var(--nav-hover-bg);
+}
+
+.TopNavbar-auth-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--nav-accent);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  font-size: 16px;
+}
+
+.TopNavbar-auth-item span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--nav-text-primary);
+}
+
+/* =========================================
+   RIGHT ACTIONS
+   ========================================= */
+.TopNavbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Sign In Button */
+.TopNavbar-auth-wrapper {
+  position: relative;
+}
+
+.TopNavbar-btn-signin {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--nav-text-primary);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+}
+
+.TopNavbar-btn-signin:hover,
+.TopNavbar-btn-signin.active {
+  background: var(--nav-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.TopNavbar-btn-signin img,
+.TopNavbar-icon-sm {
+  font-size: 14px;
+}
+
+/* User Logged In Profile */
+.TopNavbar-user-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px 6px 6px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.TopNavbar-user-btn:hover {
+  border-color: var(--nav-accent);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.TopNavbar-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.TopNavbar-user-icon {
+  width: 36px;
+  height: 36px;
+  color: #cbd5e1;
+}
+
+.TopNavbar-username {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--nav-text-primary);
+}
+
+.TopNavbar-profile-popup-wrapper {
+  position: absolute;
+  top: calc(100% + 15px);
+  right: 0;
+  z-index: 1000;
+  /* UserProfileCard styles handle the inner content, this is just wrapper */
+}
+
+/* Mobile Toggle */
+.TopNavbar-mobile-toggle {
+  display: none;
+  font-size: 22px;
+  color: var(--nav-text-primary);
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.TopNavbar-mobile-toggle:hover {
+  background: #fff;
+  color: var(--nav-accent);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 1024px) {
+  .TopNavbar-desktop-menu {
+    display: none;
+  }
+
+  .TopNavbar-mobile-toggle {
+    display: block;
+  }
+
+  .TopNavbar-auth-wrapper,
+  .TopNavbar-user-btn {
+    display: none;
+    /* Move Auth to Sidebar on mobile usually */
+  }
+}
+
+@media (max-width: 480px) {
+  .TopNavbar-content {
+    padding: 0 20px;
+  }
+
+  .TopNavbar-brand-secondary {
+    display: none;
+  }
+}

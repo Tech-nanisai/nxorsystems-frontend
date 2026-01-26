@@ -1,0 +1,266 @@
+/* --- PAGE CONTAINER --- */
+.clientsignin-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  padding: 20px;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* --- CARD DESIGN --- */
+.clientsignin-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 32px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.clientsignin-card:hover {
+  transform: translateY(-5px);
+}
+
+/* --- HEADER --- */
+.clientsignin-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.clientsignin-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.clientsignin-subtitle {
+  font-size: 15px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* --- FORM ELEMENTS --- */
+.input-block {
+  margin-bottom: 20px;
+}
+
+.clientsignin-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+  margin-left: 4px;
+}
+
+.clientsignin-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.clientsignin-input-group:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Input Styles */
+.clientsignin-input {
+  width: 100%;
+  padding: 14px 16px;
+  padding-right: 90px; /* Make room for button */
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #111827;
+  outline: none;
+  border-radius: 12px;
+}
+
+/* --- VERIFY BUTTON --- */
+.clientsignin-verify-btn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.clientsignin-verify-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* --- VERIFIED STATE (LOCKED) --- */
+.clientsignin-input-group.locked {
+  background-color: #f0fdf4; /* Light Green Bg */
+  border-color: #86efac;
+}
+
+.clientsignin-input-group.locked input {
+  color: #15803d;
+  font-weight: 600;
+}
+
+.verified-badge-group {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.verified-icon {
+  color: #16a34a;
+  font-size: 20px;
+}
+
+.edit-link {
+  font-size: 12px;
+  color: #6b7280;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.edit-link:hover {
+  color: #374151;
+}
+
+/* --- PASSWORD & ANIMATION --- */
+.password-section {
+  margin-top: 10px;
+}
+
+/* Animation for sliding down */
+.fade-in-down {
+  animation: slideDown 0.4s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.clientsignin-pwd-icon {
+  position: absolute;
+  right: 16px;
+  color: #9ca3af;
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.2s;
+}
+
+.clientsignin-pwd-icon:hover {
+  color: #4b5563;
+}
+
+/* --- LOGIN BUTTON --- */
+.clientsignin-login-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #111827, #1f2937);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s;
+  margin-top: 8px;
+}
+
+.clientsignin-login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.clientsignin-login-btn:active {
+  transform: translateY(0);
+}
+
+.clientsignin-login-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --- MESSAGES --- */
+.clientsignin-msg {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.clientsignin-msg.error {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fee2e2;
+  animation: shake 0.4s ease-in-out;
+}
+
+.clientsignin-msg.success {
+  background-color: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #dcfce7;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* --- FOOTER --- */
+.clientsignin-footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.register-link {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+  .clientsignin-card {
+    padding: 30px 20px;
+  }
+
+  .clientsignin-title {
+    font-size: 24px;
+  }
+}

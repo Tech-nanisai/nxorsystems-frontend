@@ -1,0 +1,311 @@
+/* ClientNavbar.css - Ultra Premium Design */
+
+/* --- SIDEBAR CONTAINER --- */
+.client-sidebar-container {
+    width: var(--cl-sidebar-width);
+    height: 100vh;
+    background: #0f172a;
+    /* Deep premium dark */
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    /* Glassmorphism sidebar border/shadow */
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 4px 0 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- LOGO / BRAND --- */
+.client-sidebar-top {
+    padding: 30px 24px;
+    flex-shrink: 0;
+}
+
+.sidebar-brand-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-logo-circle {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.client-sidebar-logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.client-sidebar-logo span {
+    font-weight: 300;
+    color: #94a3b8;
+}
+
+/* --- SCROLL AREA --- */
+.client-sidebar-scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 16px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+.client-sidebar-scroll-area::-webkit-scrollbar {
+    width: 4px;
+}
+
+.client-sidebar-scroll-area::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.client-sidebar-menu-title {
+    padding: 0 12px;
+    margin-bottom: 12px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #64748b;
+    font-weight: 600;
+}
+
+/* --- MENU ITEMS --- */
+.client-sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.client-sidebar-item {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
+    color: #94a3b8;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.client-sidebar-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    transform: translateX(4px);
+}
+
+.client-sidebar-item.active {
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
+    color: #60a5fa;
+    font-weight: 500;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.client-sidebar-item-icon {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.active-arrow {
+    margin-left: auto;
+    /* Push to right */
+    font-size: 10px;
+    opacity: 0.8;
+}
+
+/* --- FOOTER (USER CARD) --- */
+.client-sidebar-footer {
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.glass-user-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.3s;
+}
+
+.glass-user-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebar-user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #475569 0%, #1e293b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cbd5e1;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sidebar-user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-user-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f1f5f9;
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-user-role {
+    font-size: 10px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-logout-btn {
+    background: transparent;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    opacity: 0.7;
+}
+
+.sidebar-logout-btn:hover {
+    background: rgba(239, 68, 68, 0.15);
+    opacity: 1;
+}
+
+/* --- MOBILE HEADER --- */
+.client-mobile-header {
+    display: none;
+    /* Desktop hidden */
+    height: 60px;
+    background: #ffffff;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1100;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.mobile-brand-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.client-mobile-menu-icon {
+    font-size: 20px;
+    color: #1e293b;
+    cursor: pointer;
+}
+
+.client-mobile-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.client-mobile-title span {
+    color: #2563eb;
+}
+
+.mobile-user-mini {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #e2e8f0;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-user-mini img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mobile-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 900;
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 992px) {
+    .client-sidebar-container {
+        transform: translateX(-100%);
+    }
+
+    .client-sidebar-container.open {
+        transform: translateX(0);
+        box-shadow: 10px 0 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .client-mobile-header {
+        display: flex;
+    }
+}

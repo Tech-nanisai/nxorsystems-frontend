@@ -1,0 +1,129 @@
+.UIUX-container {
+    padding: 40px 20px;
+    background: #f8f9fa;
+    text-align: center;
+  }
+  
+  .UIUX-heading {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-weight: bold;
+    margin-top: 48px;
+  }
+  
+  .UIUX-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+  
+  .UIUX-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .UIUX-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .UIUX-img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .UIUX-title {
+    font-size: 1.5rem;
+    color: #4caf50;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  .UIUX-desc {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Responsive Design */
+  
+  /* Phones (<= 480px) */
+  @media (max-width: 480px) {
+    .UIUX-heading {
+      font-size: 1.8rem;
+    }
+  
+    .UIUX-title {
+      font-size: 1.2rem;
+    }
+  
+    .UIUX-desc {
+      font-size: 0.95rem;
+    }
+  
+    .UIUX-card {
+      padding: 15px;
+    }
+  }
+  
+  /* Tablets (481px - 768px) */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .UIUX-heading {
+      font-size: 2rem;
+    }
+  
+    .UIUX-title {
+      font-size: 1.3rem;
+    }
+  
+    .UIUX-desc {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Laptops (769px - 1200px) */
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .UIUX-heading {
+      font-size: 2.3rem;
+    }
+  }
+  
+  /* Desktop & Large Screens (1201px - 1920px) */
+  @media (min-width: 1201px) and (max-width: 1920px) {
+    .UIUX-heading {
+      font-size: 2.7rem;
+    }
+  }
+  
+  /* TVs or Ultra-Wide Screens (1921px and above) */
+  @media (min-width: 1921px) {
+    .UIUX-container {
+      padding: 60px 100px;
+    }
+  
+    .UIUX-heading {
+      font-size: 3.5rem;
+    }
+  
+    .UIUX-title {
+      font-size: 2rem;
+    }
+  
+    .UIUX-desc {
+      font-size: 1.2rem;
+    }
+  
+    .UIUX-card {
+      padding: 30px;
+    }
+  }
+  

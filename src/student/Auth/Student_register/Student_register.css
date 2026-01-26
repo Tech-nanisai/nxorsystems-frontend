@@ -1,0 +1,225 @@
+.Studentregister-main-container {
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 225px;
+    align-items: center;
+}
+.Studentregister-form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 25px;
+    border-radius: 8px;
+}
+.Studentregister-inputBox {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.Studentregister-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #000000;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Studentregister-button:hover {
+    background-color: #434d43;
+}
+
+/* Default Input Style */
+.Studentregister-inputBox {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Valid ID Input (Green) */
+.valid-id {
+    border: 2px solid green;
+    background-color: #eaffea;
+}
+
+/* Invalid ID Input (Red) */
+.invalid-id {
+    border: 2px solid red;
+    background-color: #ffeaea;
+}
+
+/* Error Message */
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: -5px;
+}
+
+/* Disabled Button */
+.Studentregister-button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+/* Green Tick for Valid ID */
+.verified-tick::after {
+    content: "✔ Verified"; /* Green tick and text */
+    color: green;
+    font-weight: bold;
+    margin-left: 8px;
+    font-size: 14px;
+}
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+.Studentregister-password-container {
+    position: relative;
+    width: 100%;
+}
+
+.Studentregister-inputBox {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px; /* Space for the icon */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.Studentregister-eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+}
+
+.Studentregister-eye-icon:hover {
+    color: #000;
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+/* TV Screens (Above 1800px) */
+@media screen and (min-width: 1800px) {
+    .Studentregister-main-container {
+        width: 60%;
+        font-size: 22px;
+        margin-left: 425px;
+    }
+    .Studentregister-label{
+        font-size: 16px;
+    }
+}
+
+/* Desktop (1200px - 1800px) */
+@media (max-width: 1800px) and (min-width: 1200px) {
+    .Studentregister-main-container {
+        margin-top: 110px;
+        margin-left: 225px;
+        width: 70%;
+        height: auto;
+    }
+    .Studentregister-form-container {
+        width: 40%;
+        font-size: 20px;
+    }
+    .Studentregister-label{
+        font-size: 14px;
+    }
+}
+
+/* Laptop (1024px - 1199px) */
+@media (max-width: 1199px) and (min-width: 1024px) {
+    .Studentregister-main-container {
+        margin-top: 110px;
+        margin-left: 225px;
+        width: 80%;
+        height: auto;
+    }
+    .Studentregister-form-container {
+        width: 40%;
+        font-size: 15px;
+    }
+    .Studentregister-label{
+        font-size: 12px;
+    }
+}
+
+/* Tablet (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .Studentregister-main-container {
+        margin-top: 110px;
+        margin-left: 225px;
+        width: 80%;
+        height: auto;
+    }
+    .Studentregister-form-container {
+        width: 40%;
+        font-size: 12px;
+    }
+    .Studentregister-label{
+        font-size: 12px;
+    }
+    .Studentregister-inputBox{
+        font-size: 12px;
+    }
+}
+
+/* Mobile (Below 768px) */
+@media (max-width: 767px) {  
+    .Studentregister-main-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 225px;
+        width: 80%;
+    }
+    .Studentregister-form-container {
+        width: 100%;
+        font-size: 12px;
+    }
+    .Studentregister-label{
+        font-size: 12px;
+    }
+    .Studentregister-inputBox{
+        font-size: 8px;
+    }
+    .Studentregister-button{
+        margin-top: 12px;
+    }
+}

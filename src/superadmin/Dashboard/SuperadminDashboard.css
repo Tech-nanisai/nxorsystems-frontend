@@ -1,0 +1,23 @@
+.superadmin-dashboard-container {
+  padding: 20px;
+}
+
+.superadmin-dashboard-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.superadmin-dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.superadmin-dashboard-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-weight: 600;
+  text-align: center;
+}

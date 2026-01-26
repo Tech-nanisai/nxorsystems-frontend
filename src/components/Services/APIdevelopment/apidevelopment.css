@@ -1,0 +1,129 @@
+.APIS-development-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+.APIS-heading-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.APIS-api-image{
+    width: 50%;
+}
+  .APIS-heading {
+    text-align: center;
+    font-size: 2rem;
+    color: #4caf50;
+    margin-bottom: 10px;
+  }
+  
+  .APIS-intro {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    font-family: sans-serif;
+    padding: 25px;
+  }
+  
+  .APIS-how-it-works, .APIS-features, .APIS-example {
+    margin-bottom: 30px;
+  }
+  
+  .APIS-section-heading {
+    font-size: 1.5rem;
+    color: #333;
+    border-bottom: 2px solid #4caf50;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  
+  .APIS-map {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .APIS-map-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .APIS-icon {
+    font-size: 4rem;
+    color: #4caf50;
+    margin-bottom: 10px;
+  }
+  
+  .APIS-map-arrow {
+    font-size: 2.1rem;
+    color: #777;
+    margin: 0 10px;
+  }
+  
+  .APIS-label {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .APIS-description {
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .APIS-features-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 10px 0;
+  }
+  
+  .APIS-feature-item {
+    margin-bottom: 8px;
+  }
+  
+  .APIS-example .APIS-example-code {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.9rem;
+  }
+  
+  .APIS-code-comment {
+    color: #9ecaed;
+  }
+  
+  .APIS-code-highlight {
+    color: #4caf50;
+    font-weight: bold;
+  }
+  @media screen and (max-width:768px){
+    .APIS-heading-container{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    .APIS-intro{
+        font-size: 12px;
+    }
+    .APIS-heading{
+        font-size: 22px;
+    }
+    .APIS-api-image{
+        width: 100%;
+    }
+    .APIS-map-arrow{
+        font-size: 18px;
+    }
+    .APIS-icon{
+        font-size: 28px;
+    }
+  }

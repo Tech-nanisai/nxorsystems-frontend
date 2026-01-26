@@ -1,0 +1,151 @@
+/* AssignProject.css - Premium Scoped Styles */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+.AssignProject-container {
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f8fafc;
+  font-family: 'Outfit', sans-serif;
+  min-height: 80vh;
+}
+
+.AssignProject-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.AssignProject-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.AssignProject-subtitle {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.AssignProject-card {
+  background: white;
+  width: 100%;
+  max-width: 800px;
+  /* Matched GenerateInvoice width */
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+}
+
+.AssignProject-section-heading {
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin-bottom: 25px;
+  font-weight: 700;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 15px;
+  display: none;
+  /* Hide internal heading as we have the main header now */
+}
+
+.AssignProject-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-row-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.field-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  letter-spacing: 0.02em;
+}
+
+.text-input-field,
+.select-dropdown,
+.textarea-field {
+  padding: 0.85rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  background-color: #f8fafc;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  color: #1e293b;
+  transition: all 0.2s ease;
+}
+
+.text-input-field:focus,
+.select-dropdown:focus,
+.textarea-field:focus {
+  border-color: #3b82f6;
+  outline: none;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.range-slider {
+  width: 100%;
+  cursor: pointer;
+  accent-color: #3b82f6;
+  padding: 0.5rem 0;
+}
+
+.submit-action-btn {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.submit-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.status-message {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.status-message.success {
+  background-color: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.status-message.error {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}

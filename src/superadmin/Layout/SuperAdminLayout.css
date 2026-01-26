@@ -1,0 +1,42 @@
+/* SuperAdminLayout.css - Premium Global Layout */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --sa-bg-gradient: radial-gradient(circle at top left, #f8fafc, #f1f5f9, #e2e8f0);
+}
+
+.superadminlayout-wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--sa-bg-gradient);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* MAIN CONTENT AREA */
+.superadminlayout-main {
+  flex: 1;
+  padding: 32px 40px;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin-left: 0;
+  width: 100%;
+}
+
+/* Shift content when sidebar is open (Desktop) */
+@media (min-width: 1024px) {
+  .superadminlayout-main-shifted {
+    margin-left: 280px;
+    /* Width of the new sidebar */
+    width: calc(100% - 280px);
+  }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 1023px) {
+  .superadminlayout-main {
+    padding: 80px 20px 20px;
+    /* Top padding for mobile toggle trigger if exists */
+  }
+}

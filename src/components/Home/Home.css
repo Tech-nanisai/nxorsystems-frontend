@@ -1,0 +1,650 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #0f172a;
+    --accent-gold: #fbbf24;
+    --text-main: #1e293b;
+    --text-light: #64748b;
+    --bg-light: #f8fafc;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    --section-spacing: 120px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    background-color: #ffffff;
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+.Home-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+/* =========================================
+   1. HERO SECTION
+   ========================================= */
+.Home-hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 60px;
+    background: radial-gradient(circle at 10% 20%, rgb(242, 246, 255) 0%, rgb(255, 255, 255) 90%);
+    overflow: hidden;
+}
+
+.Home-hero-bg-overlay {
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    z-index: 0;
+    animation: floatBubble 20s infinite alternate ease-in-out;
+}
+
+@keyframes floatBubble {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(-50px, 50px) scale(1.1);
+    }
+}
+
+.Home-hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1300px;
+    width: 100%;
+    z-index: 1;
+    gap: 40px;
+}
+
+.Home-hero-text-block {
+    flex: 1;
+    max-width: 600px;
+}
+
+.Home-hero-title {
+    font-size: 4rem;
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: var(--secondary-color);
+    letter-spacing: -1px;
+}
+
+.Home-highlight-text {
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+
+.Home-highlight-text::after {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: rgba(37, 99, 235, 0.1);
+    z-index: -1;
+    transform: skewX(-15deg);
+}
+
+.Home-hero-description {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    font-weight: 400;
+}
+
+.Home-hero-cta {
+    display: flex;
+    gap: 16px;
+}
+
+.Home-hero-image-block {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.Home-hero-img {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
+}
+
+/* =========================================
+   2. SERVICES / CARDS PREVIEW
+   ========================================= */
+.Home-services-preview {
+    padding: var(--section-spacing) 20px;
+    background-color: #fff;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.Home-section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.Home-section-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.Home-section-header p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.Home-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.Home-service-card {
+    background: var(--bg-light);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+}
+
+.Home-service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    background: #fff;
+    border-color: rgba(37, 99, 235, 0.1);
+}
+
+.Home-icon-circle {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.Home-service-card:hover .Home-icon-circle {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.Home-service-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+.Home-service-card p {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* =========================================
+   3. ABOUT SECTION
+   ========================================= */
+.Home-about-section {
+    padding: var(--section-spacing) 20px;
+    background-color: var(--secondary-color);
+    /* Dark section */
+    color: #fff;
+    text-align: center;
+}
+
+.Home-about-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.Home-section-title {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+    /* Premium serif */
+}
+
+.Home-about-quote {
+    font-size: 1.5rem;
+    font-style: italic;
+    opacity: 0.9;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-inline: auto;
+}
+
+.Home-about-desc {
+    font-size: 1.1rem;
+    opacity: 0.7;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    line-height: 1.8;
+}
+
+.Home-values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.Home-value-item {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.Home-value-item:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.Home-value-icon {
+    font-size: 32px;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+}
+
+.Home-value-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.Home-value-item p {
+    font-size: 0.95rem;
+    opacity: 0.7;
+    line-height: 1.5;
+}
+
+/* =========================================
+   4. PARALLAX BANNER
+   ========================================= */
+.Home-parallax-banner {
+    background-image: url('https://res.cloudinary.com/drevfgyks/image/upload/v1731494226/tech%20nanisai/futuristic-skyscraper-reflects-city-life-dusk-generated-by-ai_fehf6p.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    padding: 140px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.Home-parallax-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.Home-parallax-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+    max-width: 800px;
+}
+
+.Home-parallax-content h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.Home-parallax-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.Home-btn-outline {
+    display: inline-block;
+    padding: 12px 32px;
+    border: 2px solid #fff;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.Home-btn-outline:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* =========================================
+   5. WORKFLOW
+   ========================================= */
+.Home-process-section {
+    padding: var(--section-spacing) 20px;
+    background: #fff;
+}
+
+.Home-workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.Home-workflow-step {
+    text-align: center;
+    padding: 20px;
+}
+
+.Home-workflow-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--bg-light);
+    border-radius: 50%;
+    padding: 15px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+.Home-workflow-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.Home-workflow-step h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.Home-workflow-step p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+/* =========================================
+   6. SUBMIT SECTION
+   ========================================= */
+.Home-submit-section {
+    position: relative;
+    background-image: url('https://res.cloudinary.com/drevfgyks/image/upload/v1731666384/tech%20nanisai/DALL_E_2024-11-15_15.55.50_-_A_beautiful_Indian_girl_around_22_years_old_talking_on_a_landline_phone_in_a_modern_office_setting._The_scene_has_a_professional_yet_friendly_atmosp_q73zna.webp');
+    background-size: cover;
+    background-position: center;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Home-submit-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =========================================
+   7. TESTIMONIALS
+   ========================================= */
+.Home-testimonials-section {
+    padding: var(--section-spacing) 20px;
+    background: linear-gradient(to top, #fff, var(--bg-light));
+    text-align: center;
+}
+
+.Home-testimonials-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.Home-testimonial-card {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Home-testimonial-content h3 {
+    font-size: 1.4rem;
+    color: var(--secondary-color);
+    margin-bottom: 12px;
+}
+
+.Home-testimonial-content p {
+    font-size: 1.1rem;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.Home-client-author {
+    display: block;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.Home-visit-link {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid #ddd;
+    align-self: center;
+    transition: all 0.2s;
+}
+
+.Home-visit-link:hover {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 992px) {
+    .Home-hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .Home-hero-title {
+        font-size: 3rem;
+    }
+
+    .Home-hero-bg-overlay {
+        display: none;
+        /* Simplify on tablets */
+    }
+
+    .Home-hero-description {
+        margin: 0 auto 30px;
+    }
+
+    .Home-hero-cta {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .Home-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .Home-section-header h2,
+    .Home-section-title {
+        font-size: 2.2rem;
+    }
+
+    .Home-services-preview,
+    .Home-about-section,
+    .Home-process-section,
+    .Home-testimonials-section {
+        padding: 60px 20px;
+    }
+
+    .Home-submit-section {
+        min-height: auto;
+    }
+}
+
+/* =========================================
+   TECH ANIMATION (CSS ONLY)
+   ========================================= */
+.Home-hero-image-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    /* Ensure space for animation */
+}
+
+.Home-tech-visual {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Home-tech-circle-outer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px dashed rgba(37, 99, 235, 0.3);
+    border-radius: 50%;
+    animation: rotateRight 20s linear infinite;
+}
+
+.Home-tech-circle-middle {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    border: 2px solid rgba(37, 99, 235, 0.2);
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: rotateLeft 15s linear infinite;
+}
+
+.Home-tech-circle-inner {
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    border: 4px dotted rgba(251, 191, 36, 0.6);
+    /* Gold accent */
+    border-radius: 50%;
+    animation: rotateRight 10s linear infinite;
+}
+
+.Home-tech-core {
+    position: absolute;
+    width: 15%;
+    height: 15%;
+    background: radial-gradient(circle, var(--primary-color), transparent);
+    border-radius: 50%;
+    box-shadow: 0 0 30px var(--primary-color);
+    animation: pulseCore 3s ease-in-out infinite;
+}
+
+@keyframes rotateRight {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateLeft {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes pulseCore {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+        box-shadow: 0 0 50px var(--primary-color);
+    }
+}

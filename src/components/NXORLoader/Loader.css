@@ -1,0 +1,80 @@
+/* frontend/src/components/Loader/Loader.css */
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.brand-loader {
+  width: 65px; /* Slightly larger to show detail */
+  height: 65px;
+  /* Visual correction: Rotate -45deg so the handle is at the perfect top-right angle if needed, 
+     but your logo has it natural. We keep it upright. */
+}
+
+/* 1. The Background Track (Dim Logo) 
+   This ensures the logo is ALWAYS visible, reinforcing the brand.
+*/
+.loader-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.2); /* Subtle dim white */
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* 2. The Moving Light (Bright Fill) 
+   This traces over the track.
+*/
+.loader-fill {
+  fill: none;
+  stroke: #000000; /* Pure White */
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  
+  /* The Animation Setup */
+  stroke-dasharray: 260; /* Length of the path */
+  stroke-dashoffset: 260; /* Start empty */
+  animation: charge-logo 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  
+  /* A slight glow to make it look like energy */
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+}
+
+/* 3. The Yellow Dot (Pulse) */
+.loader-dot {
+  fill: #FFC107;
+  transform-origin: 50% 50%;
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+/* Keyframes: The "Charging" Effect 
+   The line grows fast, holds for a split second (full logo), then fades away.
+*/
+@keyframes charge-logo {
+  0% {
+    stroke-dashoffset: 260; /* Empty */
+    opacity: 1;
+  }
+  50% {
+    stroke-dashoffset: 0;   /* Full */
+    opacity: 1;
+  }
+  65% {
+    stroke-dashoffset: 0;   /* Hold Full */
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;   
+    opacity: 0;             /* Fade Out keeping shape */
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(0.85); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+}

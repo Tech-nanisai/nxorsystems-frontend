@@ -1,0 +1,152 @@
+/* Wrapper: floating card near top-right */
+.profilecard-wrapper {
+  position: absolute;
+  top: 74px;
+  right: 24px;
+  width: 320px;
+  max-width: 90vw;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+  padding: 20px 20px 16px;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Avatar */
+.profilecard-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 3px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profilecard-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-default-icon {
+  font-size: 64px;
+  color: #9ca3af;
+}
+
+/* Name & email */
+.profilecard-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 4px 0 2px;
+  color: #111827;
+}
+
+.profilecard-email {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0 0 10px;
+}
+
+/* Divider */
+.profilecard-divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 12px 0 10px;
+}
+
+/* Main menu area */
+.profilecard-menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.profilecard-menu-item {
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #111827;
+  transition: background 0.2s, transform 0.05s;
+}
+
+.profilecard-menu-item:hover {
+  background: #f3f4f6;
+  transform: translateY(-1px);
+}
+
+/* Org settings nested view */
+.profilecard-org-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.profilecard-org-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #111827;
+}
+
+.profilecard-org-back {
+  border: none;
+  background: #f3f4f6;
+  border-radius: 999px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Logout button */
+.profilecard-logout {
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px 0;
+  border-radius: 999px;
+  border: none;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background 0.2s, transform 0.05s, box-shadow 0.2s;
+}
+
+.profilecard-logout:hover {
+  background: #dc2626;
+  box-shadow: 0 10px 25px rgba(248, 113, 113, 0.4);
+  transform: translateY(-1px);
+}
+
+.profilecard-logout-icon {
+  font-size: 14px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .profilecard-wrapper {
+    top: 70px;
+    right: 8px;
+    width: 280px;
+  }
+}

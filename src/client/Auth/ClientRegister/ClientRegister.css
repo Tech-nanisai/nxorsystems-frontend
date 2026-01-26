@@ -1,0 +1,175 @@
+/* Container: Centered, Light Gradient Background */
+.ClientRegister-container {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Padding for mobile edges */
+}
+
+/* Card: White, Rounded, Shadow */
+.ClientRegister-card {
+  width: 100%;
+  max-width: 420px; /* Limits width on desktop */
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px 28px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  animation: slideUp 0.4s ease-out;
+}
+
+/* Title */
+.ClientRegister-title {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Field Group */
+.ClientRegister-field {
+  margin-bottom: 16px;
+}
+
+/* Label */
+.ClientRegister-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Input Wrapper for Relative Positioning of Icons */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Base Input Style */
+.ClientRegister-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  color: #1f2937;
+  transition: all 0.2s;
+  background-color: #fff;
+}
+
+/* Focus State */
+.ClientRegister-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Locked State (When Verified) */
+/* Matches the "Blue-ish" tint in your screenshot */
+.ClientRegister-input.input-locked {
+  background-color: #f0f4ff; 
+  border-color: #cbd5e1;
+  color: #475569;
+  padding-right: 40px; /* Space for the tick icon */
+  cursor: default;
+}
+
+/* Green Tick Icon */
+.input-icon-success {
+  position: absolute;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  pointer-events: none; /* Let clicks pass through */
+}
+
+/* Verify Button (Blue) */
+.ClientRegister-verifyBtn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.ClientRegister-verifyBtn:hover {
+  background-color: #1d4ed8;
+}
+
+.ClientRegister-verifyBtn:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Submit/Register Button (Green) */
+.ClientRegister-submitBtn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #10b981; /* Green */
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.ClientRegister-submitBtn:hover {
+  background-color: #059669;
+  transform: translateY(-1px);
+}
+
+.ClientRegister-submitBtn:active {
+  transform: translateY(1px);
+}
+
+/* Error Message */
+.ClientRegister-error {
+  background-color: #fef2f2;
+  color: #ef4444;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  text-align: center;
+  border: 1px solid #fecaca;
+}
+
+/* Verified Section Animation */
+.ClientRegister-verifiedSection {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .ClientRegister-card {
+    padding: 24px 20px;
+  }
+  .ClientRegister-title {
+    font-size: 20px;
+  }
+}

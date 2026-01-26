@@ -1,0 +1,90 @@
+.Admin_client-main-container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px;
+    background-color: transparent;
+    gap: 25px;
+}
+.Admin_client-billing-invoices-container, .Admin_client-websiteupdates-container {
+    width: 100%;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Admin_client-billing-invoices-title, .Admin_client-websiteupdates-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.Admin_client-billing-invoices-form, .Admin_client-websiteupdates-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.Admin_client-billing-invoices-label, .Admin_client-websiteupdates-label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.Admin_client-billing-invoices-input, .Admin_client-websiteupdates-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.Admin_client-billing-invoices-label-file, .Admin_client-websiteupdates-label-file {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.Admin_client-billing-invoices-file-input, .Admin_client-websiteupdates-file-input {
+    display: none;
+}
+
+.Admin_client-billing-invoices-icon, .Admin_client-websiteupdates-icon {
+    font-size: 18px;
+    color: #4caf50;
+}
+
+.Admin_client-billing-invoices-submit, .Admin_client-websiteupdates-submit {
+    background-color: #4caf50;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.Admin_client-billing-invoices-submit:hover, .Admin_client-websiteupdates-submit:hover {
+    background-color: #388e3c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .Admin_client-main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .Admin_client-billing-invoices-container, .Admin_client-websiteupdates-container {
+        width: 90%;
+    }
+}

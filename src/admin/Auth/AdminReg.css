@@ -1,0 +1,104 @@
+.adminreg-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f6fa;
+}
+
+.adminreg-card {
+  width: 380px;
+  background: #fff;
+  padding: 28px;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+
+.adminreg-title {
+  text-align: center;
+  margin-bottom: 18px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+
+.adminreg-form label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 12px;
+  color: #444;
+}
+
+.adminreg-form input {
+  width: 100%;
+  padding: 9px;
+  margin-top: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.adminreg-form input:focus {
+  border-color: #4c6ef5;
+}
+
+.adminreg-msg {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.adminreg-btn {
+  margin-top: 18px;
+  width: 100%;
+  padding: 10px;
+  background: #4c6ef5;
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.adminreg-btn:hover {
+  background: #3b5bdb;
+}
+.adminreg-link {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 14px;
+}
+.superAdmin-warningBox {
+  background: #fff4d6;
+  border: 1px solid #ffcc80;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.superAdmin-warningText {
+  color: #a66a00;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.superAdmin-createButton {
+  background: #ff9800;
+  color: white;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.superAdmin-createButton:hover {
+  background: #e68900;
+}

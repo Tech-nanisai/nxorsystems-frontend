@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+.misty-container {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to top, #e0f7fa, #ffffff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-family: 'Quicksand', sans-serif;
+  overflow: hidden;
+  text-align: center;
+  color: #2e2e2e;
+}
+
+.mist-layer::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: url("../../assets/404\ page.png") repeat;
+  opacity: 0.3;
+  animation: mistMove 60s linear infinite;
+  z-index: 0;
+}
+
+@keyframes mistMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(20%, 10%); }
+}
+
+.misty-title {
+  font-size: 8rem;
+  z-index: 1;
+  color: #6e6e6e;
+}
+
+.misty-subtext {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  z-index: 1;
+  color: #555;
+}
+
+.misty-button {
+  margin-top: 30px;
+  padding: 12px 28px;
+  background: #a3d9d9;
+  border: none;
+  color: #003333;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.misty-button:hover {
+  background: #70cacc;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}

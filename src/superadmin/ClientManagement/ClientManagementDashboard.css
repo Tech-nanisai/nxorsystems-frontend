@@ -1,0 +1,157 @@
+.ClientManagementDashboard-container {
+    padding: 2rem;
+    width: 100%;
+    min-height: 80vh;
+    background-color: #f8fafc;
+    font-family: 'Outfit', sans-serif;
+}
+
+.ClientManagementDashboard-header {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.ClientManagementDashboard-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.ClientManagementDashboard-breadcrumb {
+    font-size: 0.95rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.ClientManagementDashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ClientManagementDashboard-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none !important;
+    /* Force remove underline */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(229, 231, 235, 0.5);
+    cursor: pointer;
+}
+
+/* Ensure no child elements get underlined */
+.ClientManagementDashboard-card * {
+    text-decoration: none !important;
+}
+
+.ClientManagementDashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-color: rgba(37, 99, 235, 0.2);
+}
+
+.ClientManagementDashboard-icon-wrapper {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    /* Default Blue Light */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: #2563eb;
+    /* Default Blue */
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Icon Hover: Simple scale, Keep colors */
+.ClientManagementDashboard-card:hover .ClientManagementDashboard-icon-wrapper {
+    transform: scale(1.1);
+    /* No background/color change, keeping it stable as requested */
+}
+
+.ClientManagementDashboard-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.ClientManagementDashboard-card-desc {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* BUTTONS: Black and White Theme */
+.ClientManagementDashboard-view-more {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #0f172a;
+    /* Black Text */
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    background: #f1f5f9;
+    /* Light Gray/White */
+    padding: 8px 18px;
+    border-radius: 30px;
+    border: 1px solid #e2e8f0;
+}
+
+.ClientManagementDashboard-card:hover .ClientManagementDashboard-view-more {
+    background: #000000;
+    /* Black Background */
+    color: #ffffff;
+    /* White Text */
+    border-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* --- COLOR VARIANTS (Icons Only) --- */
+
+/* Green (Billing) */
+.ClientManagementDashboard-card.card-green .ClientManagementDashboard-icon-wrapper {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    color: #059669;
+}
+
+/* Keep Green icon green on hover */
+.ClientManagementDashboard-card.card-green:hover .ClientManagementDashboard-icon-wrapper {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    color: #059669;
+}
+
+.ClientManagementDashboard-card.card-green:hover {
+    border-color: rgba(5, 150, 105, 0.2);
+}
+
+/* Red (Security) */
+.ClientManagementDashboard-card.card-red .ClientManagementDashboard-icon-wrapper {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    color: #dc2626;
+}
+
+/* Keep Red icon red on hover */
+.ClientManagementDashboard-card.card-red:hover .ClientManagementDashboard-icon-wrapper {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    color: #dc2626;
+}
+
+.ClientManagementDashboard-card.card-red:hover {
+    border-color: rgba(220, 38, 38, 0.2);
+}

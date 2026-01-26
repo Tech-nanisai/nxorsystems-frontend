@@ -1,0 +1,285 @@
+/* SuperAdminSidebar.css - Dark Glass Luxury */
+
+/* CONTAINER */
+.superadminsidebar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.95);
+  /* Deep dark blue/slate */
+  backdrop-filter: blur(16px);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  /* Subtle edge */
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.2);
+  padding: 24px 16px;
+}
+
+/* STATE: CLOSED */
+.superadminsidebar-closed {
+  transform: translateX(-100%);
+}
+
+.superadminsidebar-open {
+  transform: translateX(0);
+}
+
+/* HEADER */
+.superadminsidebar-header {
+  margin-bottom: 40px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Space for toggle button */
+}
+
+.superadminsidebar-brand {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.superadminsidebar-brand-sub {
+  display: block;
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+/* TOGGLE BUTTON (Close Sidebar) */
+.superadminsidebar-close-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.superadminsidebar-close-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #3b82f6;
+}
+
+/* NAVIGATION */
+.superadminsidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+}
+
+/* Hide Scrollbar */
+.superadminsidebar-nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.superadminsidebar-nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.superadminsidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  color: #94a3b8;
+  /* Muted text */
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.superadminsidebar-nav-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  transform: translateX(4px);
+}
+
+.superadminsidebar-nav-item.active {
+  background: linear-gradient(90deg, rgba(37, 99, 235, 0.15), transparent);
+  border-left: 3px solid #3b82f6;
+  color: #fff;
+}
+
+.superadminsidebar-nav-icon {
+  font-size: 18px;
+  color: #64748b;
+  transition: color 0.2s;
+}
+
+.superadminsidebar-nav-item:hover .superadminsidebar-nav-icon,
+.superadminsidebar-nav-item.active .superadminsidebar-nav-icon {
+  color: #3b82f6;
+  /* Bright blue highlight */
+}
+
+/* PROFILE CARD (BOTTOM) */
+.superadminsidebar-footer {
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 20px;
+}
+
+.superadminsidebar-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.superadminsidebar-profile-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.superadminsidebar-avatar {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.superadminsidebar-user-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.superadminsidebar-user-name {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.superadminsidebar-user-role {
+  display: block;
+  color: #64748b;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.superadminsidebar-chevron {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* DROPDOWN MENU */
+.superadminsidebar-menu {
+  margin-top: 12px;
+  background: #0f172a;
+  /* Solid dark background for contrast */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  animation: slideUp 0.2s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.superadminsidebar-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  color: #cbd5e1;
+  font-size: 13px;
+  text-decoration: none;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.superadminsidebar-menu-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.superadminsidebar-menu-item.logout {
+  color: #ef4444;
+}
+
+.superadminsidebar-menu-item.logout:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* BACKDROP FOR MOBILE ONLY */
+.superadminsidebar-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 990;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.superadminsidebar-backdrop.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Desktop: Hide backdrop completely */
+@media (min-width: 1024px) {
+  .superadminsidebar-backdrop {
+    display: none !important;
+  }
+}
+
+/* Responsive Hide */
+@media (max-width: 1023px) {
+  .superadminsidebar-wrapper {
+    width: 260px;
+  }
+}

@@ -1,0 +1,136 @@
+/* ============================
+   SUPER ADMIN LOGIN UI
+   ============================ */
+
+.superAdmin-container {
+  width: 100%;
+  height: 100vh;
+  background: #eef1f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ---- Form Box ---- */
+.superAdmin-box {
+  width: 380px;
+  background: #fff;
+  padding: 35px 30px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border: 1px solid #ddd;
+  animation: superAdminFadeIn 0.4s ease;
+}
+
+/* ---- Heading ---- */
+.superAdmin-heading {
+  font-size: 26px;
+  text-align: center;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 25px;
+}
+
+/* ---- Label ---- */
+.superAdmin-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ---- Input ---- */
+.superAdmin-input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid #cfd4dc;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  background: #fafafa;
+  outline: none;
+  transition: 0.25s ease;
+}
+
+.superAdmin-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.18);
+}
+
+/* ---- Password wrapper ---- */
+.superAdmin-passwordWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.superAdmin-passwordWrapper .superAdmin-input {
+  padding-right: 48px;
+}
+
+/* ---- Toggle icon ---- */
+.superAdmin-toggleIcon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  cursor: pointer;
+  color: #666;
+  transition: 0.25s;
+}
+
+.superAdmin-toggleIcon:hover {
+  color: #000;
+}
+
+/* ---- Message ---- */
+.superAdmin-message {
+  color: #d00;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* ---- Button ---- */
+.superAdmin-button {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.superAdmin-button:hover {
+  background: #005fcc;
+}
+
+.superAdmin-button:disabled {
+  background: #9bbcf0;
+  cursor: not-allowed;
+}
+
+/* ---- Animation ---- */
+@keyframes superAdminFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 480px) {
+  .superAdmin-box {
+    width: 100%;
+    padding: 28px 20px;
+  }
+}

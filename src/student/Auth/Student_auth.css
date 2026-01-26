@@ -1,0 +1,12 @@
+.studentauth-main-container {
+    background-image: url('https://res.cloudinary.com/drevfgyks/image/upload/v1740229752/tech%20nanisai/student-wearing-headphones-holding-notebook-practicing-before-exam_ennhbf.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; 
+}
+

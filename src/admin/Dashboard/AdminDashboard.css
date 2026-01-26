@@ -1,0 +1,12 @@
+.admin-dashboard-container{
+    background-color: rgb(224, 224, 224);
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.admin-dashboard-heading{
+    color: #fff;
+}
