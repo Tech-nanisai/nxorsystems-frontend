@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import axios from "axios";
 import "./AdminReg.css";
 import { useNavigate } from "react-router-dom";
 
 const AdminReg = () => {
   const navigate = useNavigate();
-  const API = "http://localhost:1981";
+  const API = "https://nxorsystems-backend-xglw.onrender.com";
 
   const [form, setForm] = useState({
     fullName: "",
@@ -27,7 +27,7 @@ const AdminReg = () => {
     setMsg("");
 
     if (form.password !== form.confirmPassword) {
-      setMsg("❌ Passwords do not match");
+      setMsg("âŒ Passwords do not match");
       return;
     }
 
@@ -36,11 +36,11 @@ const AdminReg = () => {
       const res = await axios.post(`${API}/api/admin/auth/register`, form);
 
       if (res.data?.admin) {
-        setMsg("✅ Admin created successfully!");
+        setMsg("âœ… Admin created successfully!");
         setTimeout(() => navigate("/admin/signIn"), 1200);
       }
     } catch (err) {
-      setMsg(err.response?.data?.message || "❌ Error creating admin");
+      setMsg(err.response?.data?.message || "âŒ Error creating admin");
     } finally {
       setLoading(false);
     }
@@ -79,3 +79,4 @@ const AdminReg = () => {
 };
 
 export default AdminReg;
+

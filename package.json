@@ -19,6 +19,7 @@
     "file-selector": "^2.1.2",
     "framer-motion": "^12.6.5",
     "js-cookie": "^3.0.5",
+    "multer": "^2.0.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-easy-crop": "^5.5.6",

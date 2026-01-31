@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { FaProjectDiagram, FaSearch, FaFilter, FaArrowLeft } from "react-icons/fa";
@@ -18,7 +18,7 @@ const AllProjects = () => {
     const fetchProjects = async () => {
         setLoading(true);
         try {
-            const res = await axios.get("http://localhost:1981/api/superadmin/data/all-projects");
+            const res = await axios.get("https://nxorsystems-backend-xglw.onrender.com/api/superadmin/data/all-projects");
             if (res.data.success) {
                 setProjects(res.data.data);
             }
@@ -138,3 +138,4 @@ const AllProjects = () => {
 };
 
 export default AllProjects;
+

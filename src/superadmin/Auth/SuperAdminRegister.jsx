@@ -1,10 +1,10 @@
-// frontend/src/superadmin/Auth/SuperAdminRegister.jsx
+﻿// frontend/src/superadmin/Auth/SuperAdminRegister.jsx
 import React, { useState } from "react";
 import axios from "axios";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./SuperAdminRegister.css";
 
-const API = "http://localhost:1981";
+const API = "https://nxorsystems-backend-xglw.onrender.com";
 
 const SuperAdminRegister = () => {
   const [fullName, setFullName] = useState("");
@@ -125,3 +125,4 @@ const SuperAdminRegister = () => {
 };
 
 export default SuperAdminRegister;
+

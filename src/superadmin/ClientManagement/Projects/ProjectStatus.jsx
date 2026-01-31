@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { FaTasks, FaSearch, FaArrowLeft, FaCheckCircle, FaTimesCircle, FaClock } from "react-icons/fa";
@@ -16,7 +16,7 @@ const ProjectStatus = () => {
     const fetchProjects = async () => {
         setLoading(true);
         try {
-            const res = await axios.get("http://localhost:1981/api/superadmin/data/all-projects");
+            const res = await axios.get("https://nxorsystems-backend-xglw.onrender.com/api/superadmin/data/all-projects");
             if (res.data.success) {
                 setProjects(res.data.data);
             }
@@ -192,7 +192,7 @@ const ProjectStatus = () => {
                             </div>
                             <div>
                                 <h3 style={{ margin: 0, color: '#1e293b', fontSize: '1.25rem' }}>Project Rejected</h3>
-                                <p style={{ margin: '4px 0 0', color: '#64748b', fontSize: '0.9rem' }}>{selectedReasonProj.projectID} • {selectedReasonProj.title}</p>
+                                <p style={{ margin: '4px 0 0', color: '#64748b', fontSize: '0.9rem' }}>{selectedReasonProj.projectID} â€¢ {selectedReasonProj.title}</p>
                             </div>
                         </div>
 
@@ -236,3 +236,4 @@ const ProjectStatus = () => {
 };
 
 export default ProjectStatus;
+

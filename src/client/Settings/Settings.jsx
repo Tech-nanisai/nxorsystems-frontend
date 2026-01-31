@@ -1,4 +1,4 @@
-// frontend/src/client/Settings/Settings.jsx
+﻿// frontend/src/client/Settings/Settings.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useClientAuth } from "../../context/ClientAuthContext";
@@ -78,7 +78,7 @@ const ClientSettings = () => {
 
     try {
       const res = await axios.put(
-        "http://localhost:1981/api/client/auth/update-profile",
+        "https://nxorsystems-backend-xglw.onrender.com/api/client/auth/update-profile",
         {
           fullName: profileData.fullName,
           phone: profileData.phone,
@@ -111,7 +111,7 @@ const ClientSettings = () => {
     setLoading(true); // Loader appears
     try {
       const res = await axios.put(
-        "http://localhost:1981/api/client/auth/change-password",
+        "https://nxorsystems-backend-xglw.onrender.com/api/client/auth/change-password",
         {
           currentPassword: passwordData.currentPassword,
           newPassword: passwordData.newPassword

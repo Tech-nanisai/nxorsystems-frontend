@@ -1,4 +1,4 @@
-//frontend/src/Reusable/Admin/IDGeneration/IDGeneration.js
+﻿//frontend/src/Reusable/Admin/IDGeneration/IDGeneration.js
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -14,7 +14,7 @@ const IDGeneration = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:1981/api/id-generation/get-ids");
+        const response = await axios.get("https://nxorsystems-backend-xglw.onrender.com/api/id-generation/get-ids");
         if (response.data) {
           setClients(response.data.clients || []);
           setStudents(response.data.students || []);
@@ -30,7 +30,7 @@ const IDGeneration = () => {
   const handleAdd = async (name, userType) => {
     try {
       console.log("Adding Entry:", { userType, name }); // Debugging log
-      const response = await axios.post("http://localhost:1981/api/id-generation", {
+      const response = await axios.post("https://nxorsystems-backend-xglw.onrender.com/api/id-generation", {
         userType,
         name,
       });
@@ -53,7 +53,7 @@ const IDGeneration = () => {
 
   const handleDelete = async (id, userType) => {
     try {
-      await axios.delete(`http://localhost:1981/api/id-generation/${id}`);
+      await axios.delete(`https://nxorsystems-backend-xglw.onrender.com/api/id-generation/${id}`);
       if (userType === "client") {
         setClients((prev) => prev.filter((client) => client.id !== id));
       } else {
@@ -67,7 +67,7 @@ const IDGeneration = () => {
 
   const handleToggleStatus = async (id, userType) => {
     try {
-      const response = await axios.put(`http://localhost:1981/api/id-generation/status/${id}`);
+      const response = await axios.put(`https://nxorsystems-backend-xglw.onrender.com/api/id-generation/status/${id}`);
       const updatedEntry = response.data;
 
       if (userType === "client") {
@@ -110,3 +110,4 @@ const IDGeneration = () => {
 };
 
 export default IDGeneration;
+

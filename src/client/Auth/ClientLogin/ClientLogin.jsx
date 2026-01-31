@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaCheckCircle } from "react-icons/fa";
@@ -13,7 +13,7 @@ import { useClientAuth } from "../../../context/ClientAuthContext";
 const ClientLogin = () => {
   const { loginClient } = useClientAuth();
 
-  const API_URL = "http://localhost:1981/api/client/auth/login";
+  const API_URL = "https://nxorsystems-backend-xglw.onrender.com/api/client/auth/login";
 
   const [clientId, setClientId] = useState("");
   const [password, setPassword] = useState("");
@@ -125,6 +125,7 @@ const ClientLogin = () => {
         ) : (
           <>
             <div className="clientsignin-header">
+              <img src="/src/assets/logos/nxor-logo-dark.png" alt="NXOR Systems" className="clientsignin-logo" />
               <h2 className="clientsignin-title">Client Login</h2>
               <p className="clientsignin-subtitle">Secure access to your portal</p>
             </div>

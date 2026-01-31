@@ -23,7 +23,12 @@ import ProjectStatus from '../superadmin/ClientManagement/Projects/ProjectStatus
 import ClientManagementDashboard from '../superadmin/ClientManagement/ClientManagementDashboard';
 import BillingDashboard from '../superadmin/ClientManagement/Billing/BillingDashboard';
 import ProjectDashboard from '../superadmin/ClientManagement/Projects/ProjectDashboard';
+import DocumentsDashboard from '../superadmin/ClientManagement/Documents/DocumentsDashboard';
 import SecurityDashboard from '../superadmin/ClientManagement/Security/SecurityDashboard';
+import ClientManagementUpdates from '../superadmin/ClientManagement/ClientManagementUpdates';
+import SuperAdminUpdates from '../superadmin/Updates/Updates';
+import StudentManagementDashboard from '../superadmin/StudentManagement/StudentManagementDashboard';
+import AllClients from '../superadmin/ClientManagement/Clients/AllClients';
 
 // import superAdminNavbar from '../superadmin/Navbar/SuperAdminNavbar'
 // import superAdminSetting from '../superadmin/Settings/SuperAdminSettings'
@@ -168,7 +173,11 @@ const AppRoutes = () => {
         <Route path="/superadmin/org/hyderabad" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><SuperAdminOrgHyderabad /></SuperAdminLayout></RoleBasedRoute>} />
         <Route path="/superadmin/org/bangalore" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><SuperAdminOrgBangalore /></SuperAdminLayout></RoleBasedRoute>} />
         <Route path="/superadmin/idgeneration" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><SuperadminIDGeneration /></SuperAdminLayout></RoleBasedRoute>} />
+
         <Route path="/superadmin/client-management" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><ClientManagementDashboard /></SuperAdminLayout></RoleBasedRoute>} />
+        <Route path="/superadmin/client-management/documents" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><DocumentsDashboard /></SuperAdminLayout></RoleBasedRoute>} />
+        <Route path="/superadmin/client-management/all-clients" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><AllClients /></SuperAdminLayout></RoleBasedRoute>} />
+        <Route path="/superadmin/student-management" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><StudentManagementDashboard /></SuperAdminLayout></RoleBasedRoute>} />
 
         {/* Billing Routes */}
         <Route path="/superadmin/client-management/billing" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><BillingDashboard /></SuperAdminLayout></RoleBasedRoute>} />
@@ -184,6 +193,9 @@ const AppRoutes = () => {
 
         {/* Security Routes */}
         <Route path="/superadmin/client-management/security" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><SecurityDashboard /></SuperAdminLayout></RoleBasedRoute>} />
+        <Route path="/superadmin/client-management/updates" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><ClientManagementUpdates /></SuperAdminLayout></RoleBasedRoute>} />
+
+        <Route path="/superadmin/updates" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><SuperAdminUpdates /></SuperAdminLayout></RoleBasedRoute>} />
 
         {/* Routers for Client*/}
         <Route path="/client/signIn" element={<ClientLogin />} />

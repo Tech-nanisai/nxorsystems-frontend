@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaUserShield, FaKey, FaSignOutAlt, FaHistory, FaSearch, FaCheckCircle, FaBan, FaExclamationTriangle } from "react-icons/fa";
 import "./ClientSecurityDashboard.css";
@@ -23,7 +23,7 @@ const ClientSecurityDashboard = () => {
         setClientData(null);
 
         try {
-            const res = await axios.get(`http://localhost:1981/api/superadmin/security/${id}`);
+            const res = await axios.get(`https://nxorsystems-backend-xglw.onrender.com/api/superadmin/security/${id}`);
             setClientData(res.data);
             setNewStatus(res.data.status);
             fetchLogs(id);
@@ -37,7 +37,7 @@ const ClientSecurityDashboard = () => {
     // Utility: Fetch Logs
     const fetchLogs = async (id) => {
         try {
-            const res = await axios.get(`http://localhost:1981/api/superadmin/security/logs/${id}`);
+            const res = await axios.get(`https://nxorsystems-backend-xglw.onrender.com/api/superadmin/security/logs/${id}`);
             setLogs(res.data);
         } catch (err) {
             console.error("Error fetching logs:", err);
@@ -55,7 +55,7 @@ const ClientSecurityDashboard = () => {
     const handleStatusUpdate = async () => {
         if (!clientData) return;
         try {
-            await axios.post("http://localhost:1981/api/superadmin/security/update-status", {
+            await axios.post("https://nxorsystems-backend-xglw.onrender.com/api/superadmin/security/update-status", {
                 clientID: clientData.clientID,
                 status: newStatus
             });
@@ -77,7 +77,7 @@ const ClientSecurityDashboard = () => {
         if (!window.confirm("Are you sure? This will reset the password and logout all devices.")) return;
 
         try {
-            await axios.post("http://localhost:1981/api/superadmin/security/reset-password", {
+            await axios.post("https://nxorsystems-backend-xglw.onrender.com/api/superadmin/security/reset-password", {
                 clientID: clientData.clientID,
                 newPassword
             });
@@ -94,7 +94,7 @@ const ClientSecurityDashboard = () => {
     const handleLogoutAll = async () => {
         if (!window.confirm("This will invalidate all current sessions for this user. Continue?")) return;
         try {
-            await axios.post("http://localhost:1981/api/superadmin/security/logout-all", {
+            await axios.post("https://nxorsystems-backend-xglw.onrender.com/api/superadmin/security/logout-all", {
                 clientID: clientData.clientID
             });
             setMsg("All devices logged out!");
@@ -217,3 +217,4 @@ const ClientSecurityDashboard = () => {
 };
 
 export default ClientSecurityDashboard;
+

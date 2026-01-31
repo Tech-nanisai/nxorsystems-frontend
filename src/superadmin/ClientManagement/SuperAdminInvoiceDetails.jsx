@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaPrint, FaArrowLeft, FaSpinner } from "react-icons/fa";
@@ -15,7 +15,7 @@ const SuperAdminInvoiceDetails = () => {
     useEffect(() => {
         const fetchDetails = async () => {
             try {
-                const res = await axios.get(`http://localhost:1981/api/superadmin/data/invoice/${id}`);
+                const res = await axios.get(`https://nxorsystems-backend-xglw.onrender.com/api/superadmin/data/invoice/${id}`);
                 if (res.data.success) {
                     setInvoice(res.data.data);
                 }
@@ -97,21 +97,21 @@ const SuperAdminInvoiceDetails = () => {
                     <tbody>
                         <tr>
                             <td>Professional Services / Project Payment</td>
-                            <td className="right">₹{invoice.amount.toLocaleString()}</td>
+                            <td className="right">â‚¹{invoice.amount.toLocaleString()}</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
                             <td>Total Amount</td>
-                            <td className="right">₹{invoice.amount.toLocaleString()}</td>
+                            <td className="right">â‚¹{invoice.amount.toLocaleString()}</td>
                         </tr>
                         <tr>
                             <td>Paid / Advance</td>
-                            <td className="right" style={{ color: '#15803d' }}>(-) ₹{(invoice.paidAmount || 0).toLocaleString()}</td>
+                            <td className="right" style={{ color: '#15803d' }}>(-) â‚¹{(invoice.paidAmount || 0).toLocaleString()}</td>
                         </tr>
                         <tr className="grand-total">
                             <td>Balance Due</td>
-                            <td className="right">₹{(invoice.dueAmount || invoice.amount).toLocaleString()}</td>
+                            <td className="right">â‚¹{(invoice.dueAmount || invoice.amount).toLocaleString()}</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -125,3 +125,4 @@ const SuperAdminInvoiceDetails = () => {
 };
 
 export default SuperAdminInvoiceDetails;
+

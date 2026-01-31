@@ -1,3 +1,4 @@
+﻿//backend/client/Auth/ClientRegister/ClientRegister.jsx
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; // Use navigate for better UX
@@ -54,7 +55,7 @@ export default function ClientRegister() {
 
     try {
       // Using direct URL as requested to bypass proxy issues
-      const res = await axios.post("http://localhost:1981/api/client/auth/verify", {
+      const res = await axios.post("https://nxorsystems-backend-xglw.onrender.com/api/client/auth/verify", {
         clientID: form.clientID,
         fullName: form.fullName,
       });
@@ -92,7 +93,7 @@ export default function ClientRegister() {
     }
 
     try {
-      await axios.post("http://localhost:1981/api/client/auth/register", form);
+      await axios.post("https://nxorsystems-backend-xglw.onrender.com/api/client/auth/register", form);
       // Redirect using React Router
       navigate("/client/signIn");
     } catch (err) {
@@ -155,7 +156,7 @@ export default function ClientRegister() {
         {/* --- REGISTRATION FORM (SHOWN IF VERIFIED) --- */}
         {verified && (
           <div className="ClientRegister-verifiedSection">
-            
+
             {/* Email */}
             <div className="ClientRegister-field">
               <label className="ClientRegister-label">Email</label>
@@ -182,7 +183,7 @@ export default function ClientRegister() {
                   // Allow only numbers
                   const re = /^[0-9\b]+$/;
                   if (e.target.value === "" || re.test(e.target.value)) {
-                     handleChange(e);
+                    handleChange(e);
                   }
                 }}
                 placeholder="Enter Phone Number"

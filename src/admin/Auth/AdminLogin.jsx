@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./AdminLogin.css";
 
-const API = "http://localhost:1981";
+const API = "https://nxorsystems-backend-xglw.onrender.com";
 
 const AdminLogin = () => {
   const { loginAdmin } = useAuth();
@@ -17,7 +17,7 @@ const AdminLogin = () => {
 
   const [firstAdminExists, setFirstAdminExists] = useState(true);
 
-  // 🔥 Check if admin exists
+  // ðŸ”¥ Check if admin exists
   useEffect(() => {
     const checkAdmin = async () => {
       try {
@@ -77,7 +77,7 @@ const AdminLogin = () => {
 
         <h2 className="superAdmin-heading">Admin Login</h2>
 
-        {/* 🔥 Show if admin does NOT exist */}
+        {/* ðŸ”¥ Show if admin does NOT exist */}
         {!firstAdminExists && (
           <div className="superAdmin-warningBox">
             <p className="superAdmin-warningText">
@@ -93,7 +93,7 @@ const AdminLogin = () => {
           </div>
         )}
 
-        {/* If admin exists → show login form */}
+        {/* If admin exists â†’ show login form */}
         {firstAdminExists && (
           <>
             <label className="superAdmin-label">Email</label>
@@ -137,3 +137,4 @@ const AdminLogin = () => {
 };
 
 export default AdminLogin;
+

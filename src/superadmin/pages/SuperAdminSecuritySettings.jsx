@@ -1,12 +1,9 @@
 import React from "react";
-
 const SuperAdminSecuritySettings = () => {
   return (
-    <div style={{ padding: "24px" }}>
-      <h2>Security Settings</h2>
-      <p>This is a placeholder page for Super Admin security settings.</p>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh', fontSize: '1.5rem', color: '#64748b' }}>
+      Security Settings is coming soon.
     </div>
   );
 };
-
 export default SuperAdminSecuritySettings;

@@ -1,4 +1,4 @@
-//frontend/src/context/AuthContext.jsx
+﻿//frontend/src/context/AuthContext.jsx
 
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -44,41 +44,41 @@ export const AuthProvider = ({ children }) => {
 
   // --------------------------------------------------
 
-const formatUser = (user) => {
+  const formatUser = (user) => {
 
-  if (!user) return null;
-
-
-
-  const pic = user.profilePicture || "";
+    if (!user) return null;
 
 
 
-  // Check if Base64 instead of URL
-
-  const isBase64 =
-
-    pic.startsWith("data:image/") || pic.startsWith("data:application/");
+    const pic = user.profilePicture || "";
 
 
 
-  return {
+    // Check if Base64 instead of URL
 
-    ...user,
+    const isBase64 =
 
-    profilePicture: isBase64
+      pic.startsWith("data:image/") || pic.startsWith("data:application/");
 
-      ? pic // DO NOT apply cache-buster
 
-      : pic
 
-      ? `${pic}?t=${Date.now()}`
+    return {
 
-      : "",
+      ...user,
+
+      profilePicture: isBase64
+
+        ? pic // DO NOT apply cache-buster
+
+        : pic
+
+          ? `${pic}?t=${Date.now()}`
+
+          : "",
+
+    };
 
   };
-
-};
 
 
 
@@ -102,7 +102,7 @@ const formatUser = (user) => {
 
         const res = await fetch(
 
-          "http://localhost:1981/api/superadmin/auth/me",
+          "https://nxorsystems-backend-xglw.onrender.com/api/superadmin/auth/me",
 
           {
 
@@ -128,11 +128,26 @@ const formatUser = (user) => {
 
         }
 
+      } else if (role === "client") {
+        const res = await fetch(
+          "https://nxorsystems-backend-xglw.onrender.com/api/client/auth/me",
+          {
+            method: "GET",
+            headers: { Authorization: `Bearer ${jwt}` },
+          }
+        );
+
+        if (!res.ok) return;
+
+        const data = await res.json();
+        if (data.success && data.client) {
+          setClient(formatUser(data.client));
+        }
       }
 
     } catch (err) {
 
-      console.error("❌ Error loading user:", err);
+      console.error("âŒ Error loading user:", err);
 
     }
 
@@ -216,6 +231,26 @@ const formatUser = (user) => {
 
     navigate("/superadmin/dashboard");
 
+  };
+
+
+  // --------------------------------------------------
+
+  // LOGIN CLIENT
+
+  // --------------------------------------------------
+
+  const loginClient = async (userData, jwtToken) => {
+    sessionStorage.setItem("USER_ROLE", "client");
+    sessionStorage.setItem("TOKEN", jwtToken);
+
+    setUserRole("client");
+    setToken(jwtToken);
+    setClient(formatUser(userData));
+
+    // Then fetch
+    await fetchUserFromServer("client", jwtToken);
+    navigate("/client/dashboard");
   };
 
 
@@ -323,6 +358,7 @@ const formatUser = (user) => {
 
 
         loginSuperAdmin,
+        loginClient,
         updateSuperAdminProfile,
         fetchUserFromServer,
         getActiveUser,

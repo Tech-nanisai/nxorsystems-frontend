@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import {
@@ -24,8 +24,8 @@ const SecurityDashboard = () => {
         try {
             // Fetch Client & Logs in parallel
             const [clientRes, logsRes] = await Promise.all([
-                axios.get(`http://localhost:1981/api/superadmin/security/${searchTerm}`),
-                axios.get(`http://localhost:1981/api/superadmin/security/logs/${searchTerm}`)
+                axios.get(`https://nxorsystems-backend-xglw.onrender.com/api/superadmin/security/${searchTerm}`),
+                axios.get(`https://nxorsystems-backend-xglw.onrender.com/api/superadmin/security/logs/${searchTerm}`)
             ]);
 
             setClientData({
@@ -47,7 +47,7 @@ const SecurityDashboard = () => {
 
         setActionLoading(true);
         try {
-            await axios.post("http://localhost:1981/api/superadmin/security/update-status", {
+            await axios.post("https://nxorsystems-backend-xglw.onrender.com/api/superadmin/security/update-status", {
                 clientID: clientData.client.clientID,
                 status: newStatus
             });
@@ -70,7 +70,7 @@ const SecurityDashboard = () => {
 
         setActionLoading(true);
         try {
-            await axios.post("http://localhost:1981/api/superadmin/security/reset-password", {
+            await axios.post("https://nxorsystems-backend-xglw.onrender.com/api/superadmin/security/reset-password", {
                 clientID: clientData.client.clientID,
                 newPassword: newPass
             });
@@ -88,7 +88,7 @@ const SecurityDashboard = () => {
 
         setActionLoading(true);
         try {
-            await axios.post("http://localhost:1981/api/superadmin/security/logout-all", {
+            await axios.post("https://nxorsystems-backend-xglw.onrender.com/api/superadmin/security/logout-all", {
                 clientID: clientData.client.clientID
             });
             alert("Client logged out from all devices.");
@@ -104,8 +104,8 @@ const SecurityDashboard = () => {
         if (!clientData?.client?.clientID) return;
 
         Promise.all([
-            axios.get(`http://localhost:1981/api/superadmin/security/${clientData.client.clientID}`),
-            axios.get(`http://localhost:1981/api/superadmin/security/logs/${clientData.client.clientID}`)
+            axios.get(`https://nxorsystems-backend-xglw.onrender.com/api/superadmin/security/${clientData.client.clientID}`),
+            axios.get(`https://nxorsystems-backend-xglw.onrender.com/api/superadmin/security/logs/${clientData.client.clientID}`)
         ]).then(([clientRes, logsRes]) => {
             setClientData({
                 client: clientRes.data,
@@ -137,7 +137,7 @@ const SecurityDashboard = () => {
                 {/* Back Button matching other pages */}
                 <div style={{ marginTop: '1rem', textAlign: 'left' }}>
                     <Link to="/superadmin/client-management" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.9rem', border: '1px solid #e2e8f0', padding: '6px 12px', borderRadius: '8px', background: 'white' }}>
-                        ← Back to Management
+                        â† Back to Management
                     </Link>
                 </div>
             </div>
@@ -270,3 +270,4 @@ const SecurityDashboard = () => {
 };
 
 export default SecurityDashboard;
+

@@ -155,3 +155,33 @@
 .ClientManagementDashboard-card.card-red:hover {
     border-color: rgba(220, 38, 38, 0.2);
 }
+
+/* Orange (Documents) */
+.ClientManagementDashboard-card.card-orange .ClientManagementDashboard-icon-wrapper {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    color: #ea580c;
+}
+
+.ClientManagementDashboard-card.card-orange:hover .ClientManagementDashboard-icon-wrapper {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    color: #ea580c;
+}
+
+.ClientManagementDashboard-card.card-orange:hover {
+    border-color: rgba(234, 88, 12, 0.2);
+}
+
+/* Purple (Updates) */
+.ClientManagementDashboard-card.card-purple .ClientManagementDashboard-icon-wrapper {
+    background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+    color: #9333ea;
+}
+
+.ClientManagementDashboard-card.card-purple:hover .ClientManagementDashboard-icon-wrapper {
+    background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+    color: #9333ea;
+}
+
+.ClientManagementDashboard-card.card-purple:hover {
+    border-color: rgba(147, 51, 234, 0.2);
+}

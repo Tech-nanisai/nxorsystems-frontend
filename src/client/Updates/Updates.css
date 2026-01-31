@@ -1,0 +1,354 @@
+.ClientUpdates-container {
+    padding: 2rem;
+    max-width: 750px;
+    /* Feed width increased for better horizontal layout */
+    margin: 0 auto;
+    font-family: 'Outfit', sans-serif;
+    color: #1e293b;
+    min-height: 85vh;
+}
+
+.ClientUpdates-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.ClientUpdates-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ClientUpdates-subtitle {
+    color: #64748b;
+    font-size: 1.1rem;
+}
+
+.ClientUpdates-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.ClientUpdates-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: row;
+    /* Reverted: Media Right, Content Left */
+    align-items: stretch;
+}
+
+.ClientUpdates-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+}
+
+.ClientUpdates-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    min-width: 0;
+    /* Prevent flex overflow */
+}
+
+/* Right Side Thumbnail */
+/* Right Side Thumbnail */
+.ClientUpdates-media-wrapper {
+    width: 350px;
+    min-width: 350px;
+    min-height: 250px;
+    background: #f1f5f9;
+    /* Clean Image View - No Overlays */
+    display: flex;
+    position: relative;
+    order: 2;
+    margin: 0;
+    padding: 0;
+}
+
+.ClientUpdates-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    display: block;
+}
+
+/* Header & Actions in Text Area */
+.ClientUpdates-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.ClientUpdates-type-badge {
+    padding: 5px 12px;
+    border-radius: 50px;
+    background: #e0f2fe;
+    /* Light Blue */
+    color: #0284c7;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ClientUpdates-date-badge {
+    background: #f1f5f9;
+    color: #64748b;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.ClientUpdates-action-area {
+    margin-top: auto;
+    /* Push to bottom */
+    padding-top: 1.5rem;
+}
+
+/* Status Badges (Big) */
+.ClientUpdates-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.ClientUpdates-status-badge.status-interested {
+    background: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+}
+
+.ClientUpdates-status-badge.status-passed {
+    background: #fef2f2;
+    color: #ef4444;
+    border: 1px solid #fecaca;
+}
+
+.ClientUpdates-video-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    min-height: 150px;
+}
+
+.ClientUpdates-pdf-placeholder {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    color: #3b82f6;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: background 0.3s;
+    padding: 1rem;
+    text-align: center;
+}
+
+.ClientUpdates-text-only {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.ClientUpdates-pdf-placeholder {
+    height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    color: #3b82f6;
+    gap: 1rem;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.ClientUpdates-pdf-placeholder:hover {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+}
+
+.ClientUpdates-text-only {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: white;
+    padding: 3rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+}
+
+.ClientUpdates-content {
+    padding: 2rem;
+}
+
+.ClientUpdates-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.ClientUpdates-type-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    background: #f1f5f9;
+    color: #64748b;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.ClientUpdates-date {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+.ClientUpdates-card-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+.ClientUpdates-desc {
+    font-size: 1.05rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    white-space: pre-wrap;
+    /* Preserve line breaks */
+}
+
+.ClientUpdates-actions {
+    display: flex;
+    gap: 1rem;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1.5rem;
+}
+
+.ClientUpdates-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+}
+
+.btn-interested {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    color: #0f172a;
+}
+
+.btn-interested:hover,
+.btn-interested.active {
+    background: #16a34a;
+    /* Green */
+    color: white;
+    border-color: #16a34a;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+.btn-not-interested {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    color: #0f172a;
+}
+
+.btn-not-interested:hover,
+.btn-not-interested.active {
+    background: #ef4444;
+    /* Red */
+    color: white;
+    border-color: #ef4444;
+}
+
+/* Loader */
+.ClientUpdates-loader {
+    display: flex;
+    justify-content: center;
+    padding: 4rem;
+    color: #94a3b8;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+    .ClientUpdates-container {
+        padding: 1rem;
+        max-width: 100%;
+    }
+
+    .ClientUpdates-title {
+        font-size: 1.5rem;
+    }
+
+    .ClientUpdates-card {
+        flex-direction: column-reverse;
+        /* Stack: Media Top, Content Bottom */
+        align-items: center;
+    }
+
+    .ClientUpdates-media-wrapper {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        height: 200px;
+        /* Fixed height for mobile banner */
+        order: 2;
+        /* Still visually "second" relative to flow? No, column-reverse flips it. */
+        /* Flex Column Reverse:
+           Start (Bottom) -> Child 1 (Content)
+           End (Top) -> Child 2 (Media)
+        */
+    }
+
+    .ClientUpdates-content {
+        width: 100%;
+        padding: 1.25rem;
+    }
+}

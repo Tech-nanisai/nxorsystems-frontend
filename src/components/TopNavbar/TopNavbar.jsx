@@ -4,7 +4,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FaBars, FaTimes, FaUserCircle, FaChevronDown, FaSignInAlt, FaUserShield, FaUserGraduate, FaUserTie } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import Sidebar from "../SideNavbar/SideNavbar.jsx";
-import CompanyLogo from "../Images/TechnanisaiPNG.png";
+import CompanyLogoDark from "../../assets/logos/nxor-logo-dark.png";
 import "./TopNavbar.css";
 import { useAuth } from "../../context/AuthContext";
 import UserProfileCard from "../UserProfileCard/UserProfileCard";
@@ -97,12 +97,17 @@ const Topbar = () => {
         <div className="TopNavbar-content">
 
           {/* LOGO AREA */}
+          {/* LOGO AREA */}
           <Link to="/" className="TopNavbar-logo-wrapper">
-            <img src={CompanyLogo} className="TopNavbar-logo-img" alt="NXOR Systems" />
-            <div className="TopNavbar-company-text">
+            <img
+              src={CompanyLogoDark}
+              className="TopNavbar-logo-img"
+              alt="NXOR Systems"
+            />
+            {/* <div className="TopNavbar-company-text">
               <span className="TopNavbar-brand-primary">NXOR</span>
               <span className="TopNavbar-brand-secondary">SYSTEMS</span>
-            </div>
+            </div> */}
           </Link>
 
           {/* DESKTOP MENU */}

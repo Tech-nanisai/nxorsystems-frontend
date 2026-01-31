@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useClientAuth } from "../../context/ClientAuthContext";
@@ -12,6 +12,7 @@ import {
   FaBell,
   FaArrowRight
 } from "react-icons/fa";
+import Loader from "../../components/Loader/Loader";
 import "./ClientDashboard.css";
 
 export default function ClientDashboard() {
@@ -32,7 +33,7 @@ export default function ClientDashboard() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await axios.get("http://localhost:1981/api/client/dashboard/stats", {
+        const res = await axios.get("https://nxorsystems-backend-xglw.onrender.com/api/client/dashboard/stats", {
           headers: { Authorization: `Bearer ${clientToken}` }
         });
         if (res.data.success) {
@@ -48,7 +49,13 @@ export default function ClientDashboard() {
     if (clientToken) fetchStats();
   }, [clientToken]);
 
-  if (!client) return <div className="dashboard-loading">Loading Dashboard...</div>;
+  if (!client || loading) {
+    return (
+      <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#f8fafc' }}>
+        <Loader />
+      </div>
+    );
+  }
 
   const isActive = (client.status || "Active") === "Active";
 
@@ -58,7 +65,7 @@ export default function ClientDashboard() {
       {/* HEADER SECTION */}
       <div className="dashboard-header">
         <div className="header-greeting">
-          <h1>Welcome back, {client.fullName.split(' ')[0]}! 👋</h1>
+          <h1>Welcome back, {client.fullName.split(' ')[0]}! ðŸ‘‹</h1>
           <p>Here's what's happening with your projects today.</p>
         </div>
         <div className="header-actions">

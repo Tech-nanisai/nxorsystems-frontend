@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+﻿import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 
@@ -13,7 +13,7 @@ export const ClientAuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   // Direct URL to Backend
-  const API_URL = "http://localhost:1981/api/client/auth";
+  const API_URL = "https://nxorsystems-backend-xglw.onrender.com/api/client/auth";
 
   // --- HELPER: Format User ---
   const formatUser = (user) => {
@@ -36,7 +36,7 @@ export const ClientAuthProvider = ({ children }) => {
         setClient(formatUser(res.data.client));
       }
     } catch (err) {
-      console.error("❌ Error loading client profile:", err);
+      console.error("âŒ Error loading client profile:", err);
       // If token is invalid, clear session
       if (err.response?.status === 401) {
         logoutClient();
@@ -64,12 +64,15 @@ export const ClientAuthProvider = ({ children }) => {
     // 1. Set Storage
     sessionStorage.setItem("USER_ROLE", "client");
     sessionStorage.setItem("TOKEN", token);
-    
+
     // 2. Update State
     setClientToken(token);
     setClient(formatUser(userData));
 
-    // 3. Navigate
+    // 3. Fetch Full Profile (Double Check)
+    fetchClientProfile(token);
+
+    // 4. Navigate
     // Check if we were redirected here, otherwise go to dashboard
     const origin = location.state?.from?.pathname || "/client/dashboard";
     navigate(origin);

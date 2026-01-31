@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
@@ -15,7 +15,7 @@ const StudentLogin = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
-    // 👉 AUTO-REDIRECT IF JWT ALREADY EXISTS
+    // ðŸ‘‰ AUTO-REDIRECT IF JWT ALREADY EXISTS
     useEffect(() => {
         const token = Cookies.get("student_auth_token");
         if (token) {
@@ -27,7 +27,7 @@ const StudentLogin = () => {
     const validateStudentId = async (id) => {
         try {
             const response = await axios.get(
-                `http://localhost:1981/api/id-generation/verify-id/${id}`
+                `https://nxorsystems-backend-xglw.onrender.com/api/id-generation/verify-id/${id}`
             );
             setIsValidId(response.data.isValid);
         } catch {
@@ -48,7 +48,7 @@ const StudentLogin = () => {
         setIsLoading(true);
         try {
             const res = await axios.post(
-                "http://localhost:1981/api/student/login",
+                "https://nxorsystems-backend-xglw.onrender.com/api/student/login",
                 { studentId: studentId.trim().toUpperCase(), password }
             );
 
@@ -142,3 +142,4 @@ const StudentLogin = () => {
 };
 
 export default StudentLogin;
+

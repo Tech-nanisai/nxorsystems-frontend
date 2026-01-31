@@ -1,4 +1,4 @@
-
+﻿
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -64,7 +64,7 @@ const GenerateInvoice = ({ isModal = false, onSuccess }) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:1981/api/superadmin/data/create-invoice",
+        "https://nxorsystems-backend-xglw.onrender.com/api/superadmin/data/create-invoice",
         payload
       );
       if (res.data.success) {
@@ -146,7 +146,7 @@ const GenerateInvoice = ({ isModal = false, onSuccess }) => {
           {/* FINANCIALS */}
           <div className="GenerateInvoice-form-row">
             <div className="GenerateInvoice-input-group">
-              <label className="GenerateInvoice-field-label">Total Amount (₹)</label>
+              <label className="GenerateInvoice-field-label">Total Amount (â‚¹)</label>
               <input
                 type="number"
                 name="amount"
@@ -191,16 +191,16 @@ const GenerateInvoice = ({ isModal = false, onSuccess }) => {
           <div className="GenerateInvoice-summary-box">
             <div className="GenerateInvoice-summary-row">
               <span>Total Bill:</span>
-              <span>₹ {parseFloat(invoiceData.amount || 0).toFixed(2)}</span>
+              <span>â‚¹ {parseFloat(invoiceData.amount || 0).toFixed(2)}</span>
             </div>
             <div className="GenerateInvoice-summary-row">
               <span>Paid / Advance:</span>
-              <span style={{ color: '#10b981' }}>- ₹ {parseFloat(invoiceData.paidAmount || 0).toFixed(2)}</span>
+              <span style={{ color: '#10b981' }}>- â‚¹ {parseFloat(invoiceData.paidAmount || 0).toFixed(2)}</span>
             </div>
             <div className="GenerateInvoice-summary-row total">
               <span>Balance Due:</span>
               <span style={{ color: dueAmount > 0 ? '#ef4444' : '#10b981' }}>
-                ₹ {dueAmount.toFixed(2)}
+                â‚¹ {dueAmount.toFixed(2)}
               </span>
             </div>
           </div>
@@ -222,4 +222,5 @@ const GenerateInvoice = ({ isModal = false, onSuccess }) => {
 };
 
 export default GenerateInvoice;
+
 

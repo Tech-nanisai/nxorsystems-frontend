@@ -76,8 +76,7 @@ const ClientNavbar = () => {
         {/* LOGO AREA */}
         <div className="client-sidebar-top">
           <div className="sidebar-brand-box">
-            <div className="brand-logo-circle">N</div>
-            <h2 className="client-sidebar-logo">NXOR <span>SYSTEMS</span></h2>
+            <img src="/src/assets/logos/nxor-logo.png" alt="NXOR Systems" className="client-sidebar-logo-img" />
           </div>
         </div>
 

@@ -1,4 +1,4 @@
-// frontend/src/client/Auth/ClientForgetPassword/ClientForgetPassword.jsx
+﻿// frontend/src/client/Auth/ClientForgetPassword/ClientForgetPassword.jsx
 
 import React, { useState } from "react";
 import axios from "axios";
@@ -24,7 +24,7 @@ const ClientForgetPassword = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:1981/api/client/auth/forgot-password", {
+      const response = await axios.post("https://nxorsystems-backend-xglw.onrender.com/api/client/auth/forgot-password", {
         email,
       });
 
@@ -76,3 +76,4 @@ const ClientForgetPassword = () => {
 };
 
 export default ClientForgetPassword;
+

@@ -53,8 +53,9 @@ const SuperAdminSidebar = ({ sidebarOpen, setSidebarOpen }) => {
         {/* HEADER */}
         <div className="superadminsidebar-header">
           <div>
-            <div className="superadminsidebar-brand">NXOR SYSTEMS</div>
-            <span className="superadminsidebar-brand-sub">CEO PORTAL</span>
+            {/* <div className="superadminsidebar-brand">NXOR SYSTEMS</div> */}
+            <img src="/src/assets/logos/nxor-logo.png" alt="NXOR Systems" style={{ height: '40px', objectFit: 'contain' }} />
+            {/* <span className="superadminsidebar-brand-sub">CEO PORTAL</span> */}
           </div>
           {/* Close Toggle for Sidebar */}
           <button

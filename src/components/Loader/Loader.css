@@ -1,0 +1,114 @@
+/* High Premium Custom Loader Styles */
+.nxor-loader-wrapper {
+    width: 200px;
+    height: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.nxor-circle {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 50%;
+    transform-origin: 50%;
+    animation: circle7124 .5s alternate infinite ease-in-out;
+}
+
+/* 
+ * Premium Gradients & Glows 
+ * Using Company Colors: #c77706, #108521, #000000
+ */
+
+/* Circle 1 - Premium Orange */
+.nxor-circle:nth-child(1) {
+    left: 15%;
+    background: linear-gradient(135deg, #c77706 0%, #fbbf24 100%);
+    /* Depth gradient */
+    box-shadow: 0 4px 12px rgba(199, 119, 6, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Circle 2 - Premium Green */
+.nxor-circle:nth-child(2) {
+    left: 45%;
+    background: linear-gradient(135deg, #108521 0%, #4ade80 100%);
+    /* Depth gradient */
+    box-shadow: 0 4px 12px rgba(16, 133, 33, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+    animation-delay: .2s;
+}
+
+/* Circle 3 - Premium Black */
+.nxor-circle:nth-child(3) {
+    left: auto;
+    right: 15%;
+    background: linear-gradient(135deg, #000000 0%, #4b5563 100%);
+    /* Depth gradient */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 -2px 4px rgba(255, 255, 255, 0.1);
+    animation-delay: .3s;
+}
+
+@keyframes circle7124 {
+    0% {
+        top: 60px;
+        height: 5px;
+        border-radius: 50px 50px 25px 25px;
+        transform: scaleX(1.7);
+    }
+
+    40% {
+        height: 20px;
+        border-radius: 50%;
+        transform: scaleX(1);
+    }
+
+    100% {
+        top: 0%;
+    }
+}
+
+.nxor-shadow {
+    width: 20px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.15);
+    /* Softer shadow */
+    position: absolute;
+    top: 62px;
+    transform-origin: 50%;
+    z-index: -1;
+    filter: blur(2px);
+    /* Smoother blur */
+    animation: shadow046 .5s alternate infinite ease-in-out;
+}
+
+@keyframes shadow046 {
+    0% {
+        transform: scaleX(1.5);
+    }
+
+    40% {
+        transform: scaleX(1);
+        opacity: .7;
+    }
+
+    100% {
+        transform: scaleX(.2);
+        opacity: .4;
+    }
+}
+
+.nxor-shadow:nth-child(4) {
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.nxor-shadow:nth-child(5) {
+    left: 45%;
+    animation-delay: .2s
+}
+
+.nxor-shadow:nth-child(6) {
+    left: auto;
+    right: 15%;
+    animation-delay: .3s;
+}

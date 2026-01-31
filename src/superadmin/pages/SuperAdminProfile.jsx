@@ -1,11 +1,11 @@
-// frontend/src/superadmin/pages/SuperAdminProfile.jsx
+﻿// frontend/src/superadmin/pages/SuperAdminProfile.jsx
 import React, { useState, useCallback } from "react";
 import { FaEdit } from "react-icons/fa";
 import { useAuth } from "../../context/AuthContext";
 import AvatarCropper from "../../components/AvatarUpload/AvatarCropper";
 import "./SuperAdminProfile.css";
 
-const API = "http://localhost:1981";
+const API = "https://nxorsystems-backend-xglw.onrender.com";
 
 const SuperAdminProfile = () => {
   const { superAdmin, token, updateSuperAdminProfile } = useAuth();
@@ -410,7 +410,7 @@ const SuperAdminProfile = () => {
 
           {successMsg && (
             <div className="saprof-msg saprof-msg-success">
-              <span className="saprof-success-icon">✔</span>
+              <span className="saprof-success-icon">âœ”</span>
               <span>{successMsg}</span>
             </div>
           )}
@@ -433,3 +433,4 @@ const SuperAdminProfile = () => {
 };
 
 export default SuperAdminProfile;
+

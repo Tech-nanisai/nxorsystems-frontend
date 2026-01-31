@@ -1,9 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaFileInvoiceDollar, FaProjectDiagram, FaShieldAlt } from "react-icons/fa";
+import { FaFileInvoiceDollar, FaProjectDiagram, FaShieldAlt, FaFolderOpen, FaBullhorn } from "react-icons/fa";
 import "./ClientManagementDashboard.css";
+import Loader from "../../components/Loader/Loader";
+import { useState, useEffect } from "react";
 
 const ClientManagementDashboard = () => {
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        // Simulate loading for premium feel
+        const timer = setTimeout(() => setLoading(false), 1500);
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (loading) {
+        return (
+            <div style={{ height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Loader />
+            </div>
+        );
+    }
     const cards = [
         {
             title: "Billing",
@@ -22,12 +39,28 @@ const ClientManagementDashboard = () => {
             colorClass: "" // Default blue
         },
         {
+            title: "Documents",
+            description: "Send agreements, policies & promotional materials.",
+            icon: <FaFolderOpen />,
+            link: "/superadmin/client-management/documents",
+            actionText: "View More →",
+            colorClass: "card-orange"
+        },
+        {
             title: "Security",
             description: "Manage security protocols and access control.",
             icon: <FaShieldAlt />,
             link: "/superadmin/client-management/security",
             actionText: "View More →",
             colorClass: "card-red"
+        },
+        {
+            title: "Updates",
+            description: "Broadcast new features, offers & announcements.",
+            icon: <FaBullhorn />,
+            link: "/superadmin/client-management/updates",
+            actionText: "Manage Updates →",
+            colorClass: "card-purple"
         },
     ];
 

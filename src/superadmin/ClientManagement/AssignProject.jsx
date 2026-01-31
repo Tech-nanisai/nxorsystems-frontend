@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import axios from "axios";
 import "./AssignProject.css";
 
@@ -24,7 +24,7 @@ const AssignProject = ({ isModal = false, onSuccess }) => {
     setIsGenerating(true); // Start Loader
 
     try {
-      const res = await axios.post("http://localhost:1981/api/superadmin/data/create-project", formData);
+      const res = await axios.post("https://nxorsystems-backend-xglw.onrender.com/api/superadmin/data/create-project", formData);
       if (res.data.success) {
         // Enforce 5 second delay for "Generating" effect
         setTimeout(() => {

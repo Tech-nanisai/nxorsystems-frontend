@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import axios from "axios";
 import "./Student_register.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -24,8 +24,8 @@ const Studentregister = () => {
         if (!id) return;
         try {
             const [idResponse, registerResponse] = await Promise.all([
-                axios.get(`http://localhost:1981/api/id-generation/verify-id/${id}`),
-                axios.get(`http://localhost:1981/api/student/check-registered/${id}`)
+                axios.get(`https://nxorsystems-backend-xglw.onrender.com/api/id-generation/verify-id/${id}`),
+                axios.get(`https://nxorsystems-backend-xglw.onrender.com/api/student/check-registered/${id}`)
             ]);
             setIsValidId(idResponse.data.isValid);
             setIsRegistered(registerResponse.data.isRegistered);
@@ -66,7 +66,7 @@ const Studentregister = () => {
         setLoading(true);
         try {
             // const hashedPassword = await bcrypt.hash(formData.password, 10);
-            const response = await axios.post("http://localhost:1981/api/student/register", {
+            const response = await axios.post("https://nxorsystems-backend-xglw.onrender.com/api/student/register", {
                 ...formData,
                 
             });
@@ -133,3 +133,4 @@ const Studentregister = () => {
 };
 
 export default Studentregister;
+

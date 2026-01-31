@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+﻿import { createContext, useContext, useState } from "react";
 import axios from "axios";
 
 const IDGenerationContext = createContext(null);
@@ -10,7 +10,7 @@ export const IDGenerationProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
 
   const api = axios.create({
-    baseURL: "http://localhost:1981/api/global/id",
+    baseURL: "https://nxorsystems-backend-xglw.onrender.com/api/global/id",
     headers: {
       Authorization: `Bearer ${sessionStorage.getItem("TOKEN")}`,
       "Content-Type": "application/json",
@@ -103,3 +103,4 @@ export const IDGenerationProvider = ({ children }) => {
     </IDGenerationContext.Provider>
   );
 };
+

@@ -1,10 +1,10 @@
-// import React, { useState } from "react";
+﻿// import React, { useState } from "react";
 // import axios from "axios";
 // import { useAuth } from "../../context/AuthContext";
 // import { FaEye, FaEyeSlash } from "react-icons/fa";
 // import "./SuperAdminLogin.css";
 
-// const API = "http://localhost:1981";
+// const API = "https://nxorsystems-backend-xglw.onrender.com";
 
 // const SuperAdminLogin = () => {
 //   const { loginSuperAdmin } = useAuth();
@@ -80,7 +80,7 @@
 //         </button>
 
 //         <p className="superadminLogin-switchText">
-//           Don’t have an account?{" "}
+//           Donâ€™t have an account?{" "}
 //           <a href="/superadmin/register" className="superadminLogin-link">
 //             Create Super Admin
 //           </a>
@@ -99,7 +99,7 @@ import { useAuth } from "../../context/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./SuperAdminLogin.css";
 
-const API = "http://localhost:1981";
+const API = "https://nxorsystems-backend-xglw.onrender.com";
 
 const SuperAdminLogin = () => {
   const { loginSuperAdmin } = useAuth();
@@ -179,7 +179,7 @@ const SuperAdminLogin = () => {
         </button>
 
         <p className="superadminLogin-switchText">
-          Don’t have an account?{" "}
+          Donâ€™t have an account?{" "}
           <a href="/superadmin/register" className="superadminLogin-link">
             Create Super Admin
           </a>
@@ -190,3 +190,4 @@ const SuperAdminLogin = () => {
 };
 
 export default SuperAdminLogin;
+

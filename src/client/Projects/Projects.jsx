@@ -1,4 +1,4 @@
-//frontend/src/client/Projects/Projects.jsx
+﻿//frontend/src/client/Projects/Projects.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaSearch, FaCalendarAlt, FaTasks } from "react-icons/fa";
@@ -22,7 +22,7 @@ const Projects = () => {
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get("http://localhost:1981/api/client/dashboard/my-projects", {
+      const res = await axios.get("https://nxorsystems-backend-xglw.onrender.com/api/client/dashboard/my-projects", {
         headers: { Authorization: `Bearer ${clientToken}` }
       });
 
@@ -101,7 +101,7 @@ const Projects = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:1981/api/client/dashboard/project-approval",
+      const res = await axios.post("https://nxorsystems-backend-xglw.onrender.com/api/client/dashboard/project-approval",
         { projectID: id, action, rejectionReason: reason },
         { headers: { Authorization: `Bearer ${clientToken}` } }
       );
@@ -190,7 +190,7 @@ const Projects = () => {
 
                     {project.approvalStatus === 'Approved' && (
                       <div style={{ color: '#15803d', textAlign: 'center' }}>
-                        <strong>✔ Approved</strong>
+                        <strong>âœ” Approved</strong>
                         <div style={{ fontSize: '0.75rem', marginTop: '4px', color: '#64748b' }}>
                           {formatIST(project.approvalDate)}
                         </div>
@@ -199,7 +199,7 @@ const Projects = () => {
 
                     {project.approvalStatus === 'Rejected' && (
                       <div style={{ color: '#b91c1c', textAlign: 'center' }}>
-                        <strong>✕ Rejected</strong>
+                        <strong>âœ• Rejected</strong>
                         <div style={{ fontSize: '0.75rem', marginTop: '4px', color: '#64748b' }}>
                           {formatIST(project.approvalDate)}
                         </div>

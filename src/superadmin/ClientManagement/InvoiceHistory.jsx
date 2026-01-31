@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaFileInvoiceDollar, FaArrowLeft, FaEye, FaSearch, FaTrash } from "react-icons/fa";
+import Loader from "../../components/Loader/Loader";
 import "./GenerateInvoice.css"; // Reusing existing styles
 
 const InvoiceHistory = () => {
@@ -17,7 +18,7 @@ const InvoiceHistory = () => {
     const fetchInvoices = async () => {
         setLoading(true);
         try {
-            const res = await axios.get("http://localhost:1981/api/superadmin/data/all-invoices");
+            const res = await axios.get("https://nxorsystems-backend-xglw.onrender.com/api/superadmin/data/all-invoices");
             if (res.data.success) {
                 setInvoices(res.data.data);
             }
@@ -38,7 +39,7 @@ const InvoiceHistory = () => {
         }
 
         try {
-            const res = await axios.delete(`http://localhost:1981/api/superadmin/data/invoice/${id}`);
+            const res = await axios.delete(`https://nxorsystems-backend-xglw.onrender.com/api/superadmin/data/invoice/${id}`);
             if (res.data.success) {
                 // Remove from state immediately
                 setInvoices(prev => prev.filter(inv => inv._id !== id));
@@ -105,7 +106,9 @@ const InvoiceHistory = () => {
 
                 <div className="hc-list" style={{ maxHeight: 'calc(100vh - 250px)' }}>
                     {loading ? (
-                        <div className="empty-text">Loading history...</div>
+                        <div style={{ padding: '3rem', display: 'flex', justifyContent: 'center' }}>
+                            <Loader />
+                        </div>
                     ) : filteredInvoices.length === 0 ? (
                         <div className="empty-text">No invoices found.</div>
                     ) : (
@@ -120,7 +123,7 @@ const InvoiceHistory = () => {
                                     <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>ID: #{inv._id.slice(-6).toUpperCase()}</span>
                                 </div>
                                 <div className="hc-meta">
-                                    <span className="hc-amount">₹{inv.amount.toLocaleString()}</span>
+                                    <span className="hc-amount">â‚¹{inv.amount.toLocaleString()}</span>
                                     <span className={`hc-status ${inv.status.toLowerCase()}`}>
                                         {inv.status}
                                     </span>
@@ -147,3 +150,4 @@ const InvoiceHistory = () => {
 };
 
 export default InvoiceHistory;
+

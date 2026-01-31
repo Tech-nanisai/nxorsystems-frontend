@@ -1,4 +1,4 @@
-//frontend/src/client/Auth/ResetPassword/ResetPassword.jsx
+﻿//frontend/src/client/Auth/ResetPassword/ResetPassword.jsx
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -23,7 +23,7 @@ const ResetPassword = () => {
         try {
             // Updated API Endpoint & Payload
             const response = await axios.post(
-                "http://localhost:1981/api/client/auth/reset-password",
+                "https://nxorsystems-backend-xglw.onrender.com/api/client/auth/reset-password",
                 {
                     token: token,
                     password: newPassword
@@ -84,3 +84,4 @@ const ResetPassword = () => {
 };
 
 export default ResetPassword;
+

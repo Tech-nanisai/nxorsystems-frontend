@@ -1,4 +1,4 @@
-// frontend/src/client/Payments/Payments.jsx
+﻿// frontend/src/client/Payments/Payments.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -21,7 +21,7 @@ const Payments = () => {
   useEffect(() => {
     const fetchInvoices = async () => {
       try {
-        const res = await axios.get("http://localhost:1981/api/client/dashboard/invoices", {
+        const res = await axios.get("https://nxorsystems-backend-xglw.onrender.com/api/client/dashboard/invoices", {
           headers: { Authorization: `Bearer ${clientToken}` }
         });
         if (res.data.success) {
@@ -129,10 +129,10 @@ const Payments = () => {
                       })}
                     </td>
                     <td className="amount-cell" style={{ color: '#dc2626' }}>
-                      ₹{inv.dueAmount?.toLocaleString() || "0"}
+                      â‚¹{inv.dueAmount?.toLocaleString() || "0"}
                     </td>
                     <td className="amount-cell">
-                      ₹{inv.amount.toLocaleString()}
+                      â‚¹{inv.amount.toLocaleString()}
                     </td>
                     <td>
                       <span className={`status-pill ${getStatusClass(inv.status)}`}>
@@ -161,7 +161,7 @@ const Payments = () => {
 
                         {status === 'paid' && (
                           <div className="fully-paid-badge">
-                            <span style={{ marginRight: '4px' }}>✓</span> Fully Paid
+                            <span style={{ marginRight: '4px' }}>âœ“</span> Fully Paid
                           </div>
                         )}
                       </div>
@@ -189,7 +189,7 @@ const Payments = () => {
 
             <div className="pm-amount-box">
               <span>Total Payable Amount</span>
-              <h3>₹ {selectedInvoice.dueAmount?.toLocaleString()}</h3>
+              <h3>â‚¹ {selectedInvoice.dueAmount?.toLocaleString()}</h3>
             </div>
 
             <div className="pm-methods" style={{ textAlign: 'center' }}>
@@ -215,7 +215,7 @@ const Payments = () => {
 
                 {/* UPI ID */}
                 <div style={{ marginTop: '15px', fontSize: '0.9rem', color: '#334155', fontWeight: '500' }}>
-                  <span style={{ color: '#eab308', marginRight: '5px' }}>▶</span>
+                  <span style={{ color: '#eab308', marginRight: '5px' }}>â–¶</span>
                   9948946658@pthdfc
                 </div>
               </div>
