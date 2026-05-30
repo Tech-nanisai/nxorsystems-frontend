@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { FaFileInvoiceDollar, FaPlus, FaTimes, FaProjectDiagram } from "react-icons/fa";
+import { FaFileInvoiceDollar, FaPlus, FaTimes, FaProjectDiagram, FaRupeeSign } from "react-icons/fa";
 import "./GenerateInvoice.css";
 
 const GenerateInvoice = ({ isModal = false, onSuccess }) => {
@@ -146,7 +146,7 @@ const GenerateInvoice = ({ isModal = false, onSuccess }) => {
           {/* FINANCIALS */}
           <div className="GenerateInvoice-form-row">
             <div className="GenerateInvoice-input-group">
-              <label className="GenerateInvoice-field-label">Total Amount (â‚¹)</label>
+              <label className="GenerateInvoice-field-label">Total Amount (₹)</label>
               <input
                 type="number"
                 name="amount"
@@ -191,16 +191,16 @@ const GenerateInvoice = ({ isModal = false, onSuccess }) => {
           <div className="GenerateInvoice-summary-box">
             <div className="GenerateInvoice-summary-row">
               <span>Total Bill:</span>
-              <span>â‚¹ {parseFloat(invoiceData.amount || 0).toFixed(2)}</span>
+              <span><FaRupeeSign size={10} /> {parseFloat(invoiceData.amount || 0).toFixed(2)}</span>
             </div>
             <div className="GenerateInvoice-summary-row">
               <span>Paid / Advance:</span>
-              <span style={{ color: '#10b981' }}>- â‚¹ {parseFloat(invoiceData.paidAmount || 0).toFixed(2)}</span>
+              <span style={{ color: '#10b981' }}>- <FaRupeeSign size={10} /> {parseFloat(invoiceData.paidAmount || 0).toFixed(2)}</span>
             </div>
             <div className="GenerateInvoice-summary-row total">
               <span>Balance Due:</span>
               <span style={{ color: dueAmount > 0 ? '#ef4444' : '#10b981' }}>
-                â‚¹ {dueAmount.toFixed(2)}
+                <FaRupeeSign size={10} /> {dueAmount.toFixed(2)}
               </span>
             </div>
           </div>

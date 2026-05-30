@@ -38,7 +38,7 @@
 
 //   // Fallback for other roles (e.g. Student)
 //   // Expand logic here if needed for students
-  
+
 //   return <Navigate to="/" replace />;
 // };
 
@@ -75,9 +75,9 @@ const RoleBasedRoute = ({ allowed, allowedRoles, children }) => {
     return children ? <>{children}</> : <Outlet />;
   }
 
-  // --- LOGIC FOR SUPER ADMIN / ADMIN / STUDENT ROUTES ---
+  // --- LOGIC FOR SUPER ADMIN / ADMIN / USER ROUTES ---
   // (Uses original AuthContext)
-  if (rolesAllowed.some(r => ["superadmin", "admin", "student"].includes(r))) {
+  if (rolesAllowed.some(r => ["superadmin", "admin", "user"].includes(r))) {
     if (saContext.loading) {
       return (
         <div className="rb-route-loading-wrapper">
@@ -87,7 +87,7 @@ const RoleBasedRoute = ({ allowed, allowedRoles, children }) => {
     }
     // Check if user matches role in AuthContext
     if (!saContext.token || !rolesAllowed.includes(saContext.userRole)) {
-      return <Navigate to="/" replace />; 
+      return <Navigate to="/" replace />;
     }
     return children ? <>{children}</> : <Outlet />;
   }

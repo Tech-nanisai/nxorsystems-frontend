@@ -1,9 +1,10 @@
 // frontend/src/components/TopNavbar/TopNavbar.jsx
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { FaBars, FaTimes, FaUserCircle, FaChevronDown, FaSignInAlt, FaUserShield, FaUserGraduate, FaUserTie } from "react-icons/fa";
+import { FaBars, FaTimes, FaUserCircle, FaChevronDown, FaSignInAlt, FaUserShield, FaUserTie, FaUser } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import Sidebar from "../SideNavbar/SideNavbar.jsx";
+import CompanyLogoLight from "../../assets/logos/nxor-logo.png";
 import CompanyLogoDark from "../../assets/logos/nxor-logo-dark.png";
 import "./TopNavbar.css";
 import { useAuth } from "../../context/AuthContext";
@@ -17,7 +18,7 @@ const Topbar = () => {
   const [showProfileCard, setShowProfileCard] = useState(false);
 
   // Auth & Routing
-  const { userRole, superAdmin, admin, client, student } = useAuth();
+  const { userRole, getActiveUser } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const profileAreaRef = useRef(null);
@@ -50,16 +51,12 @@ const Topbar = () => {
   }, [showProfileCard, isAuthOpen]);
 
   // Determine Active User
-  let activeUser = null;
-  if (userRole === "superadmin") activeUser = superAdmin;
-  else if (userRole === "admin") activeUser = admin;
-  else if (userRole === "client") activeUser = client;
-  else if (userRole === "student") activeUser = student;
+  const activeUser = getActiveUser();
 
   // Get Greeting Name
   const getGreetingName = () => {
     if (!activeUser) return "";
-    const name = activeUser.fullName || activeUser.fullname || activeUser.name || activeUser.clientId || activeUser.studentId || "";
+    const name = activeUser.fullName || activeUser.fullname || activeUser.name || activeUser.clientId || "";
     return name.trim().split(" ").pop().toUpperCase();
   };
   const greetingName = getGreetingName();
@@ -97,17 +94,14 @@ const Topbar = () => {
         <div className="TopNavbar-content">
 
           {/* LOGO AREA */}
-          {/* LOGO AREA */}
-          <Link to="/" className="TopNavbar-logo-wrapper">
+          <Link to="/" className="TopNavbar-logo-wrapper" style={{ flexDirection: "column", gap: "2px", alignItems: "center" }}>
             <img
               src={CompanyLogoDark}
               className="TopNavbar-logo-img"
               alt="NXOR Systems"
+              style={{ height: "36px" }}
             />
-            {/* <div className="TopNavbar-company-text">
-              <span className="TopNavbar-brand-primary">NXOR</span>
-              <span className="TopNavbar-brand-secondary">SYSTEMS</span>
-            </div> */}
+            <span style={{ fontSize: "9px", fontWeight: "700", color: "var(--nav-text-secondary)", letterSpacing: "5.5px", marginRight: "-5.5px", textTransform: "uppercase" }}>SYSTEMS</span>
           </Link>
 
           {/* DESKTOP MENU */}
@@ -136,11 +130,9 @@ const Topbar = () => {
                     exit="exit"
                     transition={{ duration: 0.2 }}
                   >
-                    <Link to="/servicelearn" className="TopNavbar-dropdown-item">Learn Port</Link>
-                    <Link to="/servicesUIUX" className="TopNavbar-dropdown-item">UI/UX Design</Link>
-                    <Link to="/servicesweb" className="TopNavbar-dropdown-item">Web Application</Link>
-                    <Link to="/servicesAPIs" className="TopNavbar-dropdown-item">API Development</Link>
-                    <Link to="/servicesmaintanance" className="TopNavbar-dropdown-item">Maint. & Support</Link>
+                    <Link to="/services/entertainment" className="TopNavbar-dropdown-item">Entertainment Reels</Link>
+                    <Link to="/services/designs" className="TopNavbar-dropdown-item">Creative Designs & Posters</Link>
+                    <Link to="/services/platforms" className="TopNavbar-dropdown-item">Technical Business Platforms</Link>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -148,9 +140,6 @@ const Topbar = () => {
 
             <Link to="/portfolio" className={`TopNavbar-link ${isActive("/portfolio") ? "TopNavbar-active" : ""}`}>
               Portfolio
-            </Link>
-            <Link to="/testimonials" className={`TopNavbar-link ${isActive("/testimonials") ? "TopNavbar-active" : ""}`}>
-              Testimonials
             </Link>
             <Link to="/contact" className={`TopNavbar-link ${isActive("/contact") ? "TopNavbar-active" : ""}`}>
               Contact
@@ -210,9 +199,9 @@ const Topbar = () => {
                         <div className="TopNavbar-auth-icon-box"><FaUserTie /></div>
                         <span>Client Login</span>
                       </div>
-                      <div className="TopNavbar-auth-item" onClick={() => handleLoginSelect("/student/signIn")}>
-                        <div className="TopNavbar-auth-icon-box"><FaUserGraduate /></div>
-                        <span>Student Login</span>
+                      <div className="TopNavbar-auth-item" onClick={() => handleLoginSelect("/user/signIn")}>
+                        <div className="TopNavbar-auth-icon-box"><FaUser /></div>
+                        <span>User Login</span>
                       </div>
                       <div className="TopNavbar-auth-item" onClick={() => handleLoginSelect("/admin/signIn")}>
                         <div className="TopNavbar-auth-icon-box"><FaUserShield /></div>

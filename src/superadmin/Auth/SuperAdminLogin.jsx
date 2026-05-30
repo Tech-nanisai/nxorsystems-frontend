@@ -1,4 +1,4 @@
-﻿// import React, { useState } from "react";
+// import React, { useState } from "react";
 // import axios from "axios";
 // import { useAuth } from "../../context/AuthContext";
 // import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -8,7 +8,7 @@
 
 // const SuperAdminLogin = () => {
 //   const { loginSuperAdmin } = useAuth();
-  
+
 //   const [email, setEmail] = useState("");
 //   const [password, setPassword] = useState("");
 //   const [showPwd, setShowPwd] = useState(false);
@@ -98,6 +98,7 @@ import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./SuperAdminLogin.css";
+import CompanyLogoDark from "../../assets/logos/nxor-logo-dark.png";
 
 const API = "https://nxorsystems-backend-xglw.onrender.com";
 
@@ -147,6 +148,12 @@ const SuperAdminLogin = () => {
   return (
     <div className="superadminLogin-container">
       <form className="superadminLogin-box" onSubmit={handleLogin}>
+        <div style={{ textAlign: "center", marginBottom: "20px" }}>
+          <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+            <img src={CompanyLogoDark} alt="NXOR" style={{ height: "36px", objectFit: "contain" }} />
+            <span style={{ fontSize: '9px', fontWeight: 600, color: '#4b5563', letterSpacing: '5.5px', marginRight: '-5.5px', textTransform: 'uppercase' }}>SYSTEMS</span>
+          </div>
+        </div>
         <h2 className="superadminLogin-heading">Super Admin Login</h2>
 
         <label className="superadminLogin-label">Email</label>
@@ -179,7 +186,7 @@ const SuperAdminLogin = () => {
         </button>
 
         <p className="superadminLogin-switchText">
-          Donâ€™t have an account?{" "}
+          Don't have an account?{" "}
           <a href="/superadmin/register" className="superadminLogin-link">
             Create Super Admin
           </a>

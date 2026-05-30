@@ -1,131 +1,271 @@
-/* Global Colors */
-:root {
-    --black-color: #000;
-    --yellow-color: #ffd700;
-    --text-color: #ebebeb;
-  }
-  
-  /* Footer Styles */
-  .footer {
-    background-color: var(--black-color);
-    color: var(--text-color);
-    padding: 40px 20px;
-    text-align: left;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-  }
-  
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+/* =========================================
+   LUXURY LIGHT-THEME GLASSMORPHISM FOOTER
+   ========================================= */
+
+.footer-container {
+    --footer-bg: #f8fafc; /* Premium clean light slate background */
+    --footer-text-main: #0f172a; /* Deep rich corporate slate text */
+    --footer-text-muted: #475569; /* Refined steel slate */
+    --footer-accent: #2563eb; /* Corporate royal brand blue */
+    --footer-border: 1px solid rgba(15, 23, 42, 0.05); /* Subtly defined soft light edge */
+    
+    background-color: var(--footer-bg);
+    color: var(--footer-text-muted);
+    padding: 100px 24px 40px;
+    position: relative;
+    overflow: hidden;
+    border-top: var(--footer-border);
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Glassmorphic Ambient Orbs */
+.footer-glow-orb {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.55;
+    transition: transform 10s ease-in-out;
+}
+
+.footer-orb-1 {
+    bottom: -100px;
+    left: -80px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+}
+
+.footer-orb-2 {
+    top: -100px;
+    right: -80px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.07) 0%, transparent 70%);
+}
+
+/* Grid Layout */
+.footer-content-grid {
     max-width: 1200px;
-    margin: auto;
-  }
-  
-  .footer-section {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px;
-  }
-  
-  .footer-logo {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .footer-company-name {
-    color: var(--yellow-color);
-    font-size: 1.6rem;
-    margin: 10px 0;
-  }
-  
-  .footer-description {
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-  
-  .footer-title {
-    font-size: 1.1rem;
-    color: var(--yellow-color);
-    margin-bottom: 10px;
-  }
-  
-  .footer-list,
-  .footer-submenu {
+    margin: 0 auto 60px;
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Brand block */
+.footer-brand-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    margin-bottom: 24px;
+}
+
+.footer-brand-desc {
+    line-height: 1.7;
+    margin-bottom: 30px;
+    font-size: 0.98rem;
+    color: var(--footer-text-muted);
+    max-width: 340px;
+}
+
+/* Premium Dynamic Social links */
+.footer-social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-social-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    background: rgba(15, 23, 42, 0.03);
+    border: 1px solid rgba(15, 23, 42, 0.05);
+    color: var(--footer-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-social-icon:hover {
+    color: #ffffff;
+    transform: translateY(-4px) scale(1.05);
+    border-color: transparent;
+}
+
+.footer-social-icon.whatsapp:hover {
+    background: #25d366;
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.22);
+}
+
+.footer-social-icon.insta:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aec 90%);
+    box-shadow: 0 10px 20px rgba(214, 36, 159, 0.22);
+}
+
+.footer-social-icon.linkedin:hover {
+    background: #0077b5;
+    box-shadow: 0 10px 20px rgba(0, 119, 181, 0.22);
+}
+
+.footer-social-icon.twitter:hover {
+    background: #0f172a;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.22);
+}
+
+.footer-social-icon.youtube:hover {
+    background: #ff0000;
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.22);
+}
+
+/* Links & contact column */
+.footer-links-column h3 {
+    color: var(--footer-text-main);
+    font-size: 1.05rem;
+    font-weight: 750;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.footer-links-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 18px;
+    height: 2px;
+    background: var(--footer-accent);
+    border-radius: 4px;
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-links-column:hover h3::after {
+    width: 30px;
+}
+
+.footer-links-list {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  
-  .footer-list-item,
-  .footer-submenu-item {
-    font-size: 0.9rem;
-    margin-bottom: 5px;
-    cursor: pointer;
-  }
-  
-  .footer-list-item:hover,
-  .footer-submenu-item:hover {
-    color: var(--yellow-color);
-    text-decoration: underline;
-  }
-  
-  .footer-icons {
+}
+
+.footer-links-list li {
+    margin-bottom: 14px;
+}
+
+.footer-links-list a {
+    color: var(--footer-text-muted);
+    text-decoration: none;
+    transition: all 0.25s ease;
+    font-size: 0.96rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.footer-links-list a:hover {
+    color: var(--footer-accent);
+    transform: translateX(4px);
+}
+
+.footer-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contact-list li {
     display: flex;
-    gap: 15px;
-    margin-top: 10px;
-  }
-  
-  .footer-icon {
-    color: var(--text-color);
-    font-size: 1.5rem;
-    transition: color 0.3s;
-  }
-  
-  .footer-icon:hover {
-    color: var(--yellow-color);
-  }
-  
-  .footer-bottom {
-    text-align: center;
-    border-top: 1px solid var(--yellow-color);
-    padding-top: 20px;
-    margin-top: 20px;
-  }
-  
-  .footer-copy {
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.footer-contact-list a {
+    color: var(--footer-text-muted);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.footer-contact-list a:hover {
+    color: var(--footer-accent);
+}
+
+.contact-icon {
+    font-size: 14px;
+    color: var(--footer-accent);
+    flex-shrink: 0;
+}
+
+/* Bottom bar */
+.footer-bottom-bar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 40px;
+    border-top: var(--footer-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
     font-size: 0.9rem;
-  }
-  
-  /* Media Queries */
-  @media (max-width: 768px) {
+    color: var(--footer-text-muted);
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-bottom-links a {
+    color: var(--footer-text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-weight: 500;
+}
+
+.footer-bottom-links a:hover {
+    color: var(--footer-accent);
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+    .footer-content-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
     .footer-container {
-      flex-direction: column;
-      align-items: center;
+        padding: 80px 16px 30px;
     }
-  
-    .footer-section {
-      text-align: center;
+    .footer-content-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
     }
-  }
-  
-  @media (max-width: 480px) {
-    .footer-logo {
-      width: 50px;
-      height: 50px;
+    .footer-bottom-bar {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
     }
-  
-    .footer-company-name {
-      font-size: 1.3rem;
+    .footer-social-links {
+        justify-content: flex-start;
+        flex-wrap: wrap;
     }
-  
-    .footer-icon {
-      font-size: 1.3rem;
-    }
-  
-    .footer-copy {
-      font-size: 0.8rem;
-    }
-  }
-  
+}

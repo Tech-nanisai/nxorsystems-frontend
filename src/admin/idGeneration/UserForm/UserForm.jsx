@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './UserForm.css'
 
 const UserForm = ({ onAdd }) => {
-  const [userType, setUserType] = useState('student');
+  const [userType, setUserType] = useState('client');
   const [name, setName] = useState('');
 
   const handleSubmit = () => {
@@ -19,7 +19,6 @@ const UserForm = ({ onAdd }) => {
   return (
     <div className='user-form-container'>
       <select className='user-form-container-select' onChange={(e) => setUserType(e.target.value)} value={userType}>
-        <option value="student">Student</option>
         <option value="client">Client</option>
       </select>
       <input

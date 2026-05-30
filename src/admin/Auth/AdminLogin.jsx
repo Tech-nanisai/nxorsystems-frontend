@@ -1,8 +1,9 @@
-﻿import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./AdminLogin.css";
+import CompanyLogoDark from "../../assets/logos/nxor-logo-dark.png";
 
 const API = "https://nxorsystems-backend-xglw.onrender.com";
 
@@ -17,7 +18,7 @@ const AdminLogin = () => {
 
   const [firstAdminExists, setFirstAdminExists] = useState(true);
 
-  // ðŸ”¥ Check if admin exists
+  // 🔥 Check if admin exists
   useEffect(() => {
     const checkAdmin = async () => {
       try {
@@ -74,10 +75,16 @@ const AdminLogin = () => {
   return (
     <div className="superAdmin-container">
       <form onSubmit={handleSubmit} className="superAdmin-box">
+        <div style={{ textAlign: "center", marginBottom: "20px" }}>
+          <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+            <img src={CompanyLogoDark} alt="NXOR" style={{ height: "36px", objectFit: "contain" }} />
+            <span style={{ fontSize: '9px', fontWeight: 600, color: '#4b5563', letterSpacing: '5.5px', marginRight: '-5.5px', textTransform: 'uppercase' }}>SYSTEMS</span>
+          </div>
+        </div>
 
         <h2 className="superAdmin-heading">Admin Login</h2>
 
-        {/* ðŸ”¥ Show if admin does NOT exist */}
+        {/* 🔥 Show if admin does NOT exist */}
         {!firstAdminExists && (
           <div className="superAdmin-warningBox">
             <p className="superAdmin-warningText">
@@ -93,7 +100,7 @@ const AdminLogin = () => {
           </div>
         )}
 
-        {/* If admin exists â†’ show login form */}
+        {/* If admin exists -> show login form */}
         {firstAdminExists && (
           <>
             <label className="superAdmin-label">Email</label>

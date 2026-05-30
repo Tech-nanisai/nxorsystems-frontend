@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { FaPrint, FaArrowLeft, FaSpinner } from "react-icons/fa";
+import { FaPrint, FaArrowLeft, FaSpinner, FaTimes, FaRupeeSign } from "react-icons/fa";
 import { useClientAuth } from "../../context/ClientAuthContext";
 import "./InvoiceDetails.css";
 
@@ -81,7 +81,7 @@ const InvoiceDetails = () => {
         <div className="right-actions" style={{ display: 'flex', gap: '1rem' }}>
           {isPayable && (
             <button className="pay-now-action-btn" onClick={() => openPaymentModal(invoice)}>
-              <span style={{ marginRight: '8px' }}>ðŸ’³</span> Pay Now
+              <span style={{ marginRight: '8px' }}>💳</span> Pay Now
             </button>
           )}
           <button className="print-btn" onClick={() => window.print()}>
@@ -129,22 +129,22 @@ const InvoiceDetails = () => {
           <tbody>
             <tr>
               <td>Professional Services / Project Payment</td>
-              <td className="right">â‚¹{invoice.amount.toLocaleString()}</td>
+              <td className="right">₹{invoice.amount.toLocaleString()}</td>
             </tr>
             {/* If you had detailed line items in DB, map them here. Currently generic. */}
           </tbody>
           <tfoot>
             <tr>
               <td>Total Amount</td>
-              <td className="right">â‚¹{invoice.amount.toLocaleString()}</td>
+              <td className="right">₹{invoice.amount.toLocaleString()}</td>
             </tr>
             <tr>
               <td>Paid / Advance</td>
-              <td className="right" style={{ color: '#15803d' }}>(-) â‚¹{(invoice.paidAmount || 0).toLocaleString()}</td>
+              <td className="right" style={{ color: '#15803d' }}>(-) ₹{(invoice.paidAmount || 0).toLocaleString()}</td>
             </tr>
             <tr className="grand-total">
               <td>Balance Due</td>
-              <td className="right">â‚¹{(invoice.dueAmount || invoice.amount).toLocaleString()}</td>
+              <td className="right">₹{(invoice.dueAmount || invoice.amount).toLocaleString()}</td>
             </tr>
           </tfoot>
         </table>
@@ -160,7 +160,7 @@ const InvoiceDetails = () => {
         <div className="payment-modal-overlay">
           <div className="payment-modal-content">
             <button className="modal-close-icon" onClick={closePaymentModal}>
-              âœ•
+              <FaTimes />
             </button>
             <div className="pm-header">
               <h2>Secure Payment</h2>
@@ -169,7 +169,7 @@ const InvoiceDetails = () => {
             <div className="pm-amount-box">
               <span>Total Payable Amount</span>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px', marginTop: '5px' }}>
-                <span style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#2563eb' }}>â‚¹</span>
+                <span style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#2563eb' }}>₹</span>
                 <input
                   type="number"
                   value={payAmount}
@@ -211,7 +211,7 @@ const InvoiceDetails = () => {
 
                 {/* UPI ID */}
                 <div style={{ marginTop: '15px', fontSize: '0.9rem', color: '#334155', fontWeight: '500' }}>
-                  <span style={{ color: '#eab308', marginRight: '5px' }}>â–¶</span>
+                  <span style={{ color: '#eab308', marginRight: '5px' }}>▶</span>
                   9948946658@pthdfc
                 </div>
               </div>

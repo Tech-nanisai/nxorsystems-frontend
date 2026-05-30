@@ -1,0 +1,239 @@
+/* frontend/src/superadmin/ClientManagement/FlagshipOfferingCustomizer.css */
+
+.FlagshipOfferingCustomizer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1e293b;
+  background-color: #f8fafc;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.FlagshipOfferingCustomizer-header {
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.FlagshipOfferingCustomizer-subtitle {
+  font-size: 0.85rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.FlagshipOfferingCustomizer-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+}
+
+.FlagshipOfferingCustomizer-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+  background: rgba(37, 99, 235, 0.08);
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+}
+
+.FlagshipOfferingCustomizer-back-btn:hover {
+  background: #2563eb;
+  color: white;
+  transform: translateX(-4px);
+}
+
+.FlagshipOfferingCustomizer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.FlagshipOfferingCustomizer-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}
+
+.FlagshipOfferingCustomizer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.FlagshipOfferingCustomizer-slide-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #2563eb;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 6px 16px;
+  border-bottom-left-radius: 12px;
+}
+
+.FlagshipOfferingCustomizer-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.FlagshipOfferingCustomizer-image-preview-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.FlagshipOfferingCustomizer-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.FlagshipOfferingCustomizer-placeholder-img {
+  color: #64748b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.FlagshipOfferingCustomizer-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.FlagshipOfferingCustomizer-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.FlagshipOfferingCustomizer-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: all 0.2s;
+  color: #0f172a;
+  background: #ffffff;
+}
+
+.FlagshipOfferingCustomizer-input:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.FlagshipOfferingCustomizer-textarea {
+  width: 100%;
+  height: 80px;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  resize: none;
+  transition: all 0.2s;
+  color: #0f172a;
+  background: #ffffff;
+}
+
+.FlagshipOfferingCustomizer-textarea:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.FlagshipOfferingCustomizer-select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: all 0.2s;
+  color: #0f172a;
+  background: #ffffff;
+}
+
+.FlagshipOfferingCustomizer-select:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+.FlagshipOfferingCustomizer-submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.FlagshipOfferingCustomizer-submit-btn:hover:not(:disabled) {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+}
+
+.FlagshipOfferingCustomizer-submit-btn:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.FlagshipOfferingCustomizer-loading-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}

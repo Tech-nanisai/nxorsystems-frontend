@@ -1,6 +1,6 @@
 ﻿import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { FaClipboardList, FaCheckCircle, FaExclamationCircle, FaInfoCircle, FaBolt } from "react-icons/fa";
+import { FaClipboardList, FaCheckCircle, FaExclamationCircle, FaInfoCircle, FaBolt, FaInbox } from "react-icons/fa";
 import { motion } from "framer-motion";
 import "./Updates.css";
 
@@ -53,7 +53,7 @@ const Updates = () => {
                     <div className="updates-loader">Loading updates...</div>
                 ) : updates.length === 0 ? (
                     <div className="no-updates">
-                        <div className="no-updates-icon">ðŸ“­</div>
+                        <div className="no-updates-icon"><FaInbox /></div>
                         <h3>No Recent Updates</h3>
                         <p>System activities like invoices, ID generation, or client changes will appear here.</p>
                     </div>

@@ -1,8 +1,9 @@
-﻿//frontend/src/context/AuthContext.jsx
+//frontend/src/context/AuthContext.jsx
 
 import { createContext, useContext, useEffect, useState } from "react";
-
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+
 
 
 
@@ -23,12 +24,10 @@ export const AuthProvider = ({ children }) => {
 
 
   const [superAdmin, setSuperAdmin] = useState(null);
-
   const [admin, setAdmin] = useState(null);
-
   const [client, setClient] = useState(null);
+  const [generalUser, setGeneralUser] = useState(null);
 
-  const [student, setStudent] = useState(null);
 
 
 
@@ -162,36 +161,37 @@ export const AuthProvider = ({ children }) => {
   // --------------------------------------------------
 
   useEffect(() => {
-
     const restore = async () => {
-
       const savedRole = sessionStorage.getItem("USER_ROLE");
 
-      const savedToken = sessionStorage.getItem("TOKEN");
-
-
-
-      if (savedRole && savedToken) {
-
-        setUserRole(savedRole);
-
-        setToken(savedToken);
-
-        await fetchUserFromServer(savedRole, savedToken);
-
+      if (savedRole === "user") {
+        const savedUser = sessionStorage.getItem("active_user");
+        const userToken = Cookies.get("user_auth_token");
+        if (savedUser && userToken) {
+          try {
+            const parsed = JSON.parse(savedUser);
+            setGeneralUser(formatUser(parsed));
+            setUserRole("user");
+            setToken(userToken);
+          } catch (e) {
+            console.error("Error restoring general user session:", e);
+          }
+        }
+      } else {
+        const savedToken = sessionStorage.getItem("TOKEN");
+        if (savedRole && savedToken) {
+          setUserRole(savedRole);
+          setToken(savedToken);
+          await fetchUserFromServer(savedRole, savedToken);
+        }
       }
 
-
-
       setLoading(false);
-
     };
 
-
-
     restore();
-
   }, []);
+
 
 
 
@@ -253,6 +253,26 @@ export const AuthProvider = ({ children }) => {
     navigate("/client/dashboard");
   };
 
+  // --------------------------------------------------
+  // LOGIN GENERAL USER
+  // --------------------------------------------------
+  const loginGeneralUser = (userData, jwtToken) => {
+    Cookies.set("user_auth_token", jwtToken, {
+      expires: 7,
+      secure: false,
+      sameSite: "Lax",
+    });
+    sessionStorage.setItem("active_user", JSON.stringify(userData));
+    sessionStorage.setItem("USER_ROLE", "user");
+
+    setUserRole("user");
+    setToken(jwtToken);
+    setGeneralUser(formatUser(userData));
+
+    navigate("/user");
+  };
+
+
 
 
   // --------------------------------------------------
@@ -281,25 +301,39 @@ export const AuthProvider = ({ children }) => {
 
   // --------------------------------------------------
 
+  // UPDATE GENERAL USER LOCALLY
+
+  // --------------------------------------------------
+
+  const updateGeneralUserProfile = (partialUpdate) => {
+    setGeneralUser((prev) => {
+      const updated = formatUser({
+        ...(prev || {}),
+        ...partialUpdate,
+      });
+      sessionStorage.setItem("active_user", JSON.stringify(updated));
+      return updated;
+    });
+  };
+
+
+
+
+  // --------------------------------------------------
+
   // GET ACTIVE USER (topbar, sidebar, profile, etc.)
 
   // --------------------------------------------------
 
   const getActiveUser = () => {
-
     return {
-
       superadmin: superAdmin,
-
       admin,
-
       client,
-
-      student,
-
+      user: generalUser,
     }[userRole];
-
   };
+
 
 
 
@@ -310,28 +344,19 @@ export const AuthProvider = ({ children }) => {
   // --------------------------------------------------
 
   const logout = () => {
-
+    Cookies.remove("user_auth_token");
     sessionStorage.clear();
 
-
-
     setUserRole(null);
-
     setToken(null);
-
     setSuperAdmin(null);
-
     setAdmin(null);
-
     setClient(null);
-
-    setStudent(null);
-
-
+    setGeneralUser(null);
 
     navigate("/");
-
   };
+
 
 
 
@@ -342,27 +367,22 @@ export const AuthProvider = ({ children }) => {
       value={{
 
         userRole,
-
         token,
-
         superAdmin,
-
         admin,
-
         client,
-
-        student,
-
+        generalUser,
         loading,
-
-
 
         loginSuperAdmin,
         loginClient,
+        loginGeneralUser,
         updateSuperAdminProfile,
+        updateGeneralUserProfile,
         fetchUserFromServer,
         getActiveUser,
         logout,
+
 
       }}
 

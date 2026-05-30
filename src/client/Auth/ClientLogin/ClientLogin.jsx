@@ -1,8 +1,9 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaCheckCircle } from "react-icons/fa";
 import "./ClientLogin.css";
+import CompanyLogoDark from "../../../assets/logos/nxor-logo-dark.png";
 
 // 1. IMPORT THE LOADER
 import Loader from "../../../components/NXORLoader/Loader";
@@ -107,7 +108,7 @@ const ClientLogin = () => {
   };
 
   return (
-    <div className="clientsignin-container">
+    <div className="clientsignin-container page-fade-in">
       <div className="clientsignin-card">
 
         {/* 3. CONDITIONAL RENDERING: SHOW LOADER OR FORM */}
@@ -124,8 +125,11 @@ const ClientLogin = () => {
           </div>
         ) : (
           <>
-            <div className="clientsignin-header">
-              <img src="/src/assets/logos/nxor-logo-dark.png" alt="NXOR Systems" className="clientsignin-logo" />
+            <div className="clientsignin-header" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px', marginBottom: '16px' }}>
+                <img src={CompanyLogoDark} alt="NXOR Systems" style={{ height: '36px', objectFit: 'contain' }} />
+                <span style={{ fontSize: '9px', fontWeight: 600, color: '#4b5563', letterSpacing: '4px', textTransform: 'uppercase', paddingLeft: '4px' }}>SYSTEMS</span>
+              </div>
               <h2 className="clientsignin-title">Client Login</h2>
               <p className="clientsignin-subtitle">Secure access to your portal</p>
             </div>

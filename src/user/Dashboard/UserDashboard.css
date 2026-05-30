@@ -1,0 +1,2219 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+/* --- GLOBAL DISPLAY HEADERS & TYPOGRAPHY --- */
+.UserDashboard-carousel-title,
+.UserDashboard-hero-title,
+.UserDashboard-showroom-title,
+.UserDashboard-inner-title,
+.UserDashboard-profile-name-header,
+.UserDashboard-reel-ad-body h3,
+.UserDashboard-poster-ad-body h3 {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* --- PAGE CONTAINER --- */
+.UserDashboard-page-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: #ffffff;
+  /* pure white background */
+  color: #0f172a;
+  padding: 40px 24px 60px;
+  /* pull content up since TopNavbar is hidden on this path */
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  letter-spacing: -0.1px;
+}
+
+/* --- LUXURIOUS GLOW ORBS (Subtle spatial depth) --- */
+.UserDashboard-glow-orb-1 {
+  display: block !important;
+  position: fixed;
+  top: -10%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.035) 0%, rgba(37, 99, 235, 0) 70%);
+  filter: blur(140px);
+  z-index: 1;
+  pointer-events: none;
+  animation: UserDashboard-float-slow 20s ease-in-out infinite alternate;
+}
+
+.UserDashboard-glow-orb-2 {
+  display: block !important;
+  position: fixed;
+  bottom: -10%;
+  left: -10%;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(219, 39, 119, 0.025) 0%, rgba(219, 39, 119, 0) 70%);
+  filter: blur(140px);
+  z-index: 1;
+  pointer-events: none;
+  animation: UserDashboard-float-slow 25s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes UserDashboard-float-slow {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    transform: translateY(30px) scale(1.08);
+  }
+}
+
+.UserDashboard-content-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* --- LOADING SPINNER --- */
+.UserDashboard-loading-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+}
+
+.UserDashboard-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f1f5f9;
+  border-top: 4px solid #2563eb;
+  border-radius: 50%;
+  animation: UserDashboard-spin 1s linear infinite;
+}
+
+@keyframes UserDashboard-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- HERO WELCOME CARD --- */
+.UserDashboard-hero-section {
+  width: 100%;
+}
+
+.UserDashboard-hero-card {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 32px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+}
+
+.UserDashboard-hero-card::before {
+  display: none;
+}
+
+.UserDashboard-hero-avatar-area {
+  flex-shrink: 0;
+}
+
+.UserDashboard-hero-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f1f5f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.UserDashboard-hero-avatar-initials {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #db2777);
+  color: white;
+  font-size: 32px;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.UserDashboard-hero-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.UserDashboard-hero-welcome-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #b45309;
+  background: #fef3c7;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  border: 1px solid #fde68a;
+}
+
+.UserDashboard-hero-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+  color: #0f172a;
+}
+
+.UserDashboard-hero-desc {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #475569;
+  margin: 0;
+  max-width: 700px;
+}
+
+/* --- TAB CONTENT PANELS --- */
+.UserDashboard-tab-view {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+/* ========================================================
+   SECTION 1: HERO CAROUSEL STYLES
+   ======================================================== */
+.UserDashboard-carousel-section {
+  width: 100%;
+}
+
+.UserDashboard-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+@media (max-width: 768px) {
+  .UserDashboard-carousel-wrapper {
+    min-height: 400px;
+  }
+}
+
+.UserDashboard-carousel-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 60px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 576px) {
+  .UserDashboard-carousel-slide {
+    padding: 30px;
+    align-items: flex-end;
+    padding-bottom: 60px;
+  }
+}
+
+.UserDashboard-carousel-overlay-text {
+  max-width: 600px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.UserDashboard-carousel-tag {
+  align-self: flex-start;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.12);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.UserDashboard-carousel-title {
+  font-size: 42px;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: #ffffff;
+  /* White for robust text pop against slide filter overlay */
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 768px) {
+  .UserDashboard-carousel-title {
+    font-size: 30px;
+  }
+}
+
+.UserDashboard-carousel-subtitle {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e2e8f0;
+  margin: 0;
+  max-width: 500px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 768px) {
+  .UserDashboard-carousel-subtitle {
+    font-size: 14px;
+  }
+}
+
+.UserDashboard-carousel-cta-area {
+  margin-top: 10px;
+}
+
+.UserDashboard-carousel-btn-started {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 36px;
+  background: linear-gradient(135deg, #ffc107, #ff9800);
+  color: #04060a;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 6px 12px rgba(255, 193, 7, 0.15);
+}
+
+.UserDashboard-carousel-btn-started:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 193, 7, 0.25);
+}
+
+.UserDashboard-carousel-btn-started:active {
+  transform: translateY(0);
+}
+
+/* Carousel Dots Indicator */
+.UserDashboard-carousel-dots {
+  position: absolute;
+  bottom: 24px;
+  right: 60px;
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+}
+
+@media (max-width: 576px) {
+  .UserDashboard-carousel-dots {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+  }
+}
+
+.UserDashboard-carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.UserDashboard-carousel-dot.active {
+  background: #ffc107;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
+}
+
+/* ========================================================
+   SECTIONS GENERAL: PORTFOLIO SHOWROOM & DRAWER
+   ======================================================== */
+.UserDashboard-showroom-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.UserDashboard-section-header-block {
+  width: 100%;
+}
+
+.UserDashboard-showroom-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: -0.3px;
+  color: #0f172a;
+  position: relative;
+  padding-left: 18px;
+}
+
+.UserDashboard-showroom-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 20px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.UserDashboard-showroom-title-reels::before {
+  background: #2563eb;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
+}
+
+.UserDashboard-showroom-title-posters::before {
+  background: #db2777;
+  box-shadow: 0 0 10px rgba(219, 39, 119, 0.4);
+}
+
+.UserDashboard-showroom-title-icon-blue {
+  color: #2563eb;
+}
+
+.UserDashboard-showroom-title-icon-pink {
+  color: #db2777;
+}
+
+.UserDashboard-showroom-subtitle {
+  font-size: 14.5px;
+  color: #475569;
+  margin: 0;
+}
+
+/* ========================================================
+   SECTION 2: THREE-CONTAINER REELS EDITING SYSTEM
+   ======================================================== */
+.UserDashboard-reels-container-1st {
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.UserDashboard-reels-container-2nd {
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  width: 686px;
+  /* 3 reels of 210px + 2 gaps of 28px = 686px */
+  flex-shrink: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  /* Hide scrollbar Firefox */
+  -ms-overflow-style: none;
+  /* Hide scrollbar IE/Edge */
+  padding: 10px 4px 28px;
+  box-sizing: border-box;
+  cursor: grab;
+  scroll-snap-type: x mandatory;
+}
+
+.UserDashboard-reels-container-2nd::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar Chrome/Safari/Opera */
+}
+
+.UserDashboard-reels-container-2nd:active {
+  cursor: grabbing;
+}
+
+.UserDashboard-reels-container-3rd {
+  display: flex;
+  flex-direction: row;
+  width: 486px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.UserDashboard-reel-show-card {
+  flex-shrink: 0;
+  width: 210px;
+  /* Reduced from 250px for smaller compact layout */
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 14px;
+  /* Reduced from 16px to fit contents neatly */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  scroll-snap-align: start;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
+}
+
+.UserDashboard-reel-show-card:hover {
+  border-color: rgba(37, 99, 235, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.04);
+}
+
+.UserDashboard-reel-show-bezel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 20px;
+  /* Infinity curved corners */
+  overflow: hidden;
+  border: 4.5px solid #0f172a;
+  /* Ultra-premium bezel */
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  background: #000;
+}
+
+.UserDashboard-reel-show-bezel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 55%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.UserDashboard-reel-show-bezel .SecureReelPlayer-container {
+  max-width: none !important;
+  aspect-ratio: 9 / 16;
+}
+
+.UserDashboard-reel-show-meta {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.UserDashboard-reel-show-tag {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2563eb;
+  letter-spacing: 1px;
+}
+
+.UserDashboard-reel-show-meta h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.UserDashboard-reel-show-creator {
+  font-size: 11px;
+  color: #4b5563;
+  font-weight: 600;
+}
+
+.UserDashboard-reel-show-meta p {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #475569;
+  margin: 4px 0 10px;
+  height: 34px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.UserDashboard-btn-reel-inquire {
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  color: #2563eb;
+  font-size: 12.5px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.UserDashboard-btn-reel-inquire:hover {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15);
+}
+
+/* Container for track scroll navigation */
+.UserDashboard-scroll-track-container {
+  position: relative;
+  width: 100%;
+}
+
+.UserDashboard-scroll-arrow-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+.UserDashboard-scroll-arrow-btn:hover {
+  background: #ffffff;
+  color: #2563eb;
+  border-color: #2563eb;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.12);
+}
+
+.UserDashboard-scroll-arrow-btn:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.UserDashboard-scroll-arrow-btn.left {
+  left: -12px;
+}
+
+.UserDashboard-scroll-arrow-btn.right {
+  right: -12px;
+}
+
+@media (min-width: 1120px) {
+  .UserDashboard-scroll-arrow-btn.right {
+    left: 700px;
+    /* Mathematically centered exactly in the 28px gap between Reel #3 (210px) and NXOR PRO ad card (486px) */
+    right: auto;
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  .UserDashboard-scroll-arrow-btn.right:hover {
+    transform: translateY(-50%) translateX(-50%) scale(1.08);
+  }
+
+  .UserDashboard-scroll-arrow-btn.right:active {
+    transform: translateY(-50%) translateX(-50%) scale(0.96);
+  }
+}
+
+@media (max-width: 1120px) {
+  .UserDashboard-scroll-arrow-btn {
+    display: none !important;
+    /* Hide arrows since the layout wraps on tablets and mobile screens */
+  }
+
+  .UserDashboard-reels-container-1st {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 36px !important;
+  }
+
+  .UserDashboard-reels-container-2nd {
+    width: 100% !important;
+    max-width: 686px !important;
+    margin: 0 auto !important;
+    justify-content: flex-start !important;
+    /* Allow swipe start */
+  }
+
+  .UserDashboard-reels-container-3rd {
+    width: 100% !important;
+    max-width: 686px !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .UserDashboard-reels-container-2nd {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: flex-start !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .UserDashboard-reels-container-3rd {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    justify-content: center !important;
+  }
+
+  .UserDashboard-reel-show-card {
+    /* Keep reels in a row, width remains 210px with nice margins */
+    flex-shrink: 0 !important;
+  }
+}
+
+/* Premium Promoted Reels Ad Card */
+.UserDashboard-reel-ad-card {
+  flex-shrink: 0;
+  width: 100%;
+  background: #090d16;
+  border: 2px solid #2563eb;
+  border-radius: 20px;
+  padding: 24px;
+  /* Luxury spacing */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  scroll-snap-align: start;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}
+
+@media (max-width: 1120px) {
+  .UserDashboard-reel-ad-card {
+    max-width: 686px !important;
+    margin-top: 0 !important;
+    /* Managed by 1st container column gap */
+  }
+}
+
+@media (max-width: 768px) {
+  .UserDashboard-reel-ad-card {
+    max-width: 500px !important;
+    margin-top: 0 !important;
+  }
+}
+
+.UserDashboard-reel-ad-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.18), 0 0 15px rgba(37, 99, 235, 0.08);
+  border-color: #3b82f6;
+}
+
+.UserDashboard-reel-ad-badge {
+  align-self: flex-start;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 6px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.UserDashboard-reel-ad-body {
+  display: flex;
+  flex-direction: row !important;
+  /* Horizontal columns layout on all viewports */
+  gap: 24px;
+  align-items: stretch;
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  .UserDashboard-reel-ad-card {
+    padding: 16px !important;
+    /* Compact luxury padding */
+  }
+
+  .UserDashboard-reel-ad-body {
+    gap: 12px !important;
+  }
+}
+
+.UserDashboard-reel-ad-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1.25;
+  justify-content: space-between;
+}
+
+.UserDashboard-reel-ad-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.UserDashboard-reel-ad-divider-vertical {
+  width: 1px;
+  background: rgba(37, 99, 235, 0.15);
+  margin: 4px 0;
+  align-self: stretch;
+}
+
+.UserDashboard-reel-ad-body h3 {
+  font-size: 19px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  line-height: 1.25;
+  letter-spacing: -0.3px;
+}
+
+.UserDashboard-reel-ad-tagline {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.UserDashboard-reel-ad-divider {
+  display: none;
+}
+
+.UserDashboard-reel-ad-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.UserDashboard-reel-ad-features li {
+  font-size: 11.5px;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.UserDashboard-btn-reel-ad-cta {
+  width: 100%;
+  padding: 11px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .UserDashboard-reel-ad-body h3 {
+    font-size: 14.5px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .UserDashboard-reel-ad-tagline {
+    font-size: 9.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  .UserDashboard-reel-ad-features {
+    gap: 6px !important;
+  }
+
+  .UserDashboard-reel-ad-features li {
+    font-size: 9.5px !important;
+    gap: 4px !important;
+  }
+
+  .UserDashboard-btn-reel-ad-cta {
+    padding: 8px !important;
+    font-size: 10.5px !important;
+    margin-top: 10px !important;
+    border-radius: 8px !important;
+  }
+}
+
+.UserDashboard-btn-reel-ad-cta:hover {
+  background: #1d4ed8;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35);
+  transform: translateY(-1px);
+}
+
+.UserDashboard-btn-reel-ad-cta:active {
+  transform: translateY(0);
+}
+
+/* ========================================================
+   SECTION 3: CREATIVE DESIGNS DRAWER (Horizontal Scroll)
+   ======================================================== */
+/* ========================================================
+   SECTION 3: THREE-CONTAINER POSTERS SYSTEM
+   ======================================================== */
+.UserDashboard-posters-container-1st {
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.UserDashboard-posters-container-2nd {
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  width: 686px;
+  /* 3 posters of 210px + 2 gaps of 28px = 686px */
+  flex-shrink: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  /* Hide scrollbar Firefox */
+  -ms-overflow-style: none;
+  /* Hide scrollbar IE/Edge */
+  padding: 10px 4px 28px;
+  box-sizing: border-box;
+  cursor: grab;
+  scroll-snap-type: x mandatory;
+}
+
+.UserDashboard-posters-container-2nd::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar Chrome/Safari/Opera */
+}
+
+.UserDashboard-posters-container-2nd:active {
+  cursor: grabbing;
+}
+
+.UserDashboard-posters-container-3rd {
+  display: flex;
+  flex-direction: row;
+  width: 486px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.UserDashboard-poster-show-card {
+  flex-shrink: 0;
+  width: 210px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 12px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  scroll-snap-align: start;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
+}
+
+.UserDashboard-poster-show-card:hover {
+  border-color: rgba(219, 39, 119, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.04);
+}
+
+.UserDashboard-poster-show-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f8fafc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.UserDashboard-poster-show-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.UserDashboard-poster-show-card:hover .UserDashboard-poster-show-image-wrap img {
+  transform: scale(1.06);
+}
+
+.UserDashboard-poster-show-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.UserDashboard-poster-show-overlay span {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ff9800;
+  letter-spacing: 0.8px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 152, 0, 0.3);
+  border-radius: 20px;
+  background: #ffffff;
+}
+
+.UserDashboard-poster-show-card:hover .UserDashboard-poster-show-overlay {
+  opacity: 1;
+}
+
+.UserDashboard-poster-show-info {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+
+.UserDashboard-poster-show-info h4 {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.UserDashboard-poster-show-tag {
+  font-size: 11px;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+.UserDashboard-btn-poster-inquire {
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: 1px solid rgba(219, 39, 119, 0.25);
+  color: #db2777;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.UserDashboard-btn-poster-inquire:hover {
+  background: #db2777;
+  color: white;
+  border-color: #db2777;
+  box-shadow: 0 4px 10px rgba(219, 39, 119, 0.15);
+}
+
+/* Premium Promoted Posters Ad Card */
+.UserDashboard-poster-ad-card {
+  flex-shrink: 0;
+  width: 100%;
+  background: #090d16;
+  border: 2px solid #db2777;
+  /* Premium pink outline to match creative design themes */
+  border-radius: 20px;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  scroll-snap-align: start;
+  box-shadow: 0 4px 20px rgba(219, 39, 119, 0.08);
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}
+
+.UserDashboard-poster-ad-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(219, 39, 119, 0.18), 0 0 15px rgba(219, 39, 119, 0.08);
+  border-color: #ec4899;
+}
+
+.UserDashboard-poster-ad-badge {
+  align-self: flex-start;
+  background: #db2777;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 6px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.UserDashboard-poster-ad-body {
+  display: flex;
+  flex-direction: row !important;
+  /* side-by-side split across all screens */
+  gap: 24px;
+  align-items: stretch;
+  height: 100%;
+  width: 100%;
+}
+
+.UserDashboard-poster-ad-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1.25;
+  justify-content: space-between;
+}
+
+.UserDashboard-poster-ad-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.UserDashboard-poster-ad-divider-vertical {
+  width: 1px;
+  background: rgba(219, 39, 119, 0.15);
+  margin: 4px 0;
+  align-self: stretch;
+}
+
+.UserDashboard-poster-ad-body h3 {
+  font-size: 19px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  line-height: 1.25;
+  letter-spacing: -0.3px;
+}
+
+.UserDashboard-poster-ad-tagline {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.UserDashboard-poster-ad-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.UserDashboard-poster-ad-features li {
+  font-size: 11.5px;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.UserDashboard-btn-poster-ad-cta {
+  width: 100%;
+  padding: 11px;
+  background: #db2777;
+  color: #ffffff;
+  border: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(219, 39, 119, 0.25);
+  text-align: center;
+}
+
+.UserDashboard-btn-poster-ad-cta:hover {
+  background: #c2185b;
+  box-shadow: 0 6px 14px rgba(219, 39, 119, 0.35);
+  transform: translateY(-1px);
+}
+
+.UserDashboard-btn-poster-ad-cta:active {
+  transform: translateY(0);
+}
+
+/* Section 3 Responsive Media Query Mirroring */
+@media (max-width: 1120px) {
+  .UserDashboard-posters-container-1st {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 36px !important;
+  }
+
+  .UserDashboard-posters-container-2nd {
+    width: 100% !important;
+    max-width: 686px !important;
+    margin: 0 auto !important;
+    justify-content: flex-start !important;
+  }
+
+  .UserDashboard-posters-container-3rd {
+    width: 100% !important;
+    max-width: 686px !important;
+    justify-content: center !important;
+  }
+
+  .UserDashboard-poster-ad-card {
+    max-width: 686px !important;
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .UserDashboard-posters-container-2nd {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: flex-start !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .UserDashboard-posters-container-3rd {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    justify-content: center !important;
+  }
+
+  .UserDashboard-poster-show-card {
+    flex-shrink: 0 !important;
+  }
+
+  .UserDashboard-poster-ad-card {
+    max-width: 500px !important;
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .UserDashboard-poster-ad-card {
+    padding: 16px !important;
+    /* Compact mobile padding */
+  }
+
+  .UserDashboard-poster-ad-body {
+    gap: 12px !important;
+  }
+
+  .UserDashboard-poster-ad-body h3 {
+    font-size: 14.5px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .UserDashboard-poster-ad-tagline {
+    font-size: 9.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  .UserDashboard-poster-ad-features {
+    gap: 6px !important;
+  }
+
+  .UserDashboard-poster-ad-features li {
+    font-size: 9.5px !important;
+    gap: 4px !important;
+  }
+
+  .UserDashboard-btn-poster-ad-cta {
+    padding: 8px !important;
+    font-size: 10.5px !important;
+    margin-top: 10px !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* ========================================================
+   SECTION 4: OUR PROCESS STYLES
+   ======================================================= */
+.UserDashboard-process-section {
+  width: 100%;
+  background: #f8fafc;
+  /* Beautiful soft slate backdrop to pop the pure white node cards */
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 40px 32px;
+  /* More compact padding since title is removed */
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.005);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.UserDashboard-process-timeline-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* Connector Line on Desktop */
+.UserDashboard-process-connector-line {
+  position: absolute;
+  top: 56px;
+  /* Align precisely to center of timeline badge heights */
+  left: 120px;
+  right: 120px;
+  height: 2.5px;
+  background: linear-gradient(90deg, #2563eb, #db2777);
+  opacity: 0.15;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .UserDashboard-process-connector-line {
+    display: none;
+  }
+}
+
+.UserDashboard-process-timeline {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 28px;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .UserDashboard-process-timeline {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    /* Hide scrollbar Firefox */
+    -ms-overflow-style: none !important;
+    /* Hide scrollbar IE/Edge */
+    padding: 10px 4px 20px !important;
+    box-sizing: border-box !important;
+    cursor: grab !important;
+    scroll-snap-type: x mandatory !important;
+    width: 100% !important;
+    gap: 24px !important;
+  }
+
+  .UserDashboard-process-timeline::-webkit-scrollbar {
+    display: none !important;
+    /* Hide scrollbar Chrome/Safari/Opera */
+  }
+
+  .UserDashboard-process-timeline:active {
+    cursor: grabbing !important;
+  }
+}
+
+.UserDashboard-process-node-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 20px;
+  padding: 28px 24px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.01);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  flex: 1;
+  /* Distribute cards equally on desktop row */
+}
+
+.UserDashboard-process-node-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(37, 99, 235, 0.15);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.035);
+}
+
+@media (max-width: 900px) {
+  .UserDashboard-process-node-card {
+    flex-shrink: 0 !important;
+    width: 260px !important;
+    flex-direction: column !important;
+    text-align: center !important;
+    align-items: center !important;
+    padding: 28px 24px !important;
+    border-radius: 20px !important;
+    gap: 20px !important;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.01) !important;
+  }
+}
+
+.UserDashboard-process-badge-ring {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+  border: 2px solid #dbeafe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.04);
+  flex-shrink: 0;
+}
+
+.UserDashboard-process-node-card:hover .UserDashboard-process-badge-ring {
+  border-color: #2563eb;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.22);
+}
+
+.UserDashboard-process-badge-icon {
+  font-size: 20px;
+  color: #2563eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.UserDashboard-process-node-card:hover .UserDashboard-process-badge-icon {
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.UserDashboard-process-node-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .UserDashboard-process-node-text {
+    align-items: center !important;
+  }
+}
+
+.UserDashboard-process-node-text h4 {
+  font-size: 16.5px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.3px;
+}
+
+.UserDashboard-process-node-text p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+  max-width: 240px;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .UserDashboard-process-node-text p {
+    max-width: 240px !important;
+  }
+}
+
+
+/* ========================================================
+   SUB-TABS GENERIC WRAPPER
+   ======================================================== */
+.UserDashboard-generic-tab-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 32px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+/* --- PROFILE TAB --- */
+.UserDashboard-profile-details-wrapper {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+@media (max-width: 600px) {
+  .UserDashboard-profile-details-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.UserDashboard-profile-avatar-large {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+}
+
+.UserDashboard-profile-avatar-large img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f1f5f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.UserDashboard-profile-avatar-initials-large {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #db2777);
+  color: white;
+  font-size: 42px;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.UserDashboard-avatar-camera-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #2563eb;
+  border: 2.5px solid #ffffff;
+  color: white;
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s;
+}
+
+.UserDashboard-avatar-camera-btn:hover {
+  background: #1d4ed8;
+  transform: scale(1.06);
+}
+
+.UserDashboard-profile-info-fields {
+  flex: 1;
+  min-width: 240px;
+}
+
+.UserDashboard-profile-name-header {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0 0 6px 0;
+  color: #0f172a;
+}
+
+.UserDashboard-profile-status-badge {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #059669;
+  background: #ecfdf5;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid #a7f3d0;
+  margin-bottom: 20px;
+}
+
+.UserDashboard-profile-divider {
+  border: none;
+  height: 1px;
+  background: #e2e8f0;
+  margin-bottom: 20px;
+}
+
+.UserDashboard-info-field {
+  margin-bottom: 16px;
+}
+
+.UserDashboard-info-field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.UserDashboard-info-field p {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0;
+}
+
+.UserDashboard-role-caps {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #2563eb !important;
+}
+
+/* --- SETTINGS TAB --- */
+.UserDashboard-inner-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: #0f172a;
+}
+
+.UserDashboard-inner-desc {
+  font-size: 13.5px;
+  color: #475569;
+  margin: 0 0 24px 0;
+}
+
+.UserDashboard-form-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 480px;
+}
+
+.UserDashboard-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.UserDashboard-form-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.UserDashboard-form-input {
+  width: 100%;
+  padding: 11px 15px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #0f172a;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease-out;
+}
+
+.UserDashboard-form-input:focus {
+  background: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.UserDashboard-form-input:disabled {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+.UserDashboard-form-hint {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.UserDashboard-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  font-size: 14px;
+  font-weight: 650;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+}
+
+.UserDashboard-btn-primary:hover {
+  background: #1d4ed8;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* --- ORDERS TAB --- */
+.UserDashboard-orders-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.UserDashboard-orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 580px;
+  font-size: 13.5px;
+}
+
+.UserDashboard-orders-table th {
+  background: #f8fafc;
+  padding: 14px 18px;
+  font-weight: 600;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.UserDashboard-orders-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #475569;
+  vertical-align: middle;
+}
+
+.UserDashboard-order-id-td {
+  font-weight: 700;
+  color: #0f172a !important;
+}
+
+.UserDashboard-orders-table tr:last-child td {
+  border-bottom: none;
+}
+
+.UserDashboard-status-pill {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.UserDashboard-status-pill.completed {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.UserDashboard-status-pill.pending {
+  background: #fffbeb;
+  color: #d97706;
+  border: 1px solid #fde68a;
+}
+
+/* --- LIGHTBOX MODAL --- */
+.UserDashboard-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+@media (max-width: 576px) {
+  .UserDashboard-lightbox-backdrop {
+    padding: 16px;
+  }
+}
+
+.UserDashboard-lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: #0f172a;
+  font-size: 40px;
+  cursor: pointer;
+  z-index: 1010;
+  transition: transform 0.2s;
+}
+
+.UserDashboard-lightbox-close:hover {
+  transform: scale(1.1);
+}
+
+.UserDashboard-lightbox-card {
+  max-width: 480px;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  border: 1.5px solid #e2e8f0;
+}
+
+/* ========================================================
+   VERTICAL COLLAPSIBLE SIDEBAR LAYOUT
+   ======================================================== */
+.UserDashboard-layout-wrapper {
+  display: flex;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.UserDashboard-sidebar {
+  position: fixed;
+  top: 0;
+  /* Align sidebar from absolute top */
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 260px;
+  background: #ffffff;
+  border-right: 1px solid #f1f5f9;
+  /* Softer, premium light gray */
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 4px 0 24px rgba(15, 23, 42, 0.015);
+}
+
+.UserDashboard-sidebar.collapsed {
+  width: 80px;
+  padding: 24px 12px;
+}
+
+.UserDashboard-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  min-height: 38px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.UserDashboard-sidebar.collapsed .UserDashboard-sidebar-header {
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.UserDashboard-sidebar-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  user-select: none;
+  transition: opacity 0.25s ease, max-height 0.3s ease, max-width 0.3s ease, transform 0.3s ease, margin 0.3s ease;
+  opacity: 1;
+  max-height: 60px;
+  max-width: 200px;
+  transform: scale(1);
+  overflow: hidden;
+}
+
+.UserDashboard-sidebar-logo img {
+  height: 36px;
+  width: auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.UserDashboard-sidebar-systems {
+  font-size: 9px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 5.5px;
+  margin-right: -5.5px;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.UserDashboard-sidebar.collapsed .UserDashboard-sidebar-logo {
+  opacity: 0;
+  max-width: 0;
+  max-height: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+.UserDashboard-logo-text {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.5px;
+}
+
+.UserDashboard-logo-sub {
+  font-size: 8px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 3.5px;
+}
+
+.UserDashboard-sidebar-toggle-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+  flex-shrink: 0;
+}
+
+.UserDashboard-sidebar-toggle-btn:hover {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.UserDashboard-sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.UserDashboard-sidebar-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  color: #64748b;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.UserDashboard-sidebar:not(.collapsed) .UserDashboard-sidebar-item:hover {
+  transform: translateX(4px);
+}
+
+.UserDashboard-sidebar.collapsed .UserDashboard-sidebar-item {
+  padding: 12px 19px;
+}
+
+.UserDashboard-sidebar-item:hover {
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+.UserDashboard-sidebar-item.active {
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.045);
+  border: 1px solid rgba(37, 99, 235, 0.08);
+}
+
+.UserDashboard-sidebar-icon {
+  font-size: 17px;
+  flex-shrink: 0;
+  display: inline-block;
+  transition: margin 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.UserDashboard-sidebar-label {
+  white-space: nowrap;
+  font-size: 13.5px;
+  opacity: 1;
+  max-width: 180px;
+  transition: opacity 0.25s ease, max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1), margin 0.3s ease, padding 0.3s ease;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.UserDashboard-sidebar.collapsed .UserDashboard-sidebar-label {
+  opacity: 0;
+  max-width: 0;
+  margin-left: 0;
+  padding-left: 0;
+  pointer-events: none;
+}
+
+.UserDashboard-sidebar-spacer {
+  flex: 1;
+}
+
+.UserDashboard-sidebar-logout {
+  border: 1px dashed rgba(239, 68, 68, 0.25) !important;
+  color: rgba(239, 68, 68, 0.85) !important;
+}
+
+.UserDashboard-sidebar-logout:hover {
+  background: #fef2f2 !important;
+  border-color: #fca5a5 !important;
+  color: #ef4444 !important;
+}
+
+/* MAIN CONTENT BLOCK */
+.UserDashboard-main-content {
+  margin-left: 260px;
+  width: calc(100% - 260px);
+  padding-left: 32px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.UserDashboard-main-content.expanded {
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+
+/* --- FLOATING STICKY MOBILE HEADER --- */
+.UserDashboard-mobile-header {
+  display: none;
+}
+
+.UserDashboard-sidebar-close-btn {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .UserDashboard-mobile-header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: #ffffff;
+    border-bottom: 1px solid #f1f5f9;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 90;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.015);
+  }
+
+  .UserDashboard-mobile-hamburger-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #475569;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    transition: all 0.2s;
+  }
+
+  .UserDashboard-mobile-hamburger-btn:hover {
+    background: #f8fafc;
+    color: #0f172a;
+  }
+
+  .UserDashboard-mobile-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+  }
+
+  .UserDashboard-mobile-logo img {
+    height: 28px;
+    width: auto;
+  }
+
+  .UserDashboard-mobile-logo-systems {
+    font-size: 7.5px;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 4px;
+    margin-right: -4px;
+    text-transform: uppercase;
+  }
+
+  /* --- MOBILE SIDEBAR DRAWER OVERLAY --- */
+  .UserDashboard-sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 98;
+    animation: UserDashboard-fade-in 0.25s ease-out;
+  }
+
+  @keyframes UserDashboard-fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* --- PREMIUM MOBILE SIDEBAR DRAWER (DARK NAVY THEME) --- */
+  .UserDashboard-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 280px !important;
+    background: #0c1427 !important;
+    /* Deep luxury dark navy matching screenshot */
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 20px;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 10px 0 40px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .UserDashboard-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .UserDashboard-sidebar-logo img {
+    filter: invert(1) brightness(100) !important;
+    /* Converts dark logo to pure white logo */
+  }
+
+  .UserDashboard-sidebar-systems {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  .UserDashboard-sidebar-toggle-btn {
+    display: none !important;
+  }
+
+  .UserDashboard-sidebar-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .UserDashboard-sidebar-close-btn:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+  }
+
+  /* Dark Theme Menu Items */
+  .UserDashboard-sidebar-item {
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  .UserDashboard-sidebar-item:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .UserDashboard-sidebar-item.active {
+    color: #3b82f6 !important;
+    background: rgba(59, 130, 246, 0.1) !important;
+    border: 1px solid rgba(59, 130, 246, 0.2) !important;
+  }
+
+  .UserDashboard-sidebar-label {
+    opacity: 1 !important;
+    max-width: 180px !important;
+  }
+
+  .UserDashboard-sidebar-logout {
+    border: 1px dashed rgba(239, 68, 68, 0.4) !important;
+    color: rgba(239, 68, 68, 0.9) !important;
+  }
+
+  .UserDashboard-sidebar-logout:hover {
+    background: rgba(239, 68, 68, 0.08) !important;
+    color: #f87171 !important;
+  }
+
+  /* Main content covers full page widths */
+  .UserDashboard-main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+  }
+}

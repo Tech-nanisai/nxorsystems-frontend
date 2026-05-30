@@ -159,7 +159,7 @@ const ClientDocuments = () => {
 
                   <div className="doc-card-meta">
                     <span>{formatIST(doc.createdAt, true)}</span>
-                    <span>â€¢</span>
+                    <span>•</span>
                     <span>{doc.size}</span>
                   </div>
                   {/* Description REMOVED from card */}

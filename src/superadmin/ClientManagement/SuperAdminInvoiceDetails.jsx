@@ -1,7 +1,7 @@
 ﻿import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { FaPrint, FaArrowLeft, FaSpinner } from "react-icons/fa";
+import { FaPrint, FaArrowLeft, FaSpinner, FaRupeeSign } from "react-icons/fa";
 import "../../client/Payments/InvoiceDetails.css"; // Reuse CLIENT Styles directly
 
 const SuperAdminInvoiceDetails = () => {
@@ -97,21 +97,21 @@ const SuperAdminInvoiceDetails = () => {
                     <tbody>
                         <tr>
                             <td>Professional Services / Project Payment</td>
-                            <td className="right">â‚¹{invoice.amount.toLocaleString()}</td>
+                            <td className="right"><FaRupeeSign size={10} /> {invoice.amount.toLocaleString()}</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
                             <td>Total Amount</td>
-                            <td className="right">â‚¹{invoice.amount.toLocaleString()}</td>
+                            <td className="right"><FaRupeeSign size={10} /> {invoice.amount.toLocaleString()}</td>
                         </tr>
                         <tr>
                             <td>Paid / Advance</td>
-                            <td className="right" style={{ color: '#15803d' }}>(-) â‚¹{(invoice.paidAmount || 0).toLocaleString()}</td>
+                            <td className="right" style={{ color: '#15803d' }}>(-) <FaRupeeSign size={10} /> {(invoice.paidAmount || 0).toLocaleString()}</td>
                         </tr>
                         <tr className="grand-total">
                             <td>Balance Due</td>
-                            <td className="right">â‚¹{(invoice.dueAmount || invoice.amount).toLocaleString()}</td>
+                            <td className="right"><FaRupeeSign size={10} /> {(invoice.dueAmount || invoice.amount).toLocaleString()}</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -120,7 +120,7 @@ const SuperAdminInvoiceDetails = () => {
                     <p>Super Admin View - Read Only</p>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

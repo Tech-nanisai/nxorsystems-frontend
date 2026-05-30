@@ -1,0 +1,680 @@
+/* frontend/src/superadmin/UserManagement/CreativeDesignEditor.css */
+
+.CreativeDesignEditor-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  color: #1e293b;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Header Area styling */
+.CreativeDesignEditor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(236, 72, 153, 0.15);
+  gap: 2rem;
+}
+
+.CreativeDesignEditor-title-section {
+  text-align: left;
+}
+
+.CreativeDesignEditor-subtitle {
+  font-size: 0.78rem;
+  color: #ec4899;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.CreativeDesignEditor-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, #0f172a 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.CreativeDesignEditor-description-text {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0;
+  font-weight: 450;
+}
+
+/* Refresh Data Button */
+.CreativeDesignEditor-refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 650;
+  color: #475569;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.CreativeDesignEditor-refresh-btn:hover {
+  background: #ffffff;
+  border-color: rgba(236, 72, 153, 0.5);
+  color: #ec4899;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(236, 72, 153, 0.08);
+}
+
+.CreativeDesignEditor-icon-spin {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.CreativeDesignEditor-refresh-btn:hover .CreativeDesignEditor-icon-spin {
+  transform: rotate(180deg);
+}
+
+/* Workspace Layout */
+.CreativeDesignEditor-workspace {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 1rem;
+}
+
+/* Left Sidebar Controls */
+.CreativeDesignEditor-left-panel {
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.CreativeDesignEditor-back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 14px 20px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #475569;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.CreativeDesignEditor-back-btn:hover {
+  background: #ffffff;
+  color: #0f172a;
+  border-color: rgba(15, 23, 42, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+}
+
+.CreativeDesignEditor-add-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+  border: none;
+  padding: 15px 20px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.CreativeDesignEditor-add-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.45);
+}
+
+/* Right Content Area */
+.CreativeDesignEditor-right-panel {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(236, 72, 153, 0.25);
+  border-radius: 24px;
+  padding: 2rem;
+  min-height: 520px;
+  box-shadow: 0 12px 40px rgba(236, 72, 153, 0.04);
+  box-sizing: border-box;
+}
+
+.CreativeDesignEditor-loader-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+}
+
+.CreativeDesignEditor-empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+  text-align: center;
+}
+
+.CreativeDesignEditor-empty-text {
+  color: #64748b;
+  font-size: 1.05rem;
+  font-weight: 500;
+  max-width: 320px;
+}
+
+/* Designs Grid */
+.CreativeDesignEditor-designs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.CreativeDesignEditor-design-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 20px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.CreativeDesignEditor-design-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 35px rgba(236, 72, 153, 0.08);
+  border-color: rgba(236, 72, 153, 0.35);
+}
+
+.CreativeDesignEditor-image-wrap {
+  width: 100%;
+  height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.CreativeDesignEditor-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.CreativeDesignEditor-design-card:hover .CreativeDesignEditor-image-wrap img {
+  transform: scale(1.05);
+}
+
+.CreativeDesignEditor-audience-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 30px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.CreativeDesignEditor-design-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.CreativeDesignEditor-card-title {
+  margin: 0 0 8px 0;
+  font-size: 1.15rem;
+  font-weight: 750;
+  color: #0f172a;
+  line-height: 1.35;
+}
+
+.CreativeDesignEditor-card-category {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #ec4899;
+  font-weight: 700;
+  margin-top: auto;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Edit Badge top right of card */
+.CreativeDesignEditor-edit-badge {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.CreativeDesignEditor-edit-badge:hover {
+  transform: scale(1.15) rotate(15deg);
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
+  border-color: transparent;
+}
+
+/* Modal Popup Overlay */
+.CreativeDesignEditor-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.CreativeDesignEditor-modal-content {
+  width: 100%;
+  max-width: 620px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(236, 72, 153, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+  animation: CreativeDesignEditor-modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes CreativeDesignEditor-modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Custom Scrollbar inside modal content */
+.CreativeDesignEditor-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+.CreativeDesignEditor-modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.CreativeDesignEditor-modal-content::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 4px;
+}
+.CreativeDesignEditor-modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+.CreativeDesignEditor-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.75rem 2rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.CreativeDesignEditor-modal-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.CreativeDesignEditor-close-btn {
+  background: rgba(148, 163, 184, 0.1);
+  border: none;
+  color: #64748b;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.CreativeDesignEditor-close-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.CreativeDesignEditor-modal-body {
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Inputs & Form layout */
+.CreativeDesignEditor-form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.CreativeDesignEditor-form-label {
+  font-weight: 750;
+  color: #334155;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.CreativeDesignEditor-form-input,
+.CreativeDesignEditor-form-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #0f172a;
+  background: #ffffff;
+  box-sizing: border-box;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.CreativeDesignEditor-form-input:focus,
+.CreativeDesignEditor-form-select:focus {
+  outline: none;
+  border-color: #ec4899;
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.12);
+  background: #ffffff;
+}
+
+/* Image Assets Section */
+.CreativeDesignEditor-image-section {
+  background: #f8fafc;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-top: 1.75rem;
+  text-align: left;
+}
+
+.CreativeDesignEditor-image-section-title {
+  margin: 0 0 1.25rem 0;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.CreativeDesignEditor-radio-group {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.CreativeDesignEditor-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 650;
+  font-size: 0.88rem;
+  color: #475569;
+  user-select: none;
+}
+
+.CreativeDesignEditor-radio-input {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #cbd5e1;
+  border-radius: 50%;
+  outline: none;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.CreativeDesignEditor-radio-input:checked {
+  border-color: #ec4899;
+}
+
+.CreativeDesignEditor-radio-input:checked::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #ec4899;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Upload zone */
+.CreativeDesignEditor-upload-zone {
+  margin-bottom: 0.5rem;
+}
+
+.CreativeDesignEditor-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 2rem 1.5rem;
+  background: #ffffff;
+  border: 2px dashed rgba(236, 72, 153, 0.4);
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #db2777;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.CreativeDesignEditor-upload-label:hover {
+  background: #fdf2f8;
+  border-color: #ec4899;
+  transform: translateY(-2px);
+}
+
+.CreativeDesignEditor-upload-icon {
+  font-size: 2rem;
+  color: #ec4899;
+}
+
+.CreativeDesignEditor-upload-filename {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+/* Image preview container */
+.CreativeDesignEditor-preview-container {
+  margin-top: 1.25rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  max-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f172a;
+}
+
+.CreativeDesignEditor-preview-container img {
+  max-width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+}
+
+/* Modal Footer Actions */
+.CreativeDesignEditor-modal-footer {
+  display: flex;
+  gap: 12px;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #f1f5f9;
+  background: #fafafa;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.CreativeDesignEditor-delete-btn {
+  flex: 1;
+  padding: 14px 20px;
+  background: #ffffff;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #ef4444;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.CreativeDesignEditor-delete-btn:hover {
+  background: rgba(239, 68, 68, 0.05);
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.CreativeDesignEditor-save-btn {
+  flex: 2;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  border: none;
+  color: #ffffff;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.CreativeDesignEditor-save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(22, 163, 74, 0.35);
+}
+
+.CreativeDesignEditor-save-btn:disabled {
+  background: #94a3b8;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Responsive constraints */
+@media (max-width: 992px) {
+  .CreativeDesignEditor-workspace {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .CreativeDesignEditor-left-panel {
+    flex: 1;
+    flex-direction: row;
+  }
+  .CreativeDesignEditor-back-btn,
+  .CreativeDesignEditor-add-btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .CreativeDesignEditor-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .CreativeDesignEditor-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .CreativeDesignEditor-refresh-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .CreativeDesignEditor-title {
+    font-size: 1.8rem;
+  }
+
+  .CreativeDesignEditor-left-panel {
+    flex-direction: column;
+  }
+
+  .CreativeDesignEditor-right-panel {
+    padding: 1.25rem;
+  }
+
+  .CreativeDesignEditor-designs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .CreativeDesignEditor-modal-content {
+    max-height: 95vh;
+  }
+}

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import axios from "axios";
-import { FaSpinner } from "react-icons/fa";
+import { FaSpinner, FaLock, FaKey, FaShieldAlt, FaUserShield, FaFingerprint, FaUnlockAlt } from "react-icons/fa";
 import "./ClientForgetPassword.css";
 
 const ClientForgetPassword = () => {
@@ -42,6 +42,13 @@ const ClientForgetPassword = () => {
 
   return (
     <div className="ClientForgetPassword-container">
+      {/* Background Floating Icons */}
+      <FaLock className="bg-icon icon-lock" />
+      {/* <FaKey className="bg-icon icon-key" /> Removed */}
+      <FaShieldAlt className="bg-icon icon-shield" />
+      <FaFingerprint className="bg-icon icon-fingerprint" />
+      <FaUserShield className="bg-icon icon-user-shield" />
+      <FaUnlockAlt className="bg-icon icon-unlock" />
       {/* Forgot Password Box */}
       <div className="ClientForgetPassword-box">
         <h2 className="ClientForgetPassword-title">Forgot Password</h2>

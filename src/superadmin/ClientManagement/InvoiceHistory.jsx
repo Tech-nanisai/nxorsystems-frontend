@@ -1,7 +1,7 @@
 ﻿import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { FaFileInvoiceDollar, FaArrowLeft, FaEye, FaSearch, FaTrash } from "react-icons/fa";
+import { FaFileInvoiceDollar, FaArrowLeft, FaEye, FaSearch, FaTrash, FaRupeeSign } from "react-icons/fa";
 import Loader from "../../components/Loader/Loader";
 import "./GenerateInvoice.css"; // Reusing existing styles
 
@@ -123,7 +123,7 @@ const InvoiceHistory = () => {
                                     <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>ID: #{inv._id.slice(-6).toUpperCase()}</span>
                                 </div>
                                 <div className="hc-meta">
-                                    <span className="hc-amount">â‚¹{inv.amount.toLocaleString()}</span>
+                                    <span className="hc-amount"><FaRupeeSign size={10} />{inv.amount.toLocaleString()}</span>
                                     <span className={`hc-status ${inv.status.toLowerCase()}`}>
                                         {inv.status}
                                     </span>

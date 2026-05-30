@@ -11,42 +11,19 @@ const testimonialsData = {
       youtubeLink: "https://www.youtube.com/embed/YOUR_VIDEO_ID"
     },
     {
-        projectName: "Maithri Organics",
-        experience: "Working with this team was amazing. They delivered a beautiful and functional website on time.",
-        photo: "https://res.cloudinary.com/drevfgyks/image/upload/v1683714910/People/WhatsApp_Image_2023-05-10_at_15.30.24_vppxmb.jpg",
-        website: "https://maithri.com",
-        youtubeLink: "https://www.youtube.com/embed/YOUR_VIDEO_ID"
-      },
-      {
-        projectName: "Maithri Organics",
-        experience: "Working with this team was amazing. They delivered a beautiful and functional website on time.",
-        photo: "https://res.cloudinary.com/drevfgyks/image/upload/v1683714935/People/20210426012321_IMG_7245_2_1_nymbjo.jpg",
-        website: "https://maithri.com",
-        youtubeLink: "https://www.youtube.com/embed/YOUR_VIDEO_ID"
-      }
-  ],
-  students: [
-    {
-      projectName: "Portfolio Project",
-      experience: "This training helped me get freelance projects. I learned a lot practically.",
+      projectName: "Maithri Organics",
+      experience: "Working with this team was amazing. They delivered a beautiful and functional website on time.",
       photo: "https://res.cloudinary.com/drevfgyks/image/upload/v1683714910/People/WhatsApp_Image_2023-05-10_at_15.30.24_vppxmb.jpg",
-      website: "https://student-portfolio.com",
+      website: "https://maithri.com",
       youtubeLink: "https://www.youtube.com/embed/YOUR_VIDEO_ID"
     },
     {
-        projectName: "Portfolio Project",
-        experience: "This training helped me get freelance projects. I learned a lot practically.",
-        photo: "https://res.cloudinary.com/drevfgyks/image/upload/v1683714935/People/20210426012321_IMG_7245_2_1_nymbjo.jpg",
-        website: "https://student-portfolio.com",
-        youtubeLink: "https://www.youtube.com/embed/YOUR_VIDEO_ID"
-      },
-      {
-        projectName: "Portfolio Project",
-        experience: "This training helped me get freelance projects. I learned a lot practically.",
-        photo: "https://res.cloudinary.com/drevfgyks/image/upload/v1683714910/People/WhatsApp_Image_2023-05-10_at_15.31.36_lapuw3.jpg",
-        website: "https://student-portfolio.com",
-        youtubeLink: "https://www.youtube.com/embed/YOUR_VIDEO_ID"
-      }
+      projectName: "Maithri Organics",
+      experience: "Working with this team was amazing. They delivered a beautiful and functional website on time.",
+      photo: "https://res.cloudinary.com/drevfgyks/image/upload/v1683714935/People/20210426012321_IMG_7245_2_1_nymbjo.jpg",
+      website: "https://maithri.com",
+      youtubeLink: "https://www.youtube.com/embed/YOUR_VIDEO_ID"
+    }
   ]
 };
 
@@ -59,10 +36,10 @@ const TestimonialCard = ({ testimonial }) => (
       Visit Website
     </a>
     <div className="testimonial-video">
-      <iframe 
-        width="100%" 
-        height="200" 
-        src={testimonial.youtubeLink} 
+      <iframe
+        width="100%"
+        height="200"
+        src={testimonial.youtubeLink}
         title="YouTube Video"
         allowFullScreen
       ></iframe>
@@ -79,15 +56,6 @@ const Testimonials = () => {
         <h2>Client Side</h2>
         <div className="testimonial-grid">
           {testimonialsData.clients.map((testimonial, index) => (
-            <TestimonialCard key={index} testimonial={testimonial} />
-          ))}
-        </div>
-      </section>
-
-      <section className="testimonial-section">
-        <h2>Student Side</h2>
-        <div className="testimonial-grid">
-          {testimonialsData.students.map((testimonial, index) => (
             <TestimonialCard key={index} testimonial={testimonial} />
           ))}
         </div>

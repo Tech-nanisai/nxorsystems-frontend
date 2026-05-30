@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { FaFileInvoiceDollar, FaEye, FaDownload, FaSpinner, FaCreditCard, FaTimes, FaQrcode } from "react-icons/fa";
+import { FaFileInvoiceDollar, FaEye, FaDownload, FaSpinner, FaCreditCard, FaTimes, FaQrcode, FaRupeeSign, FaCheckCircle } from "react-icons/fa";
 import { useClientAuth } from "../../context/ClientAuthContext";
 import "./Payments.css";
 
@@ -129,10 +129,10 @@ const Payments = () => {
                       })}
                     </td>
                     <td className="amount-cell" style={{ color: '#dc2626' }}>
-                      â‚¹{inv.dueAmount?.toLocaleString() || "0"}
+                      <FaRupeeSign size={10} /> {inv.dueAmount?.toLocaleString() || "0"}
                     </td>
                     <td className="amount-cell">
-                      â‚¹{inv.amount.toLocaleString()}
+                      <FaRupeeSign size={10} /> {inv.amount.toLocaleString()}
                     </td>
                     <td>
                       <span className={`status-pill ${getStatusClass(inv.status)}`}>
@@ -161,7 +161,7 @@ const Payments = () => {
 
                         {status === 'paid' && (
                           <div className="fully-paid-badge">
-                            <span style={{ marginRight: '4px' }}>âœ“</span> Fully Paid
+                            <FaCheckCircle style={{ marginRight: '4px' }} /> Fully Paid
                           </div>
                         )}
                       </div>
@@ -189,7 +189,7 @@ const Payments = () => {
 
             <div className="pm-amount-box">
               <span>Total Payable Amount</span>
-              <h3>â‚¹ {selectedInvoice.dueAmount?.toLocaleString()}</h3>
+              <h3><FaRupeeSign /> {selectedInvoice.dueAmount?.toLocaleString()}</h3>
             </div>
 
             <div className="pm-methods" style={{ textAlign: 'center' }}>
@@ -215,7 +215,7 @@ const Payments = () => {
 
                 {/* UPI ID */}
                 <div style={{ marginTop: '15px', fontSize: '0.9rem', color: '#334155', fontWeight: '500' }}>
-                  <span style={{ color: '#eab308', marginRight: '5px' }}>â–¶</span>
+                  <span style={{ color: '#eab308', marginRight: '5px' }}>▶</span>
                   9948946658@pthdfc
                 </div>
               </div>

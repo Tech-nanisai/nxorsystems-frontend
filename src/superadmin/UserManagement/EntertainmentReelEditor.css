@@ -1,0 +1,823 @@
+/* frontend/src/superadmin/UserManagement/EntertainmentReelEditor.css */
+
+.EntertainmentReelEditor-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  color: #1e293b;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Header Area styling */
+.EntertainmentReelEditor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+  gap: 2rem;
+}
+
+.EntertainmentReelEditor-title-section {
+  text-align: left;
+}
+
+.EntertainmentReelEditor-subtitle {
+  font-size: 0.78rem;
+  color: #2563eb;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.EntertainmentReelEditor-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.EntertainmentReelEditor-description-text {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0;
+  font-weight: 450;
+}
+
+/* Refresh Data Button */
+.EntertainmentReelEditor-refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 650;
+  color: #475569;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.EntertainmentReelEditor-refresh-btn:hover {
+  background: #ffffff;
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.08);
+}
+
+.EntertainmentReelEditor-icon-spin {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.EntertainmentReelEditor-refresh-btn:hover .EntertainmentReelEditor-icon-spin {
+  transform: rotate(180deg);
+}
+
+/* Workspace Layout */
+.EntertainmentReelEditor-workspace {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 1rem;
+}
+
+/* Left Sidebar Controls */
+.EntertainmentReelEditor-left-panel {
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.EntertainmentReelEditor-back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 14px 20px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #475569;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.EntertainmentReelEditor-back-btn:hover {
+  background: #ffffff;
+  color: #0f172a;
+  border-color: rgba(15, 23, 42, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+}
+
+.EntertainmentReelEditor-add-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border: none;
+  padding: 15px 20px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.EntertainmentReelEditor-add-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45);
+}
+
+/* Right Content Area */
+.EntertainmentReelEditor-right-panel {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  border-radius: 24px;
+  padding: 2rem;
+  min-height: 520px;
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.04);
+  box-sizing: border-box;
+}
+
+.EntertainmentReelEditor-loader-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+}
+
+.EntertainmentReelEditor-empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+  text-align: center;
+}
+
+.EntertainmentReelEditor-empty-text {
+  color: #64748b;
+  font-size: 1.05rem;
+  font-weight: 500;
+  max-width: 320px;
+}
+
+/* Reels Cards Grid */
+.EntertainmentReelEditor-reels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
+  gap: 2rem;
+}
+
+.EntertainmentReelEditor-reel-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.EntertainmentReelEditor-reel-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 35px rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+.EntertainmentReelEditor-reel-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  align-items: center;
+  text-align: left;
+}
+
+.EntertainmentReelEditor-avatar-circle {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+  transition: all 0.3s ease;
+}
+
+.EntertainmentReelEditor-reel-card:hover .EntertainmentReelEditor-avatar-circle {
+  transform: scale(1.05) rotate(-3deg);
+}
+
+.EntertainmentReelEditor-creator-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.EntertainmentReelEditor-name {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 750;
+  color: #0f172a;
+}
+
+.EntertainmentReelEditor-role {
+  margin: 2px 0 0 0;
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.EntertainmentReelEditor-instagram {
+  margin: 4px 0 0 0;
+  font-size: 0.8rem;
+  color: #2563eb;
+  font-weight: 650;
+}
+
+.EntertainmentReelEditor-ig-icon {
+  margin-right: 2px;
+}
+
+.EntertainmentReelEditor-rating {
+  font-size: 1rem;
+  color: #eab308;
+  margin-bottom: 0.75rem;
+  letter-spacing: 2px;
+  text-align: left;
+}
+
+.EntertainmentReelEditor-comment {
+  font-size: 0.9rem;
+  color: #475569;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  line-height: 1.55;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+/* Hover-Play Video elements */
+.EntertainmentReelEditor-preview-wrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000000;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-sizing: border-box;
+  margin-top: auto;
+}
+
+.EntertainmentReelEditor-video-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+}
+
+.EntertainmentReelEditor-video-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  color: #ffffff;
+  padding: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Edit Badge top right of card */
+.EntertainmentReelEditor-edit-badge {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.EntertainmentReelEditor-edit-badge:hover {
+  transform: scale(1.15) rotate(15deg);
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
+  border-color: transparent;
+}
+
+/* Modal Popup Overlay */
+.EntertainmentReelEditor-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.EntertainmentReelEditor-modal-content {
+  width: 100%;
+  max-width: 640px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+  animation: EntertainmentReelEditor-modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes EntertainmentReelEditor-modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Custom Scrollbar inside modal content for premium feel */
+.EntertainmentReelEditor-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+.EntertainmentReelEditor-modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.EntertainmentReelEditor-modal-content::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 4px;
+}
+.EntertainmentReelEditor-modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+.EntertainmentReelEditor-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.75rem 2rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.EntertainmentReelEditor-modal-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.EntertainmentReelEditor-close-btn {
+  background: rgba(148, 163, 184, 0.1);
+  border: none;
+  color: #64748b;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.EntertainmentReelEditor-close-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.EntertainmentReelEditor-modal-body {
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Inputs & Form layout */
+.EntertainmentReelEditor-form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.EntertainmentReelEditor-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.EntertainmentReelEditor-form-label {
+  font-weight: 750;
+  color: #334155;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.EntertainmentReelEditor-form-input,
+.EntertainmentReelEditor-form-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #0f172a;
+  background: #ffffff;
+  box-sizing: border-box;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.EntertainmentReelEditor-form-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #0f172a;
+  background: #ffffff;
+  box-sizing: border-box;
+  resize: vertical;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.EntertainmentReelEditor-form-input:focus,
+.EntertainmentReelEditor-form-textarea:focus,
+.EntertainmentReelEditor-form-select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+  background: #ffffff;
+}
+
+/* Video Assets Section */
+.EntertainmentReelEditor-video-section {
+  background: #f8fafc;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-top: 1.75rem;
+  text-align: left;
+}
+
+.EntertainmentReelEditor-video-section-title {
+  margin: 0 0 1.25rem 0;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Upload zone */
+.EntertainmentReelEditor-video-upload-section {
+  margin-bottom: 1.5rem;
+}
+
+.EntertainmentReelEditor-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 2rem 1.5rem;
+  background: #ffffff;
+  border: 2px dashed rgba(37, 99, 235, 0.4);
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #2563eb;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.EntertainmentReelEditor-upload-label:hover {
+  background: #eff6ff;
+  border-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+.EntertainmentReelEditor-upload-icon {
+  font-size: 2rem;
+  color: #2563eb;
+}
+
+.EntertainmentReelEditor-upload-help {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Cloud Links Section */
+.EntertainmentReelEditor-link-section {
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+  padding-top: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.EntertainmentReelEditor-link-section-title {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.88rem;
+  font-weight: 750;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.EntertainmentReelEditor-link-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.EntertainmentReelEditor-link-title-input,
+.EntertainmentReelEditor-link-url-input {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: #0f172a;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.EntertainmentReelEditor-link-title-input {
+  flex: 1;
+  min-width: 150px;
+}
+
+.EntertainmentReelEditor-link-url-input {
+  flex: 2;
+  min-width: 200px;
+}
+
+.EntertainmentReelEditor-link-title-input:focus,
+.EntertainmentReelEditor-link-url-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.EntertainmentReelEditor-add-link-btn {
+  background: #2563eb;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.EntertainmentReelEditor-add-link-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* Staged items listing common cards */
+.EntertainmentReelEditor-existing-videos,
+.EntertainmentReelEditor-links-list,
+.EntertainmentReelEditor-new-uploads-list {
+  margin-bottom: 1.5rem;
+}
+
+.EntertainmentReelEditor-existing-videos-title,
+.EntertainmentReelEditor-links-list-title,
+.EntertainmentReelEditor-new-uploads-title {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.EntertainmentReelEditor-video-item,
+.EntertainmentReelEditor-link-item,
+.EntertainmentReelEditor-new-upload-item {
+  background: #ffffff;
+  border: 1px solid rgba(203, 213, 225, 0.6);
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.EntertainmentReelEditor-video-title,
+.EntertainmentReelEditor-link-title,
+.EntertainmentReelEditor-new-upload-title {
+  margin: 0;
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 0.88rem;
+  text-align: left;
+}
+
+.EntertainmentReelEditor-link-url,
+.EntertainmentReelEditor-new-upload-size {
+  margin: 4px 0 0 0;
+  color: #64748b;
+  font-size: 0.75rem;
+  word-break: break-all;
+  text-align: left;
+}
+
+.EntertainmentReelEditor-remove-video-btn {
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  padding: 6px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.EntertainmentReelEditor-remove-video-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+}
+
+/* Modal Footer Actions */
+.EntertainmentReelEditor-modal-footer {
+  display: flex;
+  gap: 12px;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #f1f5f9;
+  background: #fafafa;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.EntertainmentReelEditor-delete-btn {
+  flex: 1;
+  padding: 14px 20px;
+  background: #ffffff;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #ef4444;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.EntertainmentReelEditor-delete-btn:hover {
+  background: rgba(239, 68, 68, 0.05);
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.EntertainmentReelEditor-save-btn {
+  flex: 2;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  border: none;
+  color: #ffffff;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.EntertainmentReelEditor-save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(22, 163, 74, 0.35);
+}
+
+.EntertainmentReelEditor-save-btn:disabled {
+  background: #94a3b8;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Responsive constraints */
+@media (max-width: 992px) {
+  .EntertainmentReelEditor-workspace {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .EntertainmentReelEditor-left-panel {
+    flex: 1;
+    flex-direction: row;
+  }
+  .EntertainmentReelEditor-back-btn,
+  .EntertainmentReelEditor-add-btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .EntertainmentReelEditor-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .EntertainmentReelEditor-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .EntertainmentReelEditor-refresh-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .EntertainmentReelEditor-title {
+    font-size: 1.8rem;
+  }
+
+  .EntertainmentReelEditor-left-panel {
+    flex-direction: column;
+  }
+
+  .EntertainmentReelEditor-right-panel {
+    padding: 1.25rem;
+  }
+
+  .EntertainmentReelEditor-reels-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .EntertainmentReelEditor-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .EntertainmentReelEditor-modal-content {
+    max-height: 95vh;
+  }
+}

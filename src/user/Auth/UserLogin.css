@@ -1,0 +1,374 @@
+/* frontend/src/user/Auth/UserLogin.css */
+
+/* --- PAGE CONTAINER --- */
+.UserLogin-page-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  padding: 20px;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Hide orbs as they are not used in the light card theme, but keep declarations if needed for compatibility */
+.UserLogin-orb {
+  display: none;
+}
+
+/* --- CARD DESIGN --- */
+.UserLogin-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 32px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+  animation: cardEntrance 0.6s ease-out forwards;
+}
+
+.UserLogin-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- HEADER --- */
+.UserLogin-header {
+  text-align: center;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.UserLogin-logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 16px;
+}
+
+.UserLogin-logo-img {
+  height: 36px;
+  object-fit: contain;
+}
+
+.UserLogin-logo-sub {
+  font-size: 9px;
+  font-weight: 600;
+  color: #4b5563;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding-left: 4px;
+}
+
+.UserLogin-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.UserLogin-subtitle {
+  font-size: 15px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* --- FORM ELEMENTS --- */
+.UserLogin-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.UserLogin-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.UserLogin-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.UserLogin-input-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-left: 4px;
+}
+
+/* Input Wrapper & Box styling */
+.UserLogin-input-box {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e5e7eb;
+  background: #ffffff;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #111827;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.UserLogin-input-box:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.UserLogin-password-box-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.UserLogin-password-box-wrapper .password-input {
+  padding-right: 48px;
+}
+
+.UserLogin-password-toggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #9ca3af;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.UserLogin-password-toggle:hover {
+  color: #4b5563;
+}
+
+.UserLogin-link-forgot {
+  font-size: 12px;
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.UserLogin-link-forgot:hover {
+  text-decoration: underline;
+}
+
+/* --- BUTTONS --- */
+.UserLogin-btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #111827, #1f2937);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s;
+  box-sizing: border-box;
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.UserLogin-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.UserLogin-btn-primary:active {
+  transform: translateY(0);
+}
+
+.UserLogin-btn-primary:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.UserLogin-btn-secondary {
+  width: 100%;
+  padding: 12px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.UserLogin-btn-secondary:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+/* --- ACTIVE SESSION VIEW --- */
+.UserLogin-session-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.UserLogin-session-icon-box {
+  width: 54px;
+  height: 54px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.UserLogin-session-success-icon {
+  font-size: 26px;
+  color: #16a34a;
+}
+
+.UserLogin-session-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 10px 0;
+}
+
+.UserLogin-session-desc {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.5;
+  margin: 0 0 24px 0;
+}
+
+.UserLogin-session-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* --- FEEDBACK MESSAGES --- */
+.UserLogin-error-message {
+  margin: 0;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fee2e2;
+  animation: shake 0.4s ease-in-out;
+}
+
+.UserLogin-success-message {
+  margin: 0;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+  background-color: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #dcfce7;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* --- FOOTER / SWITCH LINK --- */
+.UserLogin-footer {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.UserLogin-link-signup {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.UserLogin-link-signup:hover {
+  text-decoration: underline;
+}
+
+/* --- LOADER WRAPPER --- */
+.UserLogin-loader-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.UserLogin-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(59, 130, 246, 0.1);
+  border-top: 3px solid #2563eb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.UserLogin-loader-text {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+  .UserLogin-card {
+    padding: 30px 20px;
+  }
+  .UserLogin-title {
+    font-size: 24px;
+  }
+}

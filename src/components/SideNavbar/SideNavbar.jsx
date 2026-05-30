@@ -14,20 +14,19 @@ import {
   FaEnvelope,
   FaSignInAlt,
   FaUserTie,
-  FaUserGraduate,
   FaUserShield,
   FaUserCircle
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import "./SideNavbar.css";
-import CompanyLogo from "../Images/TechnanisaiPNG.png";
+import CompanyLogo from "../../assets/logos/nxor-logo.png";
 import { useAuth } from "../../context/AuthContext";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isClientMenuOpen, setIsClientMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const { userRole, superAdmin, admin, client, student, logout } = useAuth();
+  const { userRole, superAdmin, admin, client, logout } = useAuth();
   const sidebarRef = useRef(null); // sidebarRef is kept as it was in the original code, though its specific outside-click useEffect is removed in favor of backdrop.
 
   // ACTIVE USER
@@ -35,14 +34,12 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   if (userRole === "superadmin") activeUser = superAdmin;
   else if (userRole === "admin") activeUser = admin;
   else if (userRole === "client") activeUser = client;
-  else if (userRole === "student") activeUser = student;
 
   const userName =
     activeUser?.fullName ||
     activeUser?.fullname ||
     activeUser?.name ||
     activeUser?.clientId ||
-    activeUser?.studentId ||
     activeUser?.adminId ||
     "User";
 
@@ -108,12 +105,9 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           >
             {/* HEADER */}
             <div className="SideNavbar-header">
-              <Link to="/" onClick={toggleSidebar} className="SideNavbar-logo-link">
-                <img src={CompanyLogo} alt="NXOR Logo" className="SideNavbar-logo" />
-                <div className="SideNavbar-brand">
-                  <span className="SideNavbar-brand-main">NXOR</span>
-                  <span className="SideNavbar-brand-sub">SYSTEMS</span>
-                </div>
+              <Link to="/" onClick={toggleSidebar} className="SideNavbar-logo-link" style={{ flexDirection: "column", gap: "2px", alignItems: "center" }}>
+                <img src={CompanyLogo} alt="NXOR Logo" className="SideNavbar-logo" style={{ height: "32px", width: "auto" }} />
+                <span className="SideNavbar-brand-sub" style={{ fontSize: "8px", letterSpacing: "5.5px", marginRight: "-5.5px", marginTop: "1px" }}>SYSTEMS</span>
               </Link>
               <button className="SideNavbar-close-btn" onClick={toggleSidebar}>
                 <FaTimes />
@@ -146,20 +140,15 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                       animate="open"
                       exit="closed"
                     >
-                      <div className="SideNavbar-subitem" onClick={() => goTo("/servicelearn")}>Learn Port</div>
-                      <div className="SideNavbar-subitem" onClick={() => goTo("/servicesUIUX")}>UI/UX Design</div>
-                      <div className="SideNavbar-subitem" onClick={() => goTo("/servicesweb")}>Web Application</div>
-                      <div className="SideNavbar-subitem" onClick={() => goTo("/servicesAPIs")}>API Development</div>
-                      <div className="SideNavbar-subitem" onClick={() => goTo("/servicesmaintanance")}>maintanance & Support</div>
+                      <div className="SideNavbar-subitem" onClick={() => goTo("/services/entertainment")}>Entertainment Reels</div>
+                      <div className="SideNavbar-subitem" onClick={() => goTo("/services/designs")}>Creative Designs & Posters</div>
+                      <div className="SideNavbar-subitem" onClick={() => goTo("/services/platforms")}>Technical Business Platforms</div>
                     </motion.div>
                   )}
                 </AnimatePresence>
 
                 <div className="SideNavbar-nav-item" onClick={() => goTo("/portfolio")}>
                   <FaBriefcase className="SideNavbar-icon" /> Portfolio
-                </div>
-                <div className="SideNavbar-nav-item" onClick={() => goTo("/testimonials")}>
-                  <FaCommentAlt className="SideNavbar-icon" /> Testimonials
                 </div>
                 <div className="SideNavbar-nav-item" onClick={() => goTo("/contact")}>
                   <FaEnvelope className="SideNavbar-icon" /> Contact
@@ -199,7 +188,6 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                             <>
                               <div className="SideNavbar-subitem" onClick={() => goTo("/superadmin/dashboard")}>Dashboard</div>
                               <div className="SideNavbar-subitem" onClick={() => goTo("/superadmin/client-management")}>Clients</div>
-                              <div className="SideNavbar-subitem" onClick={() => goTo("/superadmin/student-management")}>Students</div>
                             </>
                           )}
                           {/* Client Links */}
@@ -207,13 +195,6 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                             <>
                               <div className="SideNavbar-subitem" onClick={() => goTo("/client/dashboard")}>Dashboard</div>
                               <div className="SideNavbar-subitem" onClick={() => goTo("/client/projects")}>Projects</div>
-                            </>
-                          )}
-                          {/* Student Links */}
-                          {userRole === "student" && (
-                            <>
-                              <div className="SideNavbar-subitem" onClick={() => goTo("/student/dashboard")}>Dashboard</div>
-                              <div className="SideNavbar-subitem" onClick={() => goTo("/student/courses")}>Courses</div>
                             </>
                           )}
                           {/* Admin Links */}
@@ -234,8 +215,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                     <div className="SideNavbar-auth-btn" onClick={() => goTo("/client/signIn")}>
                       <FaUserTie className="SideNavbar-icon" /> Client Sign In
                     </div>
-                    <div className="SideNavbar-auth-btn" onClick={() => goTo("/student/signIn")}>
-                      <FaUserGraduate className="SideNavbar-icon" /> Student Sign In
+                    <div className="SideNavbar-auth-btn" onClick={() => goTo("/user/signIn")}>
+                      <FaUser className="SideNavbar-icon" /> User Sign In
                     </div>
                     <div className="SideNavbar-auth-btn" onClick={() => goTo("/admin/signIn")}>
                       <FaUserShield className="SideNavbar-icon" /> Admin Sign In

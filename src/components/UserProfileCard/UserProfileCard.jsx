@@ -30,15 +30,15 @@ const UserProfileCard = () => {
       { label: "Projects", path: "/client/projects" },
       { label: "Messages", path: "/client/messages" },
     ],
-    student: [
-      { label: "Dashboard", path: "/student/dashboard" },
-      { label: "Courses", path: "/student/courses" },
-      { label: "Messages", path: "/student/messages" },
-    ],
     admin: [
       { label: "Dashboard", path: "/admin/dashboard" },
       { label: "Manage Clients", path: "/admin/clients" },
-      { label: "Manage Students", path: "/admin/students" },
+    ],
+    user: [
+      { label: "Dashboard", path: "/user?tab=overview" },
+      { label: "Profile", path: "/user?tab=profile" },
+      { label: "Settings", path: "/user?tab=settings" },
+      { label: "My Orders", path: "/user?tab=orders" },
     ],
   };
 

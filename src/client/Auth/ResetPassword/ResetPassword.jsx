@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { FaLock, FaSpinner } from "react-icons/fa";
+import { FaLock, FaSpinner, FaKey, FaShieldAlt, FaUserShield, FaFingerprint, FaUnlockAlt } from "react-icons/fa";
 import { MdCheckCircle, MdError } from "react-icons/md";
 import "./ResetPassword.css";
 
@@ -48,6 +48,13 @@ const ResetPassword = () => {
 
     return (
         <div className="reset-password-container">
+            {/* Background Floating Icons */}
+            <FaLock className="bg-icon icon-lock" />
+            {/* <FaKey className="bg-icon icon-key" /> Removed */}
+            <FaShieldAlt className="bg-icon icon-shield" />
+            <FaFingerprint className="bg-icon icon-fingerprint" />
+            <FaUserShield className="bg-icon icon-user-shield" />
+            <FaUnlockAlt className="bg-icon icon-unlock" />
             {/* Reset Password Header */}
             <h2 className="reset-password-title">
                 <FaLock className="reset-password-icon" /> Reset Password

@@ -1,16 +1,16 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import {
   FaUsers, FaProjectDiagram, FaFileInvoiceDollar, FaChartLine,
-  FaUserShield, FaIdCard, FaHistory, FaUserGraduate
+  FaUserShield, FaIdCard, FaHistory
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Loader from "../../components/Loader/Loader";
 import "./SuperadminDashboard.css";
 
 const SuperadminDashboard = () => {
-  const [stats, setStats] = useState({ totalClients: 0, activeProjects: 0, totalInvoices: 0 });
+  const [stats, setStats] = useState({ totalClients: 0, activeProjects: 0, totalInvoices: 0, totalUsers: 0 });
   const [recentUpdates, setRecentUpdates] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -118,7 +118,7 @@ const SuperadminDashboard = () => {
               </Link>
             </motion.div>
 
-            <motion.div className="stat-card green-gradient" variants={itemVariants}>
+             <motion.div className="stat-card green-gradient" variants={itemVariants}>
               <Link to="/superadmin/client-management/billing/history" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', width: '100%', color: 'inherit', textDecoration: 'none' }}>
                 <div className="stat-icon"><FaFileInvoiceDollar /></div>
                 <div className="stat-info">
@@ -126,9 +126,19 @@ const SuperadminDashboard = () => {
                   <p>Invoices Generated</p>
                 </div>
               </Link>
-            </motion.div>
+             </motion.div>
 
-            <motion.div className="stat-card orange-gradient" variants={itemVariants}>
+             <motion.div className="stat-card blue-gradient" variants={itemVariants} style={{ background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)' }}>
+              <Link to="/superadmin/user-management" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', width: '100%', color: 'inherit', textDecoration: 'none' }}>
+                <div className="stat-icon"><FaUsers /></div>
+                <div className="stat-info">
+                  <h3>{stats.totalUsers || 0}</h3>
+                  <p>Total Users</p>
+                </div>
+              </Link>
+             </motion.div>
+
+             <motion.div className="stat-card orange-gradient" variants={itemVariants}>
               <Link to="/superadmin/updates" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', width: '100%', color: 'inherit', textDecoration: 'none' }}>
                 <div className="stat-icon"><FaChartLine /></div>
                 <div className="stat-info">
@@ -136,7 +146,7 @@ const SuperadminDashboard = () => {
                   <p>System Health</p>
                 </div>
               </Link>
-            </motion.div>
+             </motion.div>
           </div>
 
           {/* 3. Main Content Grid */}
@@ -158,10 +168,10 @@ const SuperadminDashboard = () => {
                   <p>Create new unique IDs for system entities.</p>
                 </Link>
 
-                <Link to="/superadmin/student-management" className="action-card">
-                  <div className="action-icon icon-student"><FaUserGraduate /></div>
-                  <h4>Student Management</h4>
-                  <p>Manage student records and performance.</p>
+                <Link to="/superadmin/user-management" className="action-card">
+                  <div className="action-icon icon-user-mgmt" style={{ background: '#f5f3ff', color: '#8b5cf6' }}><FaUsers /></div>
+                  <h4>User Management</h4>
+                  <p>Manage registered users and system access.</p>
                 </Link>
 
                 <Link to="/superadmin/updates" className="action-card">

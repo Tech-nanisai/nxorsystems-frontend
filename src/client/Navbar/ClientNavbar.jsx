@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./ClientNavbar.css";
+import CompanyLogo from "../../assets/logos/nxor-logo.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useClientAuth } from "../../context/ClientAuthContext";
 
@@ -74,9 +75,12 @@ const ClientNavbar = () => {
         className={`client-sidebar-container ${menuOpen ? "open" : ""}`}
       >
         {/* LOGO AREA */}
-        <div className="client-sidebar-top">
-          <div className="sidebar-brand-box">
-            <img src="/src/assets/logos/nxor-logo.png" alt="NXOR Systems" className="client-sidebar-logo-img" />
+        <div className="client-sidebar-top" style={{ padding: '20px 24px' }}>
+          <div className="sidebar-brand-box" style={{ justifyContent: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+              <img src={CompanyLogo} alt="NXOR Systems" className="client-sidebar-logo-img" style={{ height: '32px', width: 'auto' }} />
+              <span style={{ fontSize: '8px', fontWeight: 600, color: '#94a3b8', letterSpacing: '5.5px', marginRight: '-5.5px', textTransform: 'uppercase', marginTop: '1px' }}>SYSTEMS</span>
+            </div>
           </div>
         </div>
 

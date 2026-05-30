@@ -1,0 +1,472 @@
+/* frontend/src/components/common/SecureReelPlayer/SecureReelPlayer.css */
+
+/* ============================================================
+   CONTAINER — 9:16 Vertical aspect, cropped, no scrollbars
+   ============================================================ */
+.SecureReelPlayer-container {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 9 / 16;
+  margin: 0 auto;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #080b14;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none; /* iOS: prevent long-press save */
+  cursor: pointer;
+
+  /* ── GPU Composite Layer ──────────────────────────────────────
+     Forces the ENTIRE card (video + overlays) into the same
+     hardware-accelerated compositor layer as the <video> element.
+     Most OS screenshot APIs black-out hardware-layer surfaces,
+     so this extends the native video blackout to the whole card.
+  ─────────────────────────────────────────────────────────────── */
+  isolation: isolate;                  /* create stacking context   */
+  transform: translateZ(0);           /* promote to GPU layer       */
+  -webkit-transform: translateZ(0);
+  will-change: transform;             /* keep on GPU between frames */
+  backface-visibility: hidden;        /* prevent compositing leaks  */
+  -webkit-backface-visibility: hidden;
+  touch-action: pan-x pan-y;
+}
+
+.SecureReelPlayer-container:hover {
+  border-color: rgba(255, 193, 7, 0.35);
+}
+
+/* ============================================================
+   NATIVE HTML5 VIDEO — fills container, no controls, no drag
+   ============================================================ */
+.SecureReelPlayer-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  display: block;
+
+  /* Reinforce GPU layer on the video itself */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ============================================================
+   LOADING SHIMMER
+   ============================================================ */
+.SecureReelPlayer-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #080b14;
+  z-index: 5;
+}
+
+.SecureReelPlayer-loader-ring {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.08);
+  border-top-color: #ffc107;
+  border-radius: 50%;
+  animation: SecureReel-spin 0.8s linear infinite;
+}
+
+/* ============================================================
+   CLICK BLOCKER — captures interactions away from native video
+   ============================================================ */
+.SecureReelPlayer-click-blocker {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  cursor: pointer;
+  background: transparent;
+  touch-action: pan-x pan-y;
+}
+
+/* ============================================================
+   OVERLAY CANVAS — fades in on hover / pause
+   ============================================================ */
+.SecureReelPlayer-overlay-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.SecureReelPlayer-overlay-canvas.visible {
+  opacity: 1;
+}
+
+/* ============================================================
+   TOP BAR — "Private" secure badge
+   ============================================================ */
+.SecureReelPlayer-top-bar {
+  padding: 16px 16px 0;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.SecureReelPlayer-secure-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(8, 11, 20, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+.SecureReelPlayer-lock-icon {
+  font-size: 10px;
+  color: #ffc107;
+}
+
+.SecureReelPlayer-secure-badge span {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* ============================================================
+   CENTER PLAY / PAUSE BUTTON
+   ============================================================ */
+.SecureReelPlayer-center-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.92);
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(8, 11, 20, 0.5);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.SecureReelPlayer-center-btn:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+  background: rgba(255, 193, 7, 0.92);
+  border-color: #ffc107;
+  box-shadow: 0 12px 32px rgba(255, 193, 7, 0.45);
+}
+
+.SecureReelPlayer-center-btn:hover .SecureReelPlayer-center-icon {
+  color: #04060a;
+}
+
+.SecureReelPlayer-center-btn.playing:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.SecureReelPlayer-center-btn.playing:hover .SecureReelPlayer-center-icon {
+  color: #ffffff;
+}
+
+.SecureReelPlayer-center-icon {
+  font-size: 20px;
+  color: #ffffff;
+  transition: color 0.25s ease;
+}
+
+.play-offset {
+  transform: translateX(2px);
+}
+
+/* ============================================================
+   BOTTOM — Progress Bar + Controls
+   ============================================================ */
+.SecureReelPlayer-bottom {
+  padding: 0 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+/* Progress Track */
+.SecureReelPlayer-progress-track {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  cursor: pointer;
+  pointer-events: auto;
+  overflow: hidden;
+}
+
+.SecureReelPlayer-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ffc107, #ffca28);
+  border-radius: 2px;
+  transition: width 0.25s linear;
+  min-width: 0;
+}
+
+/* Controls Bar */
+.SecureReelPlayer-controls-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(8, 11, 20, 0.6);
+  backdrop-filter: blur(20px) saturate(190%);
+  -webkit-backdrop-filter: blur(20px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 6px 10px;
+  height: 44px;
+  pointer-events: auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.SecureReelPlayer-ctrl-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.SecureReelPlayer-ctrl-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffc107;
+  transform: scale(1.08);
+}
+
+.SecureReelPlayer-ctrl-btn:active {
+  transform: scale(0.93);
+}
+
+.SecureReelPlayer-status-label {
+  flex: 1;
+  font-size: 10.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fullscreen-ctrl {
+  margin-left: auto;
+}
+
+/* ============================================================
+   SECURITY SHIELD (Window Focus Lost)
+   ============================================================ */
+.SecureReelPlayer-shield {
+  position: absolute;
+  inset: 0;
+  z-index: 80;
+  background: rgba(4, 6, 10, 0.85);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  animation: SecureReel-fadeIn 0.35s ease;
+}
+
+.SecureReelPlayer-shield-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  animation: SecureReel-scaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.SecureReelPlayer-shield-icon {
+  font-size: 38px;
+  color: #ffc107;
+  filter: drop-shadow(0 0 14px rgba(255, 193, 7, 0.4));
+  animation: SecureReel-pulse 2s ease-in-out infinite;
+}
+
+.SecureReelPlayer-shield-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
+.SecureReelPlayer-shield-card p {
+  font-size: 12px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  max-width: 240px;
+}
+
+/* Blur the video + cover the entire card when tab loses focus */
+.SecureReelPlayer-container.blurred .SecureReelPlayer-video {
+  filter: blur(28px);
+  transform: scale(1.05) translateZ(0);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* Opaque black cover over the entire container when blurred/captured
+   This ensures overlays and chrome elements are also hidden in screenshots */
+.SecureReelPlayer-container.blurred::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 90;
+  background: #04060a;
+  opacity: 1;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ============================================================
+   SECURITY ALERT TOAST
+   ============================================================ */
+.SecureReelPlayer-alert-toast {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  right: 16px;
+  z-index: 100;
+  background: rgba(220, 38, 38, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 28px rgba(220, 38, 38, 0.35);
+  animation: SecureReel-slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 11px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+.SecureReelPlayer-alert-toast svg {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   FULLSCREEN STYLES
+   ============================================================ */
+.SecureReelPlayer-container:fullscreen {
+  max-width: none !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  border-radius: 0 !important;
+  border: none !important;
+  background: #000 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Keep 9:16 ratio centered in fullscreen landscape */
+.SecureReelPlayer-container:fullscreen .SecureReelPlayer-video {
+  position: absolute;
+  width: auto;
+  height: 100%;
+  max-width: 56.25vh;
+  left: 50%;
+  transform: translateX(-50%);
+  object-fit: cover;
+}
+
+.SecureReelPlayer-container:fullscreen .SecureReelPlayer-click-blocker,
+.SecureReelPlayer-container:fullscreen .SecureReelPlayer-overlay-canvas {
+  max-width: 56.25vh;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+}
+
+/* ============================================================
+   PRINT — completely hide video in print
+   ============================================================ */
+@media print {
+  body,
+  .SecureReelPlayer-container,
+  video {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
+/* ============================================================
+   KEYFRAME ANIMATIONS
+   ============================================================ */
+@keyframes SecureReel-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes SecureReel-fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes SecureReel-scaleUp {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes SecureReel-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.75; transform: scale(1.08); }
+}
+
+@keyframes SecureReel-slideDown {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

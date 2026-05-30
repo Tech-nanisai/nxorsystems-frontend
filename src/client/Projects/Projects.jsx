@@ -1,7 +1,7 @@
 ﻿//frontend/src/client/Projects/Projects.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaSearch, FaCalendarAlt, FaTasks } from "react-icons/fa";
+import { FaSearch, FaCalendarAlt, FaTasks, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import axios from "axios";
 import { useClientAuth } from "../../context/ClientAuthContext";
 import "./Projects.css";
@@ -190,7 +190,7 @@ const Projects = () => {
 
                     {project.approvalStatus === 'Approved' && (
                       <div style={{ color: '#15803d', textAlign: 'center' }}>
-                        <strong>âœ” Approved</strong>
+                        <strong><FaCheckCircle style={{ marginRight: 5 }} /> Approved</strong>
                         <div style={{ fontSize: '0.75rem', marginTop: '4px', color: '#64748b' }}>
                           {formatIST(project.approvalDate)}
                         </div>
@@ -199,7 +199,7 @@ const Projects = () => {
 
                     {project.approvalStatus === 'Rejected' && (
                       <div style={{ color: '#b91c1c', textAlign: 'center' }}>
-                        <strong>âœ• Rejected</strong>
+                        <strong><FaTimesCircle style={{ marginRight: 5 }} /> Rejected</strong>
                         <div style={{ fontSize: '0.75rem', marginTop: '4px', color: '#64748b' }}>
                           {formatIST(project.approvalDate)}
                         </div>

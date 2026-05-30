@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import "./SuperAdminSidebar.css";
+import CompanyLogo from "../../assets/logos/nxor-logo.png";
 
 import {
   FaThLarge,
   FaUsers,
-  FaUserGraduate,
   FaIdCard,
   FaHistory,
   FaCog,
@@ -52,10 +52,9 @@ const SuperAdminSidebar = ({ sidebarOpen, setSidebarOpen }) => {
       >
         {/* HEADER */}
         <div className="superadminsidebar-header">
-          <div>
-            {/* <div className="superadminsidebar-brand">NXOR SYSTEMS</div> */}
-            <img src="/src/assets/logos/nxor-logo.png" alt="NXOR Systems" style={{ height: '40px', objectFit: 'contain' }} />
-            {/* <span className="superadminsidebar-brand-sub">CEO PORTAL</span> */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+            <img src={CompanyLogo} alt="NXOR Systems" style={{ height: '32px', objectFit: 'contain' }} />
+            <span className="superadminsidebar-brand-sub" style={{ fontSize: '8px', letterSpacing: '5.5px', marginRight: '-5.5px', marginTop: '1px', textTransform: 'uppercase' }}>SYSTEMS</span>
           </div>
           {/* Close Toggle for Sidebar */}
           <button
@@ -90,13 +89,13 @@ const SuperAdminSidebar = ({ sidebarOpen, setSidebarOpen }) => {
           </Link>
 
           <Link
-            to="/superadmin/student-management"
-            className={`superadminsidebar-nav-item ${isActive("/superadmin/student-management") ? "active" : ""
+            to="/superadmin/user-management"
+            className={`superadminsidebar-nav-item ${isActive("/superadmin/user-management") ? "active" : ""
               }`}
             onClick={handleNavClick}
           >
-            <FaUserGraduate className="superadminsidebar-nav-icon" />
-            <span>Student Management</span>
+            <FaUsers className="superadminsidebar-nav-icon" />
+            <span>User Management</span>
           </Link>
 
           <Link

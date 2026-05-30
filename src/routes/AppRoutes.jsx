@@ -26,10 +26,13 @@ import ProjectDashboard from '../superadmin/ClientManagement/Projects/ProjectDas
 import DocumentsDashboard from '../superadmin/ClientManagement/Documents/DocumentsDashboard';
 import SecurityDashboard from '../superadmin/ClientManagement/Security/SecurityDashboard';
 import ClientManagementUpdates from '../superadmin/ClientManagement/ClientManagementUpdates';
+import FlagshipOfferingCustomizer from '../superadmin/UserManagement/FlagshipOfferingCustomizer';
+import EntertainmentReelEditor from '../superadmin/UserManagement/EntertainmentReelEditor';
+import CreativeDesignEditor from '../superadmin/UserManagement/CreativeDesignEditor';
 import SuperAdminUpdates from '../superadmin/Updates/Updates';
-import StudentManagementDashboard from '../superadmin/StudentManagement/StudentManagementDashboard';
 import AllClients from '../superadmin/ClientManagement/Clients/AllClients';
-
+import UserManagementDashboard from '../superadmin/UserManagement/UserManagementDashboard';
+import UserDetails from '../superadmin/UserManagement/UserDetails';
 // import superAdminNavbar from '../superadmin/Navbar/SuperAdminNavbar'
 // import superAdminSetting from '../superadmin/Settings/SuperAdminSettings'
 
@@ -60,9 +63,6 @@ import AdminLayout from '../admin/Layout/AdminLayout'
 // import adminSetting from '../admin/Settings/AdminSettings'
 // import adminOrganizationSetting from '../admin/Settings/OrganizationSettings'
 // import adminSecuritySetting from '../admin/Settings/SecuritySettings'
-// import adminSidebar from '../admin/Sidebar/AdminSidebar'
-// import adminStudentDetails from '../admin/Students/StudentDetails'
-// import adminStudentList from '../admin/Students/StudentList'
 // import adminSupportTicketDetails from '../admin/Support/TicketDetails'
 // import adminSupportTicketList from '../admin/Support/TicketList'
 
@@ -94,27 +94,10 @@ import ClientTasks from '../client/Tasks/Tasks';
 import Updates from '../client/Updates/Updates';
 import ClientDocuments from '../client/Documents/Documents';
 
-{/*import Routers for Student*/ }
-// import studentAssignmentDetails from '../student/Assignments/AssignmentDetails';
-// import studentAssignments from '../student/Assignments/Assignments';
-// import studentAuthReg from '../student/Auth/StudentRegister'
-// import studentAuthLogin from '../student/Auth/StudentLogin'
-// import studentAuthForgetPass from '../student/Auth/StudentForgetPassword'
-// import studentAuthRest from '../student/Auth/Student_auth'
-// import studentCertificates from '../student/Certificates/Certificates'
-// import studentCourses from '../student/Courses/Courses'
-// import studentCoursesDetails from '../student/Courses/CourseDetails'
-// import studentDashboard from '../student/Dashboard/StudentDashboard'
-// import studentDocuments from '../student/Documents/Documents'
-// import studentInvoices from '../student/Invoices/Invoices'
-// import studentInvoiceDetails from '../student/Invoices/InvoiceDetails'
-// import studentLayout from '../student/Layout/StudentLayout'
-// import studentNavbar from '../student/Navbar/StudentNavbar'
-// import studentMessage from '../student/Messages/Messages'
-// import studentChatWindow from '../student/Messages/ChatWindow'
-// import studentOffers from '../student/Offers/Offers'
-// import studentSettings from '../student/Settings/Settings'
-// import studentUpdates from '../student/Updates/Updates'
+{/*import Routers for User*/ }
+import UserLogin from '../user/Auth/UserLogin';
+import UserRegister from '../user/Auth/UserRegister';
+import UserDashboard from '../user/Dashboard/UserDashboard';
 
 // import ProtectedRoute from '../routes/ProtectedRoute';
 import { AuthProvider } from '../context/AuthContext';
@@ -124,24 +107,22 @@ import RoleBasedRoute from '../routes/RoleBasedRoute';
 import ContactNXOR from '../components/Contact/Contact';
 import HomeNXOR from '../components/Home/Home';
 import Notfoundpage from '../components/notFoundPage/notFoundPage';
-import ServicesAPI from '../components/Services/APIdevelopment/apidevelopment'
-import ServiceLearn from '../components/Services/Learn/learn'
-import Servicesmaintanance from '../components/Services/MaintenanceSupport/maintenancesupport'
-import ServicesIuUx from '../components/Services/UIUXHighlights/UIUXHighlights'
-import ServiceWeb from '../components/Services/Webdevelopment/web_development'
+import EntertainmentReels from '../components/Services/EntertainmentReels/EntertainmentReels'
+import CreativeDesigns from '../components/Services/CreativeDesigns/CreativeDesigns'
+import TechnicalPlatforms from '../components/Services/TechnicalPlatforms/TechnicalPlatforms'
 import Portfolio from '../components/Portfolio/portfolio';
 // import serivesdropdown from '../components/Services/Services'
 // import sidebarNXOR from '../components/Sidenavbar/Sidenavbar'
 import TopbarNXOR from '../components/TopNavbar/TopNavbar'
 import TestimonialsNXOR from '../components/Testimonials/Testimonials'
-// import footerNXOR from '../components/Footer/Footer'
+import FooterNXOR from '../components/Footer/Footer'
 
 const AppRoutes = () => {
   const location = useLocation();
 
   // Define routes where the global TopNavbar should be HIDDEN
   // Typically hidden for dashboard pages where a separate sidebar/layout is used
-  const hideNavbarRoutes = ["/superadmin", "/admin", "/client", "/student"];
+  const hideNavbarRoutes = ["/superadmin", "/admin", "/client", "/user"];
 
   const shouldHideNavbar = hideNavbarRoutes.some(route => location.pathname.startsWith(route));
 
@@ -153,12 +134,9 @@ const AppRoutes = () => {
       <Routes>
         {/* Routers for HomeNXOR */}
         <Route path="/" element={<HomeNXOR />} />
-        <Route path="/servicelearn" element={<ServiceLearn />} />
-        <Route path="/ServicesUIUX" element={<ServicesIuUx />} />
-        <Route path="/servicesweb" element={<ServiceWeb />} />
-        <Route path="/servicesAPIs" element={<ServicesAPI />} />
-        <Route path="/servicesmaintanance" element={<Servicesmaintanance />} />
-        <Route path="/testimonials" element={<TestimonialsNXOR />} />
+        <Route path="/services/entertainment" element={<EntertainmentReels />} />
+        <Route path="/services/designs" element={<CreativeDesigns />} />
+        <Route path="/services/platforms" element={<TechnicalPlatforms />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact" element={<ContactNXOR />} />
 
@@ -177,7 +155,12 @@ const AppRoutes = () => {
         <Route path="/superadmin/client-management" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><ClientManagementDashboard /></SuperAdminLayout></RoleBasedRoute>} />
         <Route path="/superadmin/client-management/documents" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><DocumentsDashboard /></SuperAdminLayout></RoleBasedRoute>} />
         <Route path="/superadmin/client-management/all-clients" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><AllClients /></SuperAdminLayout></RoleBasedRoute>} />
-        <Route path="/superadmin/student-management" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><StudentManagementDashboard /></SuperAdminLayout></RoleBasedRoute>} />
+        <Route path="/superadmin/user-management" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><UserManagementDashboard /></SuperAdminLayout></RoleBasedRoute>} />
+        <Route path="/superadmin/user_management" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><UserManagementDashboard /></SuperAdminLayout></RoleBasedRoute>} />
+        <Route path="/superadmin/user management" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><UserManagementDashboard /></SuperAdminLayout></RoleBasedRoute>} />
+        <Route path="/superadmin/user-management/user/:id" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><UserDetails /></SuperAdminLayout></RoleBasedRoute>} />
+        <Route path="/superadmin/user_management/user/:id" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><UserDetails /></SuperAdminLayout></RoleBasedRoute>} />
+        <Route path="/superadmin/user management/user/:id" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><UserDetails /></SuperAdminLayout></RoleBasedRoute>} />
 
         {/* Billing Routes */}
         <Route path="/superadmin/client-management/billing" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><BillingDashboard /></SuperAdminLayout></RoleBasedRoute>} />
@@ -194,6 +177,9 @@ const AppRoutes = () => {
         {/* Security Routes */}
         <Route path="/superadmin/client-management/security" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><SecurityDashboard /></SuperAdminLayout></RoleBasedRoute>} />
         <Route path="/superadmin/client-management/updates" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><ClientManagementUpdates /></SuperAdminLayout></RoleBasedRoute>} />
+        <Route path="/superadmin/user-management/flagship-offering" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><FlagshipOfferingCustomizer /></SuperAdminLayout></RoleBasedRoute>} />
+        <Route path="/superadmin/user-management/entertainment-reels-editor" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><EntertainmentReelEditor /></SuperAdminLayout></RoleBasedRoute>} />
+        <Route path="/superadmin/user-management/creative-designs-editor" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><CreativeDesignEditor /></SuperAdminLayout></RoleBasedRoute>} />
 
         <Route path="/superadmin/updates" element={<RoleBasedRoute allowed={["superadmin"]}><SuperAdminLayout><SuperAdminUpdates /></SuperAdminLayout></RoleBasedRoute>} />
 
@@ -212,6 +198,12 @@ const AppRoutes = () => {
         <Route path="/client/documents" element={<RoleBasedRoute allowed={["client"]}><ClientLayout><ClientDocuments /></ClientLayout></RoleBasedRoute>} />
         <Route path="/client/settings" element={<RoleBasedRoute allowed={["client"]}><ClientLayout><ClientSettings /></ClientLayout></RoleBasedRoute>} />
 
+        {/* USER AUTH */}
+        <Route path="/user/signIn" element={<UserLogin />} />
+        <Route path="/user/register" element={<UserRegister />} />
+        <Route path="/user" element={<RoleBasedRoute allowed={["user"]}><UserDashboard /></RoleBasedRoute>} />
+
+
         {/* ADMIN AUTH */}
         <Route path="/admin/signIn" element={<AdminAuthLogin />} />
         <Route path="/admin/register" element={<AdminReg />} />
@@ -221,7 +213,7 @@ const AppRoutes = () => {
         {/* Optional Not Found Page */}
         <Route path="*" element={<Notfoundpage />} />
       </Routes>
-      {/* <Footer/> */}
+      {!shouldHideNavbar && <FooterNXOR />}
       {/* </AuthProvider> */}
     </div>
 

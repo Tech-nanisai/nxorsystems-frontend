@@ -10,7 +10,7 @@ const IDGeneration = () => {
 
   const [search, setSearch] = useState("");
   const [form, setForm] = useState({
-    category: "Student",
+    category: "Client",
     fullName: "",
   });
 
@@ -67,7 +67,6 @@ const IDGeneration = () => {
                     setForm({ ...form, category: e.target.value })
                   }
                 >
-                  <option value="Student">Student</option>
                   <option value="Client">Client</option>
                   <option value="Employee">Employee</option>
                   <option value="Other">Other</option>

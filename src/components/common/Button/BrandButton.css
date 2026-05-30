@@ -1,29 +1,62 @@
-.brand-button {
-    background-color: transparent;
-    color: #3d3d3d;
-    border: none;
-    padding: 12px 28px;
-    font-size: 1rem;
-    font-weight: 800;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 14px rgba(29, 29, 29, 0.3);
-    letter-spacing: 0.5px;
-    border: 2px solid #818181;
+.BrandButton-root {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 14px 34px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+  letter-spacing: 0.5px;
+}
+
+.BrandButton-root:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.4), 0 4px 12px rgba(124, 58, 237, 0.25);
+  border-color: rgba(255, 255, 255, 0.35);
+  background: linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%);
+}
+
+.BrandButton-root:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.BrandButton-text {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.BrandButton-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: skewX(-20deg);
+  z-index: 1;
+  transition: all 0.6s ease;
+}
+
+.BrandButton-root:hover .BrandButton-glow {
+  left: 150%;
+  transition: all 0.6s ease;
+}
+
+@media (max-width: 768px) {
+  .BrandButton-root {
+    padding: 12px 26px;
+    font-size: 0.95rem;
   }
-  
-  .brand-button:hover {
-    background: linear-gradient(45deg, #FF8D01, #ffb347);
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(255, 141, 1, 0.5);
-  }
-  
-  @media (max-width: 768px) {
-    .brand-button {
-      padding: 10px 20px;
-      font-size: 0.95rem;
-    }
-  }
-  
+}

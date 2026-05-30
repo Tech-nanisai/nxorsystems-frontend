@@ -65,7 +65,7 @@ export default function ClientDashboard() {
       {/* HEADER SECTION */}
       <div className="dashboard-header">
         <div className="header-greeting">
-          <h1>Welcome back, {client.fullName.split(' ')[0]}! ðŸ‘‹</h1>
+          <h1>Welcome back, {client.fullName.split(' ')[0]}! 👋</h1>
           <p>Here's what's happening with your projects today.</p>
         </div>
         <div className="header-actions">

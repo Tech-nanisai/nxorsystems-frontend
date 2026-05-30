@@ -1,15 +1,13 @@
-﻿//frontend/src/Reusable/Admin/IDGeneration/IDGeneration.js
+//frontend/src/Reusable/Admin/IDGeneration/IDGeneration.js
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import UserForm from "./UserForm/UserForm";
 import ClientList from "./ClientList/ClientList";
-import StudentList from "./StudentList/StudentList";
 import "./IDGeneration.css";
 
 const IDGeneration = () => {
   const [clients, setClients] = useState([]);
-  const [students, setStudents] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +15,6 @@ const IDGeneration = () => {
         const response = await axios.get("https://nxorsystems-backend-xglw.onrender.com/api/id-generation/get-ids");
         if (response.data) {
           setClients(response.data.clients || []);
-          setStudents(response.data.students || []);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -40,8 +37,6 @@ const IDGeneration = () => {
   
         if (userType === "client") {
           setClients((prev) => [...prev, newEntry]);
-        } else {
-          setStudents((prev) => [...prev, newEntry]);
         }
       }
     } catch (error) {
@@ -56,8 +51,6 @@ const IDGeneration = () => {
       await axios.delete(`https://nxorsystems-backend-xglw.onrender.com/api/id-generation/${id}`);
       if (userType === "client") {
         setClients((prev) => prev.filter((client) => client.id !== id));
-      } else {
-        setStudents((prev) => prev.filter((student) => student.id !== id));
       }
     } catch (error) {
       console.error("Error deleting entry:", error);
@@ -76,12 +69,6 @@ const IDGeneration = () => {
             client.id === id ? { ...client, status: updatedEntry.status } : client
           )
         );
-      } else {
-        setStudents((prev) =>
-          prev.map((student) =>
-            student.id === id ? { ...student, status: updatedEntry.status } : student
-          )
-        );
       }
     } catch (error) {
       console.error("Error toggling status:", error);
@@ -98,11 +85,6 @@ const IDGeneration = () => {
           clients={clients}
           toggleStatus={(id) => handleToggleStatus(id, "client")}
           handleDelete={(id) => handleDelete(id, "client")}
-        />
-        <StudentList
-          students={students}
-          toggleStatus={(id) => handleToggleStatus(id, "student")}
-          handleDelete={(id) => handleDelete(id, "student")}
         />
       </div>
     </div>

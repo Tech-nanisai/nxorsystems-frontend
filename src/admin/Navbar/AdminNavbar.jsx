@@ -5,7 +5,6 @@ import {
     FaHome,
     FaUsers,
     FaClock,
-    FaUserGraduate,
     FaUserCircle
 } from "react-icons/fa";
 import { BiSearch } from "react-icons/bi";
@@ -43,12 +42,6 @@ const AdminNavbar = ({ setActiveSection }) => {
                         <FaUsers /> Client Management
                     </a>
 
-                    <a 
-                        className={`admin_navbar-item ${activeTab === "StudentManagement" ? "active" : ""}`}
-                        onClick={() => handleNavigation("StudentManagement")}
-                    >
-                        <FaUserGraduate /> Student Management
-                    </a>
                     <a 
                         className={`admin_navbar-item ${activeTab === "IDGeneration" ? "active" : ""}`}
                         onClick={() => handleNavigation("IDGeneration")}

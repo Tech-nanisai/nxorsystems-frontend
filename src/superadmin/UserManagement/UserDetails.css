@@ -1,0 +1,403 @@
+/* frontend/src/superadmin/UserManagement/UserDetails.css */
+
+.UserDetails-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #0f172a;
+}
+
+.UserDetails-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    margin-bottom: 1.5rem;
+}
+
+.UserDetails-back-btn:hover {
+    color: #2563eb;
+    transform: translateX(-4px);
+}
+
+.UserDetails-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+@media (min-width: 992px) {
+    .UserDetails-grid {
+        grid-template-columns: 350px 1fr;
+    }
+}
+
+/* User Info Card */
+.UserDetails-profile-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.UserDetails-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #ffffff;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+    margin-bottom: 1.5rem;
+}
+
+.UserDetails-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 0.5rem 0;
+    font-family: 'Outfit', sans-serif;
+}
+
+.UserDetails-role {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #2563eb;
+    background: rgba(37, 99, 235, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+}
+
+.UserDetails-info-list {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.UserDetails-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.UserDetails-info-item label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.UserDetails-info-item span {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Form Styles */
+.UserDetails-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.UserDetails-card-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 1.5rem 0;
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.UserDetails-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.UserDetails-form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .UserDetails-form-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.UserDetails-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.UserDetails-form-group label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #334155;
+}
+
+.UserDetails-input,
+.UserDetails-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    font-size: 0.9rem;
+    outline: none;
+    font-family: inherit;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.UserDetails-input:focus,
+.UserDetails-textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.UserDetails-textarea {
+    height: 90px;
+    resize: none;
+}
+
+.UserDetails-file-upload {
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    background: #f8fafc;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.UserDetails-file-upload:hover {
+    border-color: #2563eb;
+    background: #eff6ff;
+}
+
+.UserDetails-file-upload svg {
+    font-size: 1.8rem;
+    color: #94a3b8;
+    transition: all 0.2s;
+}
+
+.UserDetails-file-upload:hover svg {
+    color: #2563eb;
+}
+
+.UserDetails-file-upload span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.UserDetails-file-upload p {
+    margin: 0;
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.UserDetails-file-selected {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 14px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #166534;
+}
+
+.UserDetails-submit-btn {
+    background: #2563eb;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.UserDetails-submit-btn:hover {
+    background: #1d4ed8;
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+    transform: translateY(-1px);
+}
+
+.UserDetails-submit-btn:disabled {
+    background: #94a3b8;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* Purchase History Table */
+.UserDetails-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    margin-top: 1rem;
+}
+
+.UserDetails-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+    min-width: 600px;
+}
+
+.UserDetails-table th {
+    background: #f8fafc;
+    padding: 14px 18px;
+    font-weight: 700;
+    color: #334155;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.UserDetails-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #475569;
+    vertical-align: middle;
+}
+
+.UserDetails-table tr:last-child td {
+    border-bottom: none;
+}
+
+.UserDetails-table tr:hover td {
+    background: #f8fafc;
+}
+
+.UserDetails-receipt-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: rgba(37, 99, 235, 0.08);
+    transition: all 0.2s;
+}
+
+.UserDetails-receipt-link:hover {
+    background: #2563eb;
+    color: white;
+}
+
+.UserDetails-no-purchases {
+    text-align: center;
+    padding: 3rem;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.UserDetails-status-pill {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.UserDetails-status-pill.active {
+    background: #ecfdf5;
+    color: #15803d;
+}
+
+.UserDetails-status-pill.blocked {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+.UserDetails-status-toggle-btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.UserDetails-status-toggle-btn.block {
+    background: none;
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+.UserDetails-status-toggle-btn.block:hover {
+    background: #fef2f2;
+}
+
+.UserDetails-status-toggle-btn.activate {
+    background: none;
+    border-color: #10b981;
+    color: #10b981;
+}
+
+.UserDetails-status-toggle-btn.activate:hover {
+    background: #ecfdf5;
+}

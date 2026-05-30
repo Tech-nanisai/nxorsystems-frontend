@@ -1,0 +1,365 @@
+/* frontend/src/user/Auth/UserRegister.css */
+
+/* --- PAGE CONTAINER --- */
+.UserRegister-page-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  padding: 20px;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Hide orbs as they are not used in the light card theme */
+.UserRegister-orb {
+  display: none;
+}
+
+/* --- BACK BUTTON --- */
+.UserRegister-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 20px;
+  transition: color 0.2s;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.UserRegister-back-btn:hover {
+  color: #1f2937;
+}
+
+/* --- CARD DESIGN --- */
+.UserRegister-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 440px;
+  padding: 40px 32px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  animation: cardEntrance 0.6s ease-out forwards;
+}
+
+.UserRegister-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- HEADER --- */
+.UserRegister-header {
+  text-align: center;
+  margin-bottom: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.UserRegister-logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+
+.UserRegister-logo-img {
+  height: 36px;
+  object-fit: contain;
+}
+
+.UserRegister-logo-sub {
+  font-size: 9px;
+  font-weight: 600;
+  color: #4b5563;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding-left: 4px;
+}
+
+.UserRegister-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0 0 6px 0;
+}
+
+.UserRegister-subtitle {
+  font-size: 15px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* --- FORM ELEMENTS --- */
+.UserRegister-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.UserRegister-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.UserRegister-input-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-left: 4px;
+}
+
+.UserRegister-input-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.UserRegister-input-wrapper:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.UserRegister-field-icon {
+  position: absolute;
+  left: 16px;
+  color: #9ca3af;
+  font-size: 14px;
+  pointer-events: none;
+  transition: color 0.2s;
+}
+
+.UserRegister-input-wrapper:focus-within .UserRegister-field-icon {
+  color: #3b82f6;
+}
+
+.UserRegister-input-box {
+  width: 100%;
+  padding: 14px 16px 14px 42px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #111827;
+  outline: none;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.UserRegister-password-toggle {
+  position: absolute;
+  right: 16px;
+  cursor: pointer;
+  color: #9ca3af;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.UserRegister-password-toggle:hover {
+  color: #4b5563;
+}
+
+.UserRegister-input-wrapper .password-input {
+  padding-right: 48px;
+}
+
+/* --- PASSWORD CHECKLIST --- */
+.UserRegister-pwd-checklist {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px 14px;
+  box-sizing: border-box;
+}
+
+.checklist-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 0 0 8px 0;
+}
+
+.checklist-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ef4444;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.checklist-item.valid {
+  color: #16a34a;
+}
+
+.checklist-item svg {
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+/* --- MESSAGES --- */
+.UserRegister-error-message {
+  margin: 0;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fee2e2;
+  animation: shake 0.4s ease-in-out;
+}
+
+.UserRegister-success-message {
+  margin: 0;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+  background-color: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #dcfce7;
+}
+
+/* --- PRIMARY REGISTER BUTTON --- */
+.UserRegister-btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #111827, #1f2937);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s;
+  box-sizing: border-box;
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.UserRegister-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.UserRegister-btn-primary:active {
+  transform: translateY(0);
+}
+
+.UserRegister-btn-primary:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* --- FOOTER LAYOUT --- */
+.UserRegister-footer {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.UserRegister-link-signin {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.UserRegister-link-signin:hover {
+  text-decoration: underline;
+}
+
+/* --- LOADER STYLING --- */
+.UserRegister-loader-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.UserRegister-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(59, 130, 246, 0.1);
+  border-top: 3px solid #2563eb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.UserRegister-loader-text {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 480px) {
+  .UserRegister-card {
+    padding: 30px 20px;
+  }
+  .UserRegister-title {
+    font-size: 24px;
+  }
+  .checklist-grid {
+    grid-template-columns: 1fr;
+  }
+}
